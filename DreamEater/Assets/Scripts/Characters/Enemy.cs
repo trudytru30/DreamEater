@@ -3,13 +3,12 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody), typeof(Collider))]
 public class EnemyMovable : MonoBehaviour
 {
-    //00000000[SerializeField] private Animator anim;
+    //[SerializeField] private Animator anim;
     [SerializeField] private float speed = 3f;
     
     private Rigidbody _rb;
     
-    //Nombre EXACTO de los estados
-    private readonly int _walkAnimState = Animator.StringToHash("EnemyMelee_Walk");
+    //private readonly int _walkAnimState = Animator.StringToHash("EnemyMelee_Walk");
     
     //Inicializar enemy
     private void Awake()
@@ -17,16 +16,15 @@ public class EnemyMovable : MonoBehaviour
         _rb = GetComponent<Rigidbody>();
         //if(anim == null) anim = GetComponent<Animator>();
     }
-
-    //Mover al enemy
+    
     private void Update()
     {
         Move();
     }
-
+    
+    //Movimiento del enemy
     private void Move()
     {
-        //Movimiento enemy izquierda/derecha (sin inputs, se mueve solo)
         _rb.linearVelocity = new Vector2(speed, _rb.linearVelocity.y);
     }
     

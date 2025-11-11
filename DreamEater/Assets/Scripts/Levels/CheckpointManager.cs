@@ -6,7 +6,7 @@ public class CheckpointManager : MonoBehaviour
     
     private GameObject _currentCheckpoint;
     private Vector3 _checkpointPosition;
-    private int _checkpointId = 0;
+    private int _checkpointId = -1;
     
     private void Awake()
     {
@@ -38,7 +38,7 @@ public class CheckpointManager : MonoBehaviour
             Destroy(_currentCheckpoint);
         }
         
-        //Guardar checkpoint actual
+        //Guarder checkpoint actual
         _checkpointId = id;
         _checkpointPosition = position;
         _currentCheckpoint = checkpoint;
