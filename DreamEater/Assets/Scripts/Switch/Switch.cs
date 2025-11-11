@@ -29,5 +29,10 @@ public class Switch : MonoBehaviour
     }
 
     protected virtual void CheckPosition()
-    {}
+    {
+        if (!gameObject.GetComponent<Interactable>().GetCanInteract())
+        {
+            return;
+        }
+    }
 }

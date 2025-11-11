@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SimpleSwitch : Switch
@@ -6,6 +7,7 @@ public class SimpleSwitch : Switch
 
     protected override void CheckPosition()
     {
+        //acceder a la funcion del padre
         if (correctPosition == isActive)
         {
             Debug.Log("correcto");

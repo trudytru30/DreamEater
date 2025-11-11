@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Timers;
 using UnityEngine;
 
 public class BlinkingPlatform : MonoBehaviour
@@ -18,7 +16,7 @@ public class BlinkingPlatform : MonoBehaviour
     private void Update()
     {
         Blink();
-        StartCoroutine(Timer());
+        StartCoroutine(TimeTilBlink());
     }
 
     private void Blink()
@@ -35,7 +33,7 @@ public class BlinkingPlatform : MonoBehaviour
         }
     }
 
-    IEnumerator Timer()
+    IEnumerator TimeTilBlink()
     {
         yield return new WaitForSeconds(blinkingTime);
     }

@@ -7,6 +7,7 @@ public class PaternSwitch : Switch
 
     protected override void CheckPosition()
     {
+        //acceder a la funcion del padre
         for (int i = 0; i < totalSwitches.Length; i++)
         {
             if (totalSwitches[i] != correctPositions[i])
