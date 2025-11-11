@@ -37,7 +37,17 @@ public class EnemyMovable : MonoBehaviour
         {
             speed *= -1;
         } else if(other.gameObject.layer == LayerMask.NameToLayer("Player")){
-            //TODO: Llamar al metodo Die() del player
+            //TODO: Llamar al metodo de muerte del player
+            /*
+             COPIAR Y PEGAR EN EL PLAYER PARA PROBAR
+             private void Respawn(){
+                transform.position = CheckpointManager.Instance.GetCheckpointPosition();
+                
+                //Quitarle velocidad para que no aparezca moviendose
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+             }
+             */
         }
     }
 }
