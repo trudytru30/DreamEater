@@ -9,7 +9,6 @@ public class UIManager : MonoBehaviour
 
     #region PauseMenu
     [Header("PauseMenu")]
-    private FloatParameter _brightness;
     //private int _qualityValue=2;
     private float _generalVolume = 1, _sfxVolume = 1, _musicVolume = 1, _dialogsVolume = 1;
     private bool _fullScreen = true;
@@ -19,8 +18,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider _musicVolumeSlider;
     [SerializeField] private Slider _dialogsVolumeSlider;
     [SerializeField] private Toggle _fullScreenToggle;
-    [SerializeField] private PostProcessVolume _postProcess;
-    [SerializeField] private Bloom _bloom;
+    [SerializeField] private Image _brightPanel;
+    [SerializeField] private Image _darkPanel;
     #endregion
 
 
@@ -35,12 +34,9 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         ChangeResolution(0);
-        ChangeBrightness(1);
+        ChangeBrightness(0.5f);
         FullScreen(true);
-        if(_postProcess.profile.TryGetSettings(out _bloom))
-        {
-
-        }
+        
     }
 
 
@@ -54,7 +50,7 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+
     }
 
     public void ChangeResolution(int resolutionType)
@@ -75,10 +71,23 @@ public class UIManager : MonoBehaviour
     }
     public void ChangeBrightness(float bright)
     {
+        if(bright < 0.5f)
+        {
+            _brightPanel.gameObject.SetActive(false);
+            _darkPanel.gameObject.SetActive(true);
+            Color c =_darkPanel.color;
+            c.a = bright * 10f;
+            _darkPanel.color = c;
+        }
+        else
+        {
+            _darkPanel.gameObject.SetActive(false);
+            _brightPanel.gameObject.SetActive(true);
+            Color c = _brightPanel.color;
+            c.a = bright * 10f;
+            _brightPanel.color = c;
+        }
         
-        _brightness.value = bright;   
-        _bloom.intensity = _brightness;
-        Debug.Log(bright);
     }
     public void FullScreen(bool fullScreen)
     {
@@ -87,11 +96,9 @@ public class UIManager : MonoBehaviour
     }
     public void SetSlidersValue()
     {
-        _brightnessSlider.value = _brightness;
         _dialogsVolumeSlider.value = _dialogsVolume;
         _generalVolumeSlider.value = _generalVolume;
         _musicVolumeSlider.value = _musicVolume;
-        _brightnessSlider.value = _brightness.value;
         _fullScreenToggle.isOn = _fullScreen;
         
     }
