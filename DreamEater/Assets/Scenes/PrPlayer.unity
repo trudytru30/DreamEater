@@ -544,6 +544,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5119517097708776516, guid: 63ad732e37faf59449e55341c93f1055, type: 3}
+      propertyPath: movement.canMove
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5119517097708776516, guid: 63ad732e37faf59449e55341c93f1055, type: 3}
       propertyPath: groundMask.m_Bits
       value: 512
       objectReference: {fileID: 0}
