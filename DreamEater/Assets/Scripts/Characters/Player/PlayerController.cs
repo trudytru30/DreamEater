@@ -46,6 +46,10 @@ public class PlayerController : MonoBehaviour
 
     //facing lateral (solo X)
     private float lastFacing = 1f;
+    
+    //jump request para sincronizar con animaciones
+    private bool jumpRequested = false;
+
 
     
     private void Awake()
@@ -151,6 +155,13 @@ public class PlayerController : MonoBehaviour
             edgeTimer -= Time.deltaTime;
         }
 
+        if (jumpRequested && edgeTimer > 0.01f)
+        {
+            anim.SetTrigger(jumpTrig);
+            jumpRequested = false;
+        }
+
+        
         if (groundedNow && verticalVelocity <= 0f)
         {
             verticalVelocity = -3f; // pequeño valor negativo para "pegarse" al suelo
@@ -197,12 +208,7 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         if (!isAlive) return;
-        if (edgeTimer > 0.01f)
-        {
-            verticalVelocity = jumpForce;
-            anim.SetTrigger(jumpTrig);
-            edgeTimer = 0f;
-        }
+        jumpRequested = true;
     }
 
     private void Interact() { /* hook */ }
@@ -214,6 +220,18 @@ public class PlayerController : MonoBehaviour
         verticalVelocity = 0f;
     }
 
+    public void OnJumpAnimEvent()
+    {
+        if (!isAlive) return;
+
+        if (edgeTimer > 0.01f)
+        {
+            verticalVelocity = jumpForce;
+            edgeTimer = 0f;
+        }
+    }
+
+    
     public IEnumerator PlaySound()
     {
         yield return new WaitForSeconds(timeStep);
