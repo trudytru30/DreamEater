@@ -6,17 +6,19 @@ using UnityEngine;
 public class ShockingPlatform : MonoBehaviour
 {
     [SerializeField] private float changeTime;
-    [SerializeField] private ShockingPlatform[] shockingPlatform;
+    [SerializeField] private ShockingPlatform[] shockingPlatforms;
+    private ShockingPlatform currentShockingPlatform;
     private int indexShockPlatform;
 
     private void ChangeShock()
     {
-        for (int i = 0; i < shockingPlatform.Length; i++)
+        for (int i = 0; i < shockingPlatforms.Length; i++)
         {
-            OnTriggerEnter(shockingPlatform[i]);
+            indexShockPlatform = i;
+            currentShockingPlatform = shockingPlatforms[indexShockPlatform];
         }
 
-        if (indexShockPlatform == shockingPlatform.Length)
+        if (indexShockPlatform == shockingPlatforms.Length)
         {
             indexShockPlatform = 0;
         }
@@ -31,5 +33,16 @@ public class ShockingPlatform : MonoBehaviour
     {
         ChangeShock();
         StartCoroutine(TimeTilChange());
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (this.gameObject == currentShockingPlatform.gameObject) //si la plataforma es la que electrocuta entra al if
+        {
+            if (other.CompareTag("Player"))
+            {
+                other.GetComponent<Player>().Die(); //mata al player
+            }
+        }
     }
 }
