@@ -2,7 +2,9 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
-[RequireComponent(typeof(Rigidbody))]
+//Requiere un componente que sea trigger
+[RequireComponent(typeof(Collider))]
+
 public class Dialogues : MonoBehaviour
 {
     [SerializeField] private GameObject dialoguePanel;

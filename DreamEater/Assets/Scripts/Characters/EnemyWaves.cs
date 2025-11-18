@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public class EnemyWaves : MonoBehaviour
 {
     [SerializeField] private float speed = 3f;
