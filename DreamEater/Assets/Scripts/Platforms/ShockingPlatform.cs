@@ -11,7 +11,7 @@ public class ShockingPlatform : MonoBehaviour
     {
         if (other.CompareTag("Player") && canShock) //comprueba que sea el player y que la plataforma este activa
         {
-            other.GetComponent<Player>().Die(); //mata al player
+            other.GetComponent<PlayerController>().Die(); //mata al player
         }
 
         return;

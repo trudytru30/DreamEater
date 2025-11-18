@@ -11,7 +11,7 @@ public class Dialogues : MonoBehaviour
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
 
-    private InputSystem_Actions _playerMovement;
+    private Movement _playerMovement;
     
     private bool _dialogueActive;
     private int _currentLine;

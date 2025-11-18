@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1062766362816513316}
-  - component: {fileID: 7430689842732943328}
   - component: {fileID: 1395257383095010520}
   - component: {fileID: 1042069485122516677}
+  - component: {fileID: 5119517097708776516}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -36,39 +36,6 @@ Transform:
   - {fileID: 651473578241319229}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7430689842732943328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6372072566298791268}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97a27ea97c21ce148b9ebfcd9b6dd739, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAlive: 1
-  jumpForce: 2
-  speed: 3.5
-  timeStep: 0.1
-  movement:
-    speedMultiplier: 1
-  gravity: 20
-  crouchSpeedFactor: 0.5
-  blendParam: Blend
-  xParam: xSpeed
-  zParam: zSpeed
-  yParam: ySpeed
-  crouchBool: IsCrouching
-  jumpTrig: Jump
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 0
-  edgeTime: 0.12
-  clampDepth: 1
-  minDepth: -2
-  maxDepth: 2
 --- !u!143 &1395257383095010520
 CharacterController:
   m_ObjectHideFlags: 0
@@ -116,6 +83,40 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5119517097708776516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6372072566298791268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4e2284f9f20e248a578fb62f49ce98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  isAlive: 1
+  jumpForce: 6.5
+  speed: 3.5
+  timeStep: 0.1
+  movement:
+    canMove: 0
+    speedMultiplier: 1
+  gravity: 20
+  crouchSpeedFactor: 0.5
+  blendParam: Blend
+  xParam: xSpeed
+  zParam: zSpeed
+  yParam: ySpeed
+  crouchBool: IsCrouching
+  jumpTrig: Jump
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  edgeTime: 0.12
+  clampDepth: 1
+  minDepth: -2
+  maxDepth: 2
 --- !u!1 &8381359646783560945
 GameObject:
   m_ObjectHideFlags: 0
