@@ -211,7 +211,10 @@ public class PlayerController : MonoBehaviour
         jumpRequested = true;
     }
 
-    private void Interact() { /* hook */ }
+    private void Interact()
+    {
+        //TODO: implementar interaccion 
+    }
 
     public void Die()
     {
