@@ -33,7 +33,7 @@ public class EnemyWaves : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            //TODO: Llamar al metodo de muerte del player
+            //TODO: Aniadir fuerza para empujar al player
         }
     }
 }
