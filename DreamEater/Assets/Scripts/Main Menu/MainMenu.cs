@@ -26,7 +26,7 @@ public class Mainmenu : MonoBehaviour
         
         musicSource.volume = 0f;
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(AppScenes.LOADING_SCENE);
     }
 
     public void Exit()

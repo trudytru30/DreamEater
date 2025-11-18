@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
 
 
 
+
     //Resolution Type
     //Type 0 = 1920 x 1080
     //Type 1 = 1280 x 720
@@ -36,6 +37,10 @@ public class UIManager : MonoBehaviour
         ChangeResolution(0);
         ChangeBrightness(1);
         FullScreen(true);
+        if(_postProcess.profile.TryGetSettings(out _bloom))
+        {
+
+        }
     }
 
 
@@ -70,8 +75,10 @@ public class UIManager : MonoBehaviour
     }
     public void ChangeBrightness(float bright)
     {
+        
         _brightness.value = bright;   
         _bloom.intensity = _brightness;
+        Debug.Log(bright);
     }
     public void FullScreen(bool fullScreen)
     {

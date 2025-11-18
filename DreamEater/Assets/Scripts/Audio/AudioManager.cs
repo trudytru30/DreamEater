@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEditor.PackageManager;
 using UnityEditor.SearchService;
 using UnityEngine;
@@ -36,6 +37,8 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        DontDestroyOnLoad(gameObject);
 
     }
 
@@ -87,6 +90,16 @@ public class AudioManager : MonoBehaviour
     public void PlayMorir()
     {
         _sfxAudioSource.clip = _morirSound;
+        _sfxAudioSource.Play();
+    }
+    public void PlayJump()
+    {
+        _sfxAudioSource.clip = _jumpSound;
+        _sfxAudioSource.Play();
+    }
+    public void PlayButton()
+    {
+        _sfxAudioSource.clip = _buttonSound;
         _sfxAudioSource.Play();
     }
 }
