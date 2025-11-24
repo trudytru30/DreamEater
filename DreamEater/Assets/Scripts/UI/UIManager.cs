@@ -20,6 +20,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Toggle _fullScreenToggle;
     [SerializeField] private Image _brightPanel;
     [SerializeField] private Image _darkPanel;
+    [SerializeField] private GameObject _brightnessCanvas;
     #endregion
 
 
@@ -36,6 +37,14 @@ public class UIManager : MonoBehaviour
         ChangeResolution(0);
         ChangeBrightness(0.5f);
         FullScreen(true);
+
+        if(_brightnessCanvas == null)
+        {
+            _brightnessCanvas = GameObject.Find("BrightnessCanvas");
+            _brightPanel = GameObject.Find("BrightnessCanvas/Brightness").GetComponent<Image>();
+            _darkPanel = GameObject.Find("BrightnessCanvas/Darkness").GetComponent<Image>();
+
+        }
         
     }
 
@@ -50,6 +59,7 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        DontDestroyOnLoad(_brightnessCanvas);
 
     }
 
@@ -76,7 +86,8 @@ public class UIManager : MonoBehaviour
             _brightPanel.gameObject.SetActive(false);
             _darkPanel.gameObject.SetActive(true);
             Color c =_darkPanel.color;
-            c.a = bright * 10f;
+            c.a = (1-bright)*0.9f;
+            Debug.Log((1 - bright) * 0.9f);
             _darkPanel.color = c;
         }
         else
@@ -84,7 +95,8 @@ public class UIManager : MonoBehaviour
             _darkPanel.gameObject.SetActive(false);
             _brightPanel.gameObject.SetActive(true);
             Color c = _brightPanel.color;
-            c.a = bright * 10f;
+            c.a = (bright-0.5f)*0.039f;
+            Debug.Log((bright - 0.5f) * 0.039f);
             _brightPanel.color = c;
         }
         
