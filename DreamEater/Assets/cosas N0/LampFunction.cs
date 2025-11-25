@@ -13,11 +13,11 @@ public class LampFunction : MonoBehaviour
     public float tiempoApagada = 3f;
 
     [Header("Parpadeo")]
-    public float intervaloParpadeo = 0.1f; // Menor = más rápido
+    public float intervaloParpadeo = 0.1f; 
 
     private void Start()
     {
-        // Activar la luz estática
+        // Activar la luz estatica
         if (luzEstatica != null)
             luzEstatica.SetActive(true);
 
@@ -43,10 +43,8 @@ public class LampFunction : MonoBehaviour
                 t += intervaloParpadeo;
             }
 
-            // Dejar apagada
             luzCiclica.SetActive(false);
 
-            // 3. Apagada
             yield return new WaitForSeconds(tiempoApagada);
         }
     }
