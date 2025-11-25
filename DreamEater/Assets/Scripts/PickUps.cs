@@ -1,13 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CollectibleItem : MonoBehaviour
+public class PickUps : MonoBehaviour
 {
     public enum ItemType { Bellota, Music }  // Tipo de ítem
     [SerializeField] private ItemType itemType;  // Tipo de ítem específico
-
-    // Eliminar shieldValue para el diamante ya que no lo necesitamos aquí
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -18,15 +14,20 @@ public class CollectibleItem : MonoBehaviour
             switch (itemType)
             {
                 case ItemType.Bellota:
-                    //show in UI
+                    AddToUI(ItemType.Bellota);
                     break;
                 case ItemType.Music:
-                    //show in UI
+                    AddToUI(ItemType.Bellota);
                     break;
             }
         }
 
         // Destruir el objeto después de que el jugador lo recoge
         Destroy(gameObject);
+    }
+
+    private void AddToUI(ItemType itemType)
+    {
+        
     }
 }
