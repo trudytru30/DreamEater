@@ -5,35 +5,34 @@ using UnityEngine.UI;
 [RequireComponent(typeof(BoxCollider))]
 public class TriggerTutorial : MonoBehaviour
 {
-    [Header("UI GameObjects")]
-    [SerializeField] GameObject i_keyboardControl;
-    [SerializeField] GameObject i_gamepadControl;
-    [SerializeField] GameObject i_slash;
+    private ControlsManager cm;
 
 
     [Header("Sprites")]
-    [SerializeField] Sprite _keyboardControl;
-    [SerializeField] Sprite _gamepadControl;
+    [SerializeField] private Sprite _keyboardControl;
+    [SerializeField] private Sprite _gamepadControl;
+    [SerializeField] private string _controlsMessage;
 
     private void Start()
     {
         GetComponent<BoxCollider>().isTrigger = true;
+        cm = ControlsManager.Instance; 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        i_keyboardControl.GetComponent<Image>().sprite = _keyboardControl;
-        i_gamepadControl.GetComponent<Image>().sprite= _gamepadControl;
-
-        i_gamepadControl.SetActive(true);
-        i_keyboardControl.SetActive(true);
-        i_slash.SetActive(true);
-
+        if (other.CompareTag("Player"))
+        {
+            cm.keyboardControl.sprite = _keyboardControl;
+            cm.gamepadControl.sprite = _gamepadControl;
+            cm.ActivateControlsUI(_controlsMessage);
+        }
     }
     private void OnTriggerExit(Collider other)
     {
-        i_gamepadControl.SetActive(false);
-        i_keyboardControl.SetActive(false);
-        i_slash.SetActive(false);
+        if (other.CompareTag("Player"))
+        {
+            cm.DeactivateControlsUI();
+        }
     }
 }
