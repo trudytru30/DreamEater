@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:DreamEater/Assets/Audios.meta
 guid: 4a1f17f73946fb6458fd5b0370309495
+========
+guid: 57a1c3caff73f464caad9dac1475838a
+>>>>>>>> progra:DreamEater/Assets/Animations.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
