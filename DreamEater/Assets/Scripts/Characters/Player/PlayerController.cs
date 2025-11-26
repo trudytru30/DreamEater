@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
     private float lastFacing = 1f;
     
     //jump request para sincronizar con animaciones
-    private bool jumpRequested = false;
+    private bool jumpRequested;
 
 
     
@@ -145,7 +145,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //grounding y gravedad
-        bool groundedNow = IsGrounded();
+        bool groundedNow = cc.isGrounded || IsGrounded();
         if (groundedNow)
         {
             edgeTimer = edgeTime;
@@ -157,7 +157,13 @@ public class PlayerController : MonoBehaviour
 
         if (jumpRequested && edgeTimer > 0.01f)
         {
+            if (verticalVelocity < 0f){
+                verticalVelocity = 0f; // limpia caída
+            }
+            verticalVelocity = jumpForce;//
+            anim.ResetTrigger(jumpTrig);
             anim.SetTrigger(jumpTrig);
+            edgeTimer = 0f;
             jumpRequested = false;
         }
 
@@ -183,9 +189,12 @@ public class PlayerController : MonoBehaviour
         float blend01 = input.sqrMagnitude > 0.0001f ? (InputManager.Instance.RunHeld ? 1f : 0.5f) : 0f;
         anim.SetFloat(xParam, input.x);
         anim.SetFloat(zParam, input.z);
+        anim.SetBool("Grounded", groundedNow);
         anim.SetFloat(yParam, verticalVelocity);
         anim.SetBool (crouchBool, isCrouching);
         anim.SetFloat(blendParam, blend01);
+        
+        
         
       
     }
@@ -209,6 +218,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!isAlive) return;
         jumpRequested = true;
+        //anim.SetTrigger(jumpTrig);
     }
 
     private void Interact()
