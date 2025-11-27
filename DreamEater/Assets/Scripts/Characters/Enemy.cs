@@ -34,10 +34,7 @@ public class EnemyMovable : MonoBehaviour
             transform.Rotate(0, 180, 0);
         } else if(other.gameObject.layer == LayerMask.NameToLayer("Player")){
             //TODO: Llamar al metodo de muerte del player
-            /*
-             COPIAR Y PEGAR EN EL PLAYER PARA PROBAR
-             
-             */
+            
         }
     }
 }

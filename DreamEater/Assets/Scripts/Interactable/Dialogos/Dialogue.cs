@@ -2,27 +2,23 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 
-//Requiere un componente que sea trigger
-[RequireComponent(typeof(Collider))]
-
-public class Dialogues : MonoBehaviour
+public class Dialogue : MonoBehaviour
 {
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
 
-    private Movement _playerMovement;
+    private PlayerMovement _playerMovement;
     
     private bool _dialogueActive;
     private int _currentLine;
-    private const float TypeTime = 0.05f;
+    private readonly float _typeTime = 0.05f;
 
     private void Start()
     {
-        //_playerMovement = FindObjectOfType<PlayerMovement>();
+        _playerMovement = FindObjectOfType<PlayerMovement>();
     }
-    
-    //Interactuar con el npc
+
     public void Interact()
     {
         if (!_dialogueActive)
@@ -44,8 +40,7 @@ public class Dialogues : MonoBehaviour
             dialogueText.text = dialogueLines[_currentLine];
         }
     }
-    
-    //Inicio del dialogo
+
     private void StartDialogue()
     {
         _dialogueActive = true;
@@ -55,7 +50,6 @@ public class Dialogues : MonoBehaviour
         StartCoroutine(DisplayDialogue());
     }
     
-    //Siguiente linea del dialogo y terminarlo si no hay mas
     private void NextDialogue()
     {
         _currentLine++;
@@ -77,7 +71,7 @@ public class Dialogues : MonoBehaviour
         }
     }
     
-    //Corutina para el texto de los dialogos
+    //Corutina para los diálogos
     private IEnumerator DisplayDialogue()
     {
         dialogueText.text = string.Empty;
@@ -85,7 +79,7 @@ public class Dialogues : MonoBehaviour
         foreach (char c in dialogueLines[_currentLine])
         {
             dialogueText.text += c;
-            yield return new WaitForSecondsRealtime(TypeTime);
+            yield return new WaitForSecondsRealtime(_typeTime);
         }
     }
 }
