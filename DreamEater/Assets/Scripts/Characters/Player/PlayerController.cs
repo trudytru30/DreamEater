@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
         {
             return;
         }
-
+        
         // movimiento input
         float h = InputManager.Instance.Horizontal; // A/D o stick X
         float z = InputManager.Instance.Depth;      // W/S o stick Y
@@ -231,8 +231,36 @@ public class PlayerController : MonoBehaviour
         if (!isAlive) return;
         isAlive = false;
         verticalVelocity = 0f;
+
+        StartCoroutine(RespawnSequence());  //Respawn del jugador en los checkpoints
     }
 
+    private IEnumerator RespawnSequence()
+    {
+        //anim.SetTrigger("Die"); //Animacion de muerte
+        yield return new WaitForSeconds(0.8f); 
+
+        //Desactivar CharacterController (evita problemas)
+        cc.enabled = false;
+
+        //Mover al checkpoint
+        transform.position = CheckpointManager.Instance.GetCheckpointPosition();
+        
+        yield return null;  //Espera de un frame 
+
+        //Reactivar CharacterController
+        cc.enabled = true;
+
+        //Resetear valores
+        verticalVelocity = 0f;
+        anim.SetFloat(xParam, 0f); 
+        anim.SetFloat(zParam, 0f);
+        anim.SetFloat(blendParam, 0f);
+        
+        //Revivir al jugador
+        isAlive = true;
+    }
+    
     public void OnJumpAnimEvent()
     {
         if (!isAlive) return;
