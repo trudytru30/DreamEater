@@ -19,7 +19,6 @@ public class BlinkingPlatform : MonoBehaviour
     private void Update()
     {
         Blink();
-        StartCoroutine(TimeTilBlink());
     }
 
     //cambia el estado de la plataforma
@@ -35,9 +34,10 @@ public class BlinkingPlatform : MonoBehaviour
             isActive = true;
             this.gameObject.SetActive(isActive);
         }
+        StartCoroutine(TimeTilBlink()); //llama a la corrutina con cada parpadeo
     }
 
-    //corrutina para el cooldown
+    //llama de forma continua a la funcion de cambio no hace mas
     IEnumerator TimeTilBlink()
     {
         yield return new WaitForSeconds(blinkingTime);

@@ -1,3 +1,5 @@
+/*Este es el codigo de cada platforma inidivual
+ No esta gestionado el cambio de plataforma para eso ver ShockingPlatformController*/
 using System;
 using System.Collections;
 using Unity.VisualScripting;
@@ -5,7 +7,7 @@ using UnityEngine;
 
 public class ShockingPlatform : MonoBehaviour
 {
-    private bool canShock = false;
+    private bool canShock = false; //inidica si es la plataforma de shock activa
     
     private void OnTriggerEnter(Collider other)
     {
@@ -17,6 +19,7 @@ public class ShockingPlatform : MonoBehaviour
         return;
     }
 
+    //getters y setters
     public void setCanShock(bool _canShock)
     {
         canShock = _canShock;
