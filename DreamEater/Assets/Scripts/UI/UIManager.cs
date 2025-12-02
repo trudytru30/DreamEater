@@ -37,15 +37,12 @@ public class UIManager : MonoBehaviour
         ChangeResolution(0);
         ChangeBrightness(0.5f);
         FullScreen(true);
-
-        if(_brightnessCanvas == null)
-        {
-            _brightnessCanvas = GameObject.Find("BrightnessCanvas");
-            _brightPanel = GameObject.Find("BrightnessCanvas/Brightness").GetComponent<Image>();
-            _darkPanel = GameObject.Find("BrightnessCanvas/Darkness").GetComponent<Image>();
-
-        }
         
+    }
+
+    private void OnEnable()
+    {
+        StartBrightness();
     }
 
 
@@ -59,7 +56,6 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(_brightnessCanvas);
 
     }
 
@@ -83,8 +79,8 @@ public class UIManager : MonoBehaviour
     {
         if(bright < 0.5f)
         {
-            _brightPanel.gameObject.SetActive(false);
-            _darkPanel.gameObject.SetActive(true);
+            _brightPanel.enabled = false;
+            _darkPanel.enabled = true;
             Color c =_darkPanel.color;
             c.a = (1-bright)*0.9f;
             Debug.Log((1 - bright) * 0.9f);
@@ -92,8 +88,8 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            _darkPanel.gameObject.SetActive(false);
-            _brightPanel.gameObject.SetActive(true);
+            _darkPanel.enabled = false;
+            _brightPanel.enabled = true;
             Color c = _brightPanel.color;
             c.a = (bright-0.5f)*0.039f;
             Debug.Log((bright - 0.5f) * 0.039f);
@@ -113,6 +109,27 @@ public class UIManager : MonoBehaviour
         _musicVolumeSlider.value = _musicVolume;
         _fullScreenToggle.isOn = _fullScreen;
         
+    }
+
+    public void StartBrightness()
+    {
+        var bp = _brightPanel.color;
+        bp.a = GameManager.Instance.lightBrightnessFloat;
+        _brightPanel.enabled = GameManager.Instance.lightBrightnessActive;
+
+        var dp = _darkPanel.color;
+        dp.a = GameManager.Instance.darkBrightnessFloat;
+        _darkPanel.enabled = GameManager.Instance.darkBrightnessActive;
+    }
+    public void SaveBrightnessData()
+    {
+        var bp = _brightPanel.color;
+        GameManager.Instance.lightBrightnessFloat = bp.a;
+        GameManager.Instance.lightBrightnessActive = _brightPanel.enabled;
+
+        var dp = _darkPanel.color;
+        GameManager.Instance.darkBrightnessFloat = dp.a;
+        GameManager.Instance.darkBrightnessActive= _darkPanel.enabled;
     }
 
     
