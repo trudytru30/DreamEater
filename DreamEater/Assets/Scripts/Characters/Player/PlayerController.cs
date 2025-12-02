@@ -11,6 +11,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 6.5f;
     [SerializeField] private float speed     = 3.5f;
     [SerializeField] private float timeStep  = 0.1f;
+    [SerializeField] private float turnSpeed = 12f; // giro suave al cambiar de izquierda/derecha
+    [SerializeField] private float depthBias = 1.3f;
+
 
     //componentes
     private CharacterController cc;
@@ -179,24 +182,33 @@ public class PlayerController : MonoBehaviour
         cc.Move(total * Time.deltaTime);
 
         //orientacion del personaje
-        if (Mathf.Abs(input.x) > 0.01f)
-        {
-            lastFacing = Mathf.Sign(input.x);
-        }
-        transform.forward = new Vector3(lastFacing, 0f, 0f);
+        if (Mathf.Abs(h) > 0.01f)
+    lastFacing = Mathf.Sign(h); // memoriza última mirada lateral
+
+// por defecto mira lateral ±X
+Vector3 desiredForward = new Vector3(lastFacing, 0f, 0f);
+
+// si la intención en Z es dominante, mira hacia/desde cámara (±Z)
+if (Mathf.Abs(z) > Mathf.Abs(h) * depthBias)
+    desiredForward = (z >= 0f) ? Vector3.forward : Vector3.back;
+
+// girar solo en Y (suave)
+float targetYaw = Mathf.Atan2(desiredForward.x, desiredForward.z) * Mathf.Rad2Deg;
+Quaternion targetRot = Quaternion.Euler(0f, targetYaw, 0f);
+transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * turnSpeed);
 
         //animator
-        float blend01 = input.sqrMagnitude > 0.0001f ? (InputManager.Instance.RunHeld ? 1f : 0.5f) : 0f;
-        anim.SetFloat(xParam, input.x);
-        anim.SetFloat(zParam, input.z);
+        float intensity = InputManager.Instance.RunHeld ? 2f : 1f;  // Walk=1, Run=2
+        float xSpeedVal = Mathf.Clamp(h, -1f, 1f) * intensity;  // -2..2
+        float zSpeedVal = Mathf.Clamp(z, -1f, 1f) * intensity;  // -2..2
+        
+        anim.SetFloat(xParam, xSpeedVal);
+        anim.SetFloat(zParam, zSpeedVal);
         anim.SetBool("Grounded", groundedNow);
         anim.SetFloat(yParam, verticalVelocity);
         anim.SetBool (crouchBool, isCrouching);
-        anim.SetFloat(blendParam, blend01);
         
-        
-        
-      
+        anim.SetFloat(blendParam, 0f);//para que interfiera en pruebas
     }
 
     //grounding con spherecast

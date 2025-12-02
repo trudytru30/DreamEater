@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerInteraction : MonoBehaviour
-{
+{/*
     private PlayerActions _playerActions;
     private Dialogue _npcInRange;
 
@@ -45,5 +45,5 @@ public class PlayerInteraction : MonoBehaviour
         {
             _npcInRange.Interact();
         }
-    }
+    }*/
 }

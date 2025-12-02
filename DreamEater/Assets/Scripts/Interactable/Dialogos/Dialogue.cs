@@ -3,7 +3,7 @@ using UnityEngine;
 using TMPro;
 
 public class Dialogue : MonoBehaviour
-{
+{/*
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TMP_Text dialogueText;
     [SerializeField, TextArea(4, 6)] private string[] dialogueLines;
@@ -81,5 +81,5 @@ public class Dialogue : MonoBehaviour
             dialogueText.text += c;
             yield return new WaitForSecondsRealtime(_typeTime);
         }
-    }
+    }*/
 }
