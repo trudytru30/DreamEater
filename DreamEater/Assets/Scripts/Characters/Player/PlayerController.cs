@@ -5,14 +5,17 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController), typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
-    
+    //Cambiar lo del look para que mire con forward en esa dir  y el crouch a la izquierda 
     //atributos
     [SerializeField] private bool  isAlive   = true;
     [SerializeField] private float jumpForce = 6.5f;
     [SerializeField] private float speed     = 3.5f;
     [SerializeField] private float timeStep  = 0.1f;
+    
     [SerializeField] private float turnSpeed = 12f; // giro suave al cambiar de izquierda/derecha
-    [SerializeField] private float depthBias = 1.3f;
+    [SerializeField] private float depthBias = 1.3f;// influencia del input Z sobre la orientación del personaje
+    
+    
 
 
     //componentes
@@ -183,31 +186,39 @@ public class PlayerController : MonoBehaviour
 
         //orientacion del personaje
         if (Mathf.Abs(h) > 0.01f)
-    lastFacing = Mathf.Sign(h); // memoriza última mirada lateral
+        {
+            lastFacing = Mathf.Sign(h); // memoriza última mirada lateral
+        }
 
-// por defecto mira lateral ±X
-Vector3 desiredForward = new Vector3(lastFacing, 0f, 0f);
+        // dirección deseada
+        Vector3 desiredForward = new Vector3(lastFacing, 0f, 0f);
 
-// si la intención en Z es dominante, mira hacia/desde cámara (±Z)
-if (Mathf.Abs(z) > Mathf.Abs(h) * depthBias)
-    desiredForward = (z >= 0f) ? Vector3.forward : Vector3.back;
+        // si hay input Z significativo, prioriza esa dirección
+        if (Mathf.Abs(z) > Mathf.Abs(h) * depthBias)
+        {
+            desiredForward = (z >= 0f) ? Vector3.forward : Vector3.back;
+        }
 
-// girar solo en Y (suave)
-float targetYaw = Mathf.Atan2(desiredForward.x, desiredForward.z) * Mathf.Rad2Deg;
-Quaternion targetRot = Quaternion.Euler(0f, targetYaw, 0f);
-transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * turnSpeed);
+        //giro suave SOLO en Y
+        float targetYaw = Mathf.Atan2(desiredForward.x, desiredForward.z) * Mathf.Rad2Deg;
+        Quaternion targetRot = Quaternion.Euler(0f, targetYaw, 0f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * turnSpeed);
 
-        //animator
-        float intensity = InputManager.Instance.RunHeld ? 2f : 1f;  // Walk=1, Run=2
-        float xSpeedVal = Mathf.Clamp(h, -1f, 1f) * intensity;  // -2..2
-        float zSpeedVal = Mathf.Clamp(z, -1f, 1f) * intensity;  // -2..2
-        
+        //actualiza animaciones
+        bool hasInput = input.sqrMagnitude > 0.0001f;
+        float runFactor = InputManager.Instance.RunHeld ? 2f : 1f; 
+
+        //valores de velocidad para el animador
+        float xSpeedVal = hasInput ? Mathf.Clamp(h, -1f, 1f) * runFactor : 0f;
+        float zSpeedVal = hasInput ? Mathf.Clamp(z, -1f, 1f) * runFactor : 0f;
+
+        //actualiza parámetros del animador
         anim.SetFloat(xParam, xSpeedVal);
-        anim.SetFloat(zParam, zSpeedVal);
-        anim.SetBool("Grounded", groundedNow);
+        anim.SetFloat(zParam, zSpeedVal); 
         anim.SetFloat(yParam, verticalVelocity);
+        anim.SetBool ("Grounded", groundedNow);
         anim.SetBool (crouchBool, isCrouching);
-        
+
         anim.SetFloat(blendParam, 0f);//para que interfiera en pruebas
     }
 
