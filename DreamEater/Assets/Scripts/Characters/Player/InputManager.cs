@@ -87,6 +87,7 @@ public class InputManager : MonoBehaviour, InputSystem_Actions.IPlayerActions
         if (ctx.performed) InteractPressed?.Invoke();
     }
 
+
     //callbacks del UI
 
 
