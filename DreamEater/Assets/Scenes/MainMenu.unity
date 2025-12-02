@@ -184,8 +184,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 250
-  m_fontSizeBase: 250
+  m_fontSize: 225
+  m_fontSizeBase: 225
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -252,7 +252,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -71, y: 75}
+  m_AnchoredPosition: {x: -104, y: 75}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &34242201
@@ -2341,14 +2341,14 @@ RectTransform:
   m_GameObject: {fileID: 305318751}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.513883, y: 5.513883, z: 5.513883}
+  m_LocalScale: {x: 5.2091208, y: 5.2091208, z: 5.2091208}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 139371690}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 525, y: 0}
+  m_AnchoredPosition: {x: 501, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &305318753
@@ -5082,9 +5082,9 @@ MonoBehaviour:
   textTransform: {fileID: 32364003}
   logoImage: {fileID: 305318753}
   logoText: {fileID: 32364001}
-  animationDuration: 0.6
-  waitTime: 1.5
-  fadeOutDuration: 1
+  fadeDuration: 3
+  waitTime: 5
+  fadeOutDuration: 3
   nextCanvas: {fileID: 1267516448}
 --- !u!1 &953645236
 GameObject:
@@ -7021,7 +7021,7 @@ GameObject:
   - component: {fileID: 1267516452}
   - component: {fileID: 1267516451}
   - component: {fileID: 1267516450}
-  - component: {fileID: 1267516449}
+  - component: {fileID: 1267516454}
   m_Layer: 5
   m_Name: Press_Canvas
   m_TagString: Untagged
@@ -7029,21 +7029,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1267516449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1267516448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43a003558aa38f041a323ea516525682, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PressKey
-  text: {fileID: 2098948442}
-  blinkSpeed: 1
-  mainMenuCanvas: {fileID: 1215684844}
 --- !u!114 &1267516450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7127,6 +7112,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1267516454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267516448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43a003558aa38f041a323ea516525682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PressKey
+  text: {fileID: 2098948442}
+  blinkSpeed: 1
+  mainMenuCanvas: {fileID: 1215684844}
 --- !u!1 &1267900268
 GameObject:
   m_ObjectHideFlags: 0
@@ -9948,7 +9948,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -245}
+  m_AnchoredPosition: {x: 0, y: -262}
   m_SizeDelta: {x: 605.8447, y: 605.8447}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1786815911
@@ -9971,7 +9971,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3ffb7f1acb2d3aa4dbb8a27d66eb12a9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 89716ad4d40a0b841806956769e3816f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11576,6 +11576,7 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 696546189}
   - {fileID: 1999773601}
   - {fileID: 962320839}
   - {fileID: 330585546}
@@ -11585,7 +11586,6 @@ SceneRoots:
   - {fileID: 1215684848}
   - {fileID: 284304073}
   - {fileID: 1143617693}
-  - {fileID: 696546189}
   - {fileID: 920751115}
   - {fileID: 1267516453}
   - {fileID: 1326740975}

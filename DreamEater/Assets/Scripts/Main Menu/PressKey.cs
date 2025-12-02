@@ -1,5 +1,7 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Controls;
 
 public class PressKey : MonoBehaviour
 {
@@ -22,11 +24,29 @@ public class PressKey : MonoBehaviour
             text.color = c;
         }
 
-        if (Input.anyKey)
+        bool pressed = Keyboard.current.anyKey.wasPressedThisFrame;
+        pressed |= Mouse.current.leftButton.wasPressedThisFrame;
+
+        Gamepad pad = Gamepad.current;
+        if (pad != null)
+            pressed |= AnyGamepadButtonPressed(pad);
+
+        if (pressed)
         {
             if (mainMenuCanvas != null)
                 mainMenuCanvas.SetActive(true);
             gameObject.SetActive(false);
         }
     }
+
+    private bool AnyGamepadButtonPressed(Gamepad pad)
+    {
+        foreach (var control in pad.allControls)
+        {
+            if (control is ButtonControl button && button.wasPressedThisFrame)
+                return true;
+        }
+        return false;
+    }
 }
+

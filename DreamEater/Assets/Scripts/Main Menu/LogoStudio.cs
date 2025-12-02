@@ -9,7 +9,7 @@ public class StudioLogo : MonoBehaviour
     public RectTransform textTransform;
     public Image logoImage;
     public TextMeshProUGUI logoText;
-    public float animationDuration = 0.6f;
+    public float fadeDuration = 0.6f;
     public float waitTime = 1.5f;
     public float fadeOutDuration = 1f;
     public GameObject nextCanvas;
@@ -22,47 +22,48 @@ public class StudioLogo : MonoBehaviour
 
     IEnumerator LogoSequence()
     {
-        Vector3 startScale = Vector3.zero;
-        Vector3 endScale = Vector3.one;
-        Vector3 overshootScale = endScale * 1.3f;
+        Vector3 logoEndScale = logoTransform.localScale;
+        Vector3 logoOvershoot = logoEndScale * 1.2f;
+        Vector3 textEndScale = textTransform.localScale;
+        Vector3 textOvershoot = textEndScale * 1.2f;
 
-        logoTransform.localScale = startScale;
-        textTransform.localScale = startScale;
+        logoTransform.localScale = logoEndScale;
+        textTransform.localScale = textEndScale;
+
+        logoImage.color = new Color(logoImage.color.r, logoImage.color.g, logoImage.color.b, 0f);
+        logoText.color = new Color(logoText.color.r, logoText.color.g, logoText.color.b, 0f);
 
         float t = 0f;
 
-        while (t < animationDuration)
+        while (t < fadeDuration)
         {
             t += Time.deltaTime;
-            float n = t / animationDuration;
+            float n = t / fadeDuration;
 
-            if (n < 0.7f)
-            {
-                float p = n / 0.7f;
-                logoTransform.localScale = Vector3.Lerp(startScale, overshootScale, p);
-                textTransform.localScale = Vector3.Lerp(startScale, overshootScale, p);
-            }
-            else
-            {
-                float p = (n - 0.7f) / 0.3f;
-                logoTransform.localScale = Vector3.Lerp(overshootScale, endScale, p);
-                textTransform.localScale = Vector3.Lerp(overshootScale, endScale, p);
-            }
+            float alpha = Mathf.Lerp(0f, 1f, n);
+            logoImage.color = new Color(logoImage.color.r, logoImage.color.g, logoImage.color.b, alpha);
+            logoText.color = new Color(logoText.color.r, logoText.color.g, logoText.color.b, alpha);
+
+            float scaleN = Mathf.Sin(n * Mathf.PI * 0.5f);
+            logoTransform.localScale = Vector3.Lerp(logoEndScale, logoOvershoot, scaleN);
+            textTransform.localScale = Vector3.Lerp(textEndScale, textOvershoot, scaleN);
 
             yield return null;
         }
 
+        logoTransform.localScale = logoEndScale;
+        textTransform.localScale = textEndScale;
+
         yield return new WaitForSeconds(waitTime);
 
-        float f = 0f;
-
+        t = 0f;
         Color logoC = logoImage.color;
         Color textC = logoText.color;
 
-        while (f < fadeOutDuration)
+        while (t < fadeOutDuration)
         {
-            f += Time.deltaTime;
-            float a = 1f - (f / fadeOutDuration);
+            t += Time.deltaTime;
+            float a = 1f - (t / fadeOutDuration);
 
             logoImage.color = new Color(logoC.r, logoC.g, logoC.b, a);
             logoText.color = new Color(textC.r, textC.g, textC.b, a);
@@ -74,4 +75,3 @@ public class StudioLogo : MonoBehaviour
         gameObject.SetActive(false);
     }
 }
-
