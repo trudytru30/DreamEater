@@ -48,8 +48,10 @@ public class BoxBehaviour : MonoBehaviour, IGrabable
         _isHeld = true;
         _rb.isKinematic = true;
         _rb.useGravity = false;
-        
-        Debug.Log("HAVE BEEN GRABBED")
+
+        Debug.Log("HAVE BEEN GRABBED");
+    }
+
     public void Release()
     {
         // transform.SetParent(null);
