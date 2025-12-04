@@ -21,7 +21,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Image _brightPanel;
     [SerializeField] private Image _darkPanel;
     [SerializeField] private GameObject _brightnessCanvas;
+    [SerializeField] private GameObject _pauseCanvas;
+    private bool isGamePaused;
     #endregion
+    [Header("Debuger(Luego se borra)")]
+    [SerializeField] private KeyCode _pauseControl;
 
 
 
@@ -37,6 +41,7 @@ public class UIManager : MonoBehaviour
         ChangeResolution(0);
         ChangeBrightness(0.5f);
         FullScreen(true);
+        isGamePaused = false;
         
     }
 
@@ -58,6 +63,15 @@ public class UIManager : MonoBehaviour
         }
 
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(_pauseControl)) //Abrir menu de pausa
+        {
+            OpenClosePauseMenu();
+        }
+    }
+
 
     public void ChangeResolution(int resolutionType)
     {
@@ -110,7 +124,6 @@ public class UIManager : MonoBehaviour
         _fullScreenToggle.isOn = _fullScreen;
         
     }
-
     public void StartBrightness()
     {
         var bp = _brightPanel.color;
@@ -130,6 +143,20 @@ public class UIManager : MonoBehaviour
         var dp = _darkPanel.color;
         GameManager.Instance.darkBrightnessFloat = dp.a;
         GameManager.Instance.darkBrightnessActive= _darkPanel.enabled;
+    }
+
+    private void OpenClosePauseMenu()
+    {
+        _pauseCanvas.SetActive(!isGamePaused);
+        isGamePaused = !isGamePaused;
+        if (isGamePaused)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale=1;
+        }
     }
 
     
