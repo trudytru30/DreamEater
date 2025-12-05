@@ -34,6 +34,6 @@ public class Movement
             speedMultiplier = 0f; //si es false np cprre
             return;
         }
-        speedMultiplier = 1.6f;
+        speedMultiplier = 1.3f;
     }
 }

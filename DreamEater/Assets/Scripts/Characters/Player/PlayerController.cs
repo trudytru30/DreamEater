@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 
+
 [RequireComponent(typeof(CharacterController), typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
@@ -9,13 +10,13 @@ public class PlayerController : MonoBehaviour
     //atributos
     [SerializeField] private bool  isAlive   = true;
     [SerializeField] private float jumpForce = 6.5f;
-    [SerializeField] private float speed     = 3.5f;
+    [SerializeField] private float speed     = 2.8f;
     [SerializeField] private float timeStep  = 0.1f;
     
     [SerializeField] private float turnSpeed = 12f; // giro suave al cambiar de izquierda/derecha
     [SerializeField] private float depthBias = 1.3f;// influencia del input Z sobre la orientación del personaje
     
-    
+    private Vector3 _lastLookDir = Vector3.right;
 
 
     //componentes
@@ -49,13 +50,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool  clampDepth = true;
     [SerializeField] private float minDepth   = -2f;
     [SerializeField] private float maxDepth   =  2f;
-
-    //facing lateral (solo X)
-    private float lastFacing = 1f;
+    
     
     //jump request para sincronizar con animaciones
     private bool jumpRequested;
-
 
     
     private void Awake()
@@ -185,41 +183,41 @@ public class PlayerController : MonoBehaviour
         cc.Move(total * Time.deltaTime);
 
         //orientacion del personaje
-        if (Mathf.Abs(h) > 0.01f)
+        Vector3 desiredForward = _lastLookDir; // por defecto: última mirada
+
+        // 
+        if (input.sqrMagnitude > 0.0001f)
         {
-            lastFacing = Mathf.Sign(h); // memoriza última mirada lateral
+            // Nueva dirección real (incluye diagonales)
+            Vector3 desiredDir = new Vector3(input.x, 0f, input.z).normalized;
+
+            // Guardamos última dirección válida
+            _lastLookDir = desiredDir;
         }
 
-        // dirección deseada
-        Vector3 desiredForward = new Vector3(lastFacing, 0f, 0f);
-
-        // si hay input Z significativo, prioriza esa dirección
-        if (Mathf.Abs(z) > Mathf.Abs(h) * depthBias)
-        {
-            desiredForward = (z >= 0f) ? Vector3.forward : Vector3.back;
-        }
-
-        //giro suave SOLO en Y
-        float targetYaw = Mathf.Atan2(desiredForward.x, desiredForward.z) * Mathf.Rad2Deg;
-        Quaternion targetRot = Quaternion.Euler(0f, targetYaw, 0f);
+        //aplica giro suave solo en Y
+        float yaw = Mathf.Atan2(_lastLookDir.x, _lastLookDir.z) * Mathf.Rad2Deg;
+        Quaternion targetRot = Quaternion.Euler(0f, yaw, 0f);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * turnSpeed);
 
         //actualiza animaciones
         bool hasInput = input.sqrMagnitude > 0.0001f;
-        float runFactor = InputManager.Instance.RunHeld ? 2f : 1f; 
+        float style = hasInput ? (InputManager.Instance.RunHeld ? 2f : 1f) : 0f;
 
         //valores de velocidad para el animador
-        float xSpeedVal = hasInput ? Mathf.Clamp(h, -1f, 1f) * runFactor : 0f;
-        float zSpeedVal = hasInput ? Mathf.Clamp(z, -1f, 1f) * runFactor : 0f;
+        anim.SetFloat(xParam, input.x, 0.08f, Time.deltaTime);
+        anim.SetFloat(zParam, input.z, 0.08f, Time.deltaTime);
 
         //actualiza parámetros del animador
-        anim.SetFloat(xParam, xSpeedVal);
-        anim.SetFloat(zParam, zSpeedVal); 
-        anim.SetFloat(yParam, verticalVelocity);
+        anim.SetFloat(yParam, style, 0.08f, Time.deltaTime);
+        
         anim.SetBool ("Grounded", groundedNow);
         anim.SetBool (crouchBool, isCrouching);
 
         anim.SetFloat(blendParam, 0f);//para que interfiera en pruebas
+        
+
+        
     }
 
     //grounding con spherecast
@@ -255,6 +253,7 @@ public class PlayerController : MonoBehaviour
         isAlive = false;
         verticalVelocity = 0f;
 
+        anim.SetTrigger("Die");//se quita es solopara probar death (en animator mientras se le da al play hacer click en die y se ve que si muere)
         StartCoroutine(RespawnSequence());  //Respawn del jugador en los checkpoints
     }
 
@@ -309,4 +308,5 @@ public class PlayerController : MonoBehaviour
     public float GetSpeed()            => speed;
 
     
+
 }
