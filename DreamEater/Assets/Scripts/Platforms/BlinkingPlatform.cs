@@ -13,7 +13,7 @@ public class BlinkingPlatform : MonoBehaviour
     {
         isActive = startsActive;
         this.gameObject.SetActive(isActive);
-        Blink(); //no va en update porque no se para ese hilo
+        StartCoroutine(Blink()); //no va en update porque no se para ese hilo
     }
 
     //cambia el estado de la plataforma

@@ -11,7 +11,7 @@ public class ShockingPlatformController : MonoBehaviour
     //llama de forma continua a la funcion de cambio no hace mas
     private void Start()
     {
-        ChangeShock();
+        StartCoroutine(ChangeShock()); //no se usa update porque ese hilo no se puede parar
     }
 
     //cambiar plataforma activa
