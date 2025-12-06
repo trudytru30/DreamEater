@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -144,7 +145,6 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.darkBrightnessFloat = dp.a;
         GameManager.Instance.darkBrightnessActive= _darkPanel.enabled;
     }
-
     private void OpenClosePauseMenu()
     {
         _pauseCanvas.SetActive(!isGamePaused);
@@ -157,6 +157,22 @@ public class UIManager : MonoBehaviour
         {
             Time.timeScale=1;
         }
+    }
+    public void RestartLevel()
+    {
+        var actualScene = SceneManager.GetActiveScene();
+        var actualSceneName = actualScene.name;
+
+        SceneManager.LoadScene(actualSceneName);
+
+    }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    public void QuitToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
     
