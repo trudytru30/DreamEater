@@ -13,33 +13,18 @@ public class BlinkingPlatform : MonoBehaviour
     {
         isActive = startsActive;
         this.gameObject.SetActive(isActive);
-    }
-
-    //solo llama a funciones no hace nada mas
-    private void Update()
-    {
-        Blink();
+        Blink(); //no va en update porque no se para ese hilo
     }
 
     //cambia el estado de la plataforma
-    private void Blink()
+    private IEnumerator Blink()
     {
-        if (isActive)
+        while (true) //para que se repita de forma constante
         {
-            isActive = false;
-            this.gameObject.SetActive(isActive);
-        }
-        else if (!isActive)
-        {
-            isActive = true;
-            this.gameObject.SetActive(isActive);
-        }
-        StartCoroutine(TimeTilBlink()); //llama a la corrutina con cada parpadeo
-    }
+            yield return new WaitForSeconds(blinkingTime);
 
-    //llama de forma continua a la funcion de cambio no hace mas
-    IEnumerator TimeTilBlink()
-    {
-        yield return new WaitForSeconds(blinkingTime);
+            isActive = !isActive; // cambia el estado al contrario de on/off
+            this.gameObject.SetActive(isActive); //realiza el cambio visual de estado
+        }
     }
 }
