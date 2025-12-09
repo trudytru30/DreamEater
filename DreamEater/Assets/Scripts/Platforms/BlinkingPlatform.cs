@@ -1,4 +1,7 @@
 /*Esta horientado a cada plataforma no funciona sobre un array CADA PLATAFORMA ES INDIVIUAL*/
+
+//CAMBIAR CORRUTINA A TIMER Y NO USAR SETACTIVE DESACTIVAR COLLISIONES Y VISUAL
+
 using System.Collections;
 using UnityEngine;
 
@@ -12,7 +15,8 @@ public class BlinkingPlatform : MonoBehaviour
     private void Start()
     {
         isActive = startsActive;
-        this.gameObject.SetActive(isActive);
+        this.gameObject.GetComponent<MeshRenderer>().enabled = isActive; //setea visibilidad
+        this.gameObject.GetComponent<Collider>().enabled = isActive; //setea collider
         StartCoroutine(Blink()); //no va en update porque no se para ese hilo
     }
 
@@ -25,7 +29,11 @@ public class BlinkingPlatform : MonoBehaviour
             yield return new WaitForSeconds(blinkingTime);
 
             isActive = !isActive; // cambia el estado al contrario de on/off
-            this.gameObject.SetActive(isActive); //realiza el cambio visual de estado
+            
+            //setea el cambio de estado
+            this.gameObject.GetComponent<MeshRenderer>().enabled = isActive;
+            this.gameObject.GetComponent<Collider>().enabled = isActive;
         }
     }
+    
 }

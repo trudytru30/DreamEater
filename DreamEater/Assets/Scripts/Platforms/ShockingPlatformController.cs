@@ -27,7 +27,13 @@ public class ShockingPlatformController : MonoBehaviour
                 {
                     shockingPlatforms[i - 1].setCanShock(false); //desactiva la plataforma anterior
                 }
+                else if (i == 0)
+                {
+                    shockingPlatforms[shockingPlatforms.Length-1].setCanShock(false);
+                }
+
                 yield return new WaitForSeconds(changeTime);
+                Debug.Log(shockingPlatforms.Length);
             }
         }
     }

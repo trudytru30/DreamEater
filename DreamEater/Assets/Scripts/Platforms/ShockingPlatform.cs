@@ -9,13 +9,14 @@ public class ShockingPlatform : MonoBehaviour
 {
     private bool canShock = false; //inidica si es la plataforma de shock activa
     
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player") && canShock) //comprueba que sea el player y que la plataforma este activa
+        Debug.Log("Enter");
+        if (collision.gameObject.CompareTag("Player") && canShock) //comprueba que sea el player y que la plataforma este activa
         {
-            other.GetComponent<PlayerController>().Die(); //mata al player
+            Debug.Log("mata");
+            collision.gameObject.GetComponent<PlayerController>().Die(); //mata al player
         }
-
         return;
     }
 
