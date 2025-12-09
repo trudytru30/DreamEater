@@ -1,6 +1,6 @@
-/*Esta horientado a cada plataforma no funciona sobre un array CADA PLATAFORMA ES INDIVIUAL*/
-
-//CAMBIAR CORRUTINA A TIMER Y NO USAR SETACTIVE DESACTIVAR COLLISIONES Y VISUAL
+/*Esta horientado a cada plataforma no funciona sobre un array CADA PLATAFORMA ES INDIVIUAL
+ NO se puede hacer setActive porque detiene la corrutina, se juega con la variacion de visibilidad del MeshRenderer y del collider
+ */
 
 using System.Collections;
 using UnityEngine;
