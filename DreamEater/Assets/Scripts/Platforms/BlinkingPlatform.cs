@@ -1,4 +1,7 @@
-/*Esta horientado a cada plataforma no funciona sobre un array CADA PLATAFORMA ES INDIVIUAL*/
+/*Esta horientado a cada plataforma no funciona sobre un array CADA PLATAFORMA ES INDIVIUAL
+ NO se puede hacer setActive porque detiene la corrutina, se juega con la variacion de visibilidad del MeshRenderer y del collider
+ */
+
 using System.Collections;
 using UnityEngine;
 
@@ -12,34 +15,25 @@ public class BlinkingPlatform : MonoBehaviour
     private void Start()
     {
         isActive = startsActive;
-        this.gameObject.SetActive(isActive);
-    }
-
-    //solo llama a funciones no hace nada mas
-    private void Update()
-    {
-        Blink();
-        StartCoroutine(TimeTilBlink());
+        this.gameObject.GetComponent<MeshRenderer>().enabled = isActive; //setea visibilidad
+        this.gameObject.GetComponent<Collider>().enabled = isActive; //setea collider
+        StartCoroutine(Blink()); //no va en update porque no se para ese hilo
     }
 
     //cambia el estado de la plataforma
-    private void Blink()
+    private IEnumerator Blink()
     {
-        if (isActive)
+        while (true) //para que se repita de forma constante
         {
-            isActive = false;
-            this.gameObject.SetActive(isActive);
-        }
-        else if (!isActive)
-        {
-            isActive = true;
-            this.gameObject.SetActive(isActive);
-        }
-    }
+            Debug.Log("Vuelta");
+            yield return new WaitForSeconds(blinkingTime);
 
-    //corrutina para el cooldown
-    IEnumerator TimeTilBlink()
-    {
-        yield return new WaitForSeconds(blinkingTime);
+            isActive = !isActive; // cambia el estado al contrario de on/off
+            
+            //setea el cambio de estado
+            this.gameObject.GetComponent<MeshRenderer>().enabled = isActive;
+            this.gameObject.GetComponent<Collider>().enabled = isActive;
+        }
     }
+    
 }
