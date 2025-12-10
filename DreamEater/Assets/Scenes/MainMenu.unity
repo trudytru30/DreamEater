@@ -3867,11 +3867,6 @@ MonoBehaviour:
   darkBrightnessFloat: 0
   lightBrightnessFloat: 0
   puertasDesbloqueadas: 0
-  nombreNivelPuertas: 
-  _puerta1: {fileID: 0}
-  _puerta2: {fileID: 0}
-  _puerta3: {fileID: 0}
-  _puerta4: {fileID: 0}
 --- !u!4 &696546189
 Transform:
   m_ObjectHideFlags: 0
@@ -6650,6 +6645,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1999773600}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: SaveBrightnessData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 180121565}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
@@ -8457,7 +8464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1503796643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11552,7 +11559,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2112564752
 RectTransform:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
@@ -48,7 +49,7 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        StartBrightness();
+        StartCoroutine(StartBrightness());
     }
 
 
@@ -125,16 +126,6 @@ public class UIManager : MonoBehaviour
         _fullScreenToggle.isOn = _fullScreen;
         
     }
-    public void StartBrightness()
-    {
-        var bp = _brightPanel.color;
-        bp.a = GameManager.Instance.lightBrightnessFloat;
-        _brightPanel.enabled = GameManager.Instance.lightBrightnessActive;
-
-        var dp = _darkPanel.color;
-        dp.a = GameManager.Instance.darkBrightnessFloat;
-        _darkPanel.enabled = GameManager.Instance.darkBrightnessActive;
-    }
     public void SaveBrightnessData()
     {
         var bp = _brightPanel.color;
@@ -173,6 +164,20 @@ public class UIManager : MonoBehaviour
     public void QuitToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public IEnumerator StartBrightness()
+    {
+        yield return new WaitForSeconds(0.01f);
+        _brightPanel.enabled = GameManager.Instance.lightBrightnessActive;
+        var bp = _brightPanel.color;
+        bp.a = GameManager.Instance.lightBrightnessFloat;
+        _brightPanel.color = bp;
+
+        _darkPanel.enabled = GameManager.Instance.darkBrightnessActive;
+        var dp = _darkPanel.color;
+        dp.a = GameManager.Instance.darkBrightnessFloat;
+        _darkPanel.color = dp;
     }
 
     

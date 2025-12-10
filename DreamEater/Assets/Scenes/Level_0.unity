@@ -46250,7 +46250,6 @@ GameObject:
   - component: {fileID: 590622317}
   - component: {fileID: 590622316}
   - component: {fileID: 590622314}
-  - component: {fileID: 590622318}
   m_Layer: 0
   m_Name: GAMEMANAGER
   m_TagString: Untagged
@@ -46337,22 +46336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b71cdf9816ad4544eaec0ee82870f681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CheckpointManager
---- !u!114 &590622318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 590622311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac771c5768eb8db4fb65448f15a21e5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  darkBrightnessActive: 0
-  lightBrightnessActive: 0
-  darkBrightnessFloat: 0
-  lightBrightnessFloat: 0
 --- !u!1 &590834942
 GameObject:
   m_ObjectHideFlags: 0
@@ -78548,7 +78531,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &807943263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220228,7 +220211,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2142969421
 RectTransform:
   m_ObjectHideFlags: 0
@@ -220311,7 +220294,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!1 &2145417015
 GameObject:
