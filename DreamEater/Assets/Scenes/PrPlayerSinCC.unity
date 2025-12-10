@@ -1265,7 +1265,10 @@ PrefabInstance:
     - {fileID: 5119517097708776516, guid: 63ad732e37faf59449e55341c93f1055, type: 3}
     - {fileID: 1395257383095010520, guid: 63ad732e37faf59449e55341c93f1055, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1062766362816513316, guid: 63ad732e37faf59449e55341c93f1055, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 849794075}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6372072566298791268, guid: 63ad732e37faf59449e55341c93f1055, type: 3}
       insertIndex: -1
@@ -1277,6 +1280,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 912597067}
   m_SourcePrefab: {fileID: 100100000, guid: 63ad732e37faf59449e55341c93f1055, type: 3}
+--- !u!1 &849794074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 849794075}
+  m_Layer: 6
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &849794075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849794074}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 191492033}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &899967298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1531,28 +1565,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController2
   isAlive: 1
-  jumpForce: 6.5
+  jumpForce: 6
   speed: 2.8
   timeStep: 0.1
   turnSpeed: 12
-  movement:
-    canMove: 1
-    speedMultiplier: 1
   gravity: 20
   crouchSpeedFactor: 0.5
+  edgeTime: 0.12
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  clampDepth: 1
+  minDepth: -3
+  maxDepth: 3
+  groundCheck: {fileID: 849794075}
+  groundRadius: 0.2
   blendParam: Blend
   xParam: xSpeed
   zParam: zSpeed
   yParam: ySpeed
   crouchBool: IsCrouching
   jumpTrig: Jump
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  edgeTime: 0.12
-  clampDepth: 1
-  minDepth: -2
-  maxDepth: 2
 --- !u!136 &912597068
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1598,7 +1631,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 80

@@ -1,322 +1,239 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody), typeof(CapsuleCollider), typeof(Animator))]
+[RequireComponent(typeof(Rigidbody), typeof(Animator), typeof(CapsuleCollider))]
 public class PlayerController2 : MonoBehaviour
 {
-    //Cambiar lo del look para que mire con forward en esa dir  y el crouch a la izquierda 
-    //atributos
-    [SerializeField] private bool  isAlive   = true;
+    [SerializeField] private bool isAlive = true;
     [SerializeField] private float jumpForce = 6.5f;
-    [SerializeField] private float speed     = 4.0f;
-    [SerializeField] private float timeStep  = 0.1f;
+    [SerializeField] private float speed = 2.8f;
+    [SerializeField] private float timeStep = 0.1f;
     
-    [SerializeField] private float turnSpeed = 12f; // giro suave al cambiar de izquierda/derecha
-    
-    
-    //movimiento
-    [SerializeField] private Movement movement = new Movement(); //composicion de Movement
+    [SerializeField] private float turnSpeed = 12f;
     [SerializeField] private float gravity = 20f;
     [SerializeField] private float crouchSpeedFactor = 0.5f;
-    
-    //parametros del animator
-    [Header("Animator Params")]
-    [SerializeField] private string blendParam = "Blend"; // 0=Idle, 0.5=Walk, 1=Run
-    [SerializeField] private string xParam     = "xSpeed";
-    [SerializeField] private string zParam     = "zSpeed";
-    [SerializeField] private string yParam     = "ySpeed";
-    [SerializeField] private string crouchBool = "IsCrouching";
-    [SerializeField] private string jumpTrig   = "Jump";
-    
-    //sirve para saber si estamos en el suelo
-    [Header("Grounding")]
-    [SerializeField] private LayerMask groundMask = ~0;
     [SerializeField] private float edgeTime = 0.12f;
-    
-    
-    //clamp de profundidad
-    [Header("Depth Clamp (W/S)")]
-    [SerializeField] private bool  clampDepth = true;
-    [SerializeField] private float minDepth   = -2f;
-    [SerializeField] private float maxDepth   =  2f;
-    
+    [SerializeField] private LayerMask groundMask = ~0;
 
+    [Header("Depth Clamp (W/S)")]//Clamp de profundidad
+    [SerializeField] private bool clampDepth = true;
+    [SerializeField] private float minDepth = -3f;
+    [SerializeField] private float maxDepth = 3f;
 
-    //componentes
-    private Animator _anim;
+    [Header("Ground Check")]
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundRadius = 0.2f;
+
+    [Header("Animator Params")]
+    [SerializeField] private string blendParam = "Blend";
+    [SerializeField] private string xParam = "xSpeed";
+    [SerializeField] private string zParam = "zSpeed";
+    [SerializeField] private string yParam = "ySpeed";
+    [SerializeField] private string crouchBool = "IsCrouching";
+    [SerializeField] private string jumpTrig = "Jump";
+
     private Rigidbody _rb;
-    private CapsuleCollider _col;
-    
-    private float _yVelocity;
+    private Animator _anim;
+    private Movement _movement = new Movement();
+
+    private float _verticalVelocity;
     private float _edgeTimer = 0f;
-    private bool _jumpRequested;//jump request para sincronizar con animaciones
-    private Vector3 _input;
+    private bool _jumpRequested;
+    private bool _isGrounded;
+
     private Vector3 _lastLookDir = Vector3.right;
+    private Interactable _currentInteractable;
+
     private void Awake()
     {
-        _anim = GetComponent<Animator>();
         _rb = GetComponent<Rigidbody>();
-        _col = GetComponent<CapsuleCollider>();
-        
-        _anim.applyRootMotion = false;
-
-        _rb.isKinematic = false;                      
-        _rb.useGravity = false;
+        _rb.constraints = RigidbodyConstraints.FreezeRotation;
         _rb.interpolation = RigidbodyInterpolation.Interpolate;
-        _rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
-        _rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+
+        _anim = GetComponent<Animator>();
+        _anim.applyRootMotion = false;
     }
 
     private void OnEnable()
     {
-        if (InputManager.Instance == null)
-        {
-            return;
-        }
-        InputManager.Instance.JumpPressed     += Jump;
+        if (InputManager.Instance == null) return;
+        InputManager.Instance.JumpPressed += Jump;
         InputManager.Instance.InteractPressed += Interact;
     }
+
     private void OnDisable()
     {
-        if (InputManager.Instance == null)
-        {
-            return;
-        }
-        InputManager.Instance.JumpPressed     -= Jump;
+        if (InputManager.Instance == null) return;
+        InputManager.Instance.JumpPressed -= Jump;
         InputManager.Instance.InteractPressed -= Interact;
     }
 
     private void Update()
     {
-        if (!isAlive || InputManager.Instance == null)
+        if (!isAlive || InputManager.Instance == null) return;
+
+        float h = InputManager.Instance.Horizontal;
+        float z = InputManager.Instance.Depth;
+
+        Vector3 input = new Vector3(h, 0f, z);
+
+// Normalizamos para evitar valores mayores a 1 en diagonal
+        if (input.sqrMagnitude > 1f)
+            input.Normalize();
+
+// Al correr, multiplicamos el vector completo sin alterar su dirección
+        if (InputManager.Instance.RunHeld && input.sqrMagnitude > 0.01f)
         {
-            return;
+            input *= 2f;
         }
-        //Input
-        // movimiento input
-        float h = InputManager.Instance.Horizontal; // A/D o stick X
-        float z = InputManager.Instance.Depth;      // W/S o stick Y
-        
-        _input = new Vector3(h, 0f, z);
-        if (_input.sqrMagnitude > 1f)
-        {
-            _input.Normalize();
-        }
-
-        //Estados
-        /*
-        //walk, run, crouch
-        float currentSpeed = speed;
-        bool  isCrouching  = InputManager.Instance.CrouchHeld;
-        if (isCrouching)
-        {
-            Crouch(); 
-            currentSpeed *= crouchSpeedFactor;
-        }
-
-        if (InputManager.Instance.RunHeld)
-        {
-            RunPlayer();
-        }
-        else
-        {
-            WalkPlayer();
-        }
-        currentSpeed *= movement.speedMultiplier;
-        
-        */
-        bool isCrouching = InputManager.Instance.CrouchHeld;
-        if (InputManager.Instance.RunHeld) movement.Run(); else movement.Walk();
-        float runFactor = InputManager.Instance.RunHeld ? 2f : 1f; // para el Animator
-
-        //Orientacion
-        //orientacion del personaje
-        Vector3 desiredForward = _lastLookDir; // por defecto: última mirada
-
-        // 
-        if (_input.sqrMagnitude > 0.0001f)
-        {
-            // Nueva dirección real (incluye diagonales)
-            Vector3 desiredDir = new Vector3(_input.x, 0f, _input.z).normalized;
-
-            // Guardamos última dirección válida
-            _lastLookDir = desiredDir;
-        }
-
-        //aplica giro suave solo en Y
-        float yaw = Mathf.Atan2(_lastLookDir.x, _lastLookDir.z) * Mathf.Rad2Deg;
-        Quaternion targetRot = Quaternion.Euler(0f, yaw, 0f);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * turnSpeed);
-
-        
-        //Animator
-        //actualiza animaciones
-        bool hasInput = _input.sqrMagnitude > 0.0001f;
-        //float runFactor = hasInput ? (InputManager.Instance.RunHeld ? 2f : 1f) : 0f;
-
-        //valores de velocidad para el animador
-        _anim.SetFloat(xParam, _input.x, 0.08f, Time.deltaTime);
-        _anim.SetFloat(zParam, _input.z, 0.08f, Time.deltaTime);
-        _anim.SetFloat(yParam, _yVelocity);
-        _anim.SetBool (crouchBool, isCrouching);
-
-// Walk/Run solo con Blend:
-        float blend = (_input.sqrMagnitude < 0.001f) ? 0f : (InputManager.Instance.RunHeld ? 1f : 0.5f);
-        _anim.SetFloat(blendParam, blend, 0.08f, Time.deltaTime);
-        
-        float mag = _input.magnitude;
-        if (mag < 0.1f) _input = Vector3.zero;         // dead-zone pequeña
-        else _input /= mag;
-
-        //Profundidad (clamp)
+        // Clamp de profundidad
         if (clampDepth)
         {
-            float zPosition = transform.position.z;
-            if (zPosition < minDepth)
-            {
+            float currZ = transform.position.z;
+            if (currZ <= minDepth && input.z < 0f) input.z = 0f;
+            if (currZ >= maxDepth && input.z > 0f) input.z = 0f;
+
+            if (currZ < minDepth)
                 transform.position = new Vector3(transform.position.x, transform.position.y, minDepth);
-            }
-
-            if (zPosition > maxDepth)
-            {
+            if (currZ > maxDepth)
                 transform.position = new Vector3(transform.position.x, transform.position.y, maxDepth);
-            }
-        }
-        
-    }
-
-    //físicas
-    private void FixedUpdate()
-    {
-        if (!isAlive)
-        {
-            _rb.linearVelocity = Vector3.zero; 
-            return;
         }
 
-        bool grounded = IsGrounded();
+        // Movimiento base
+        bool isCrouching = InputManager.Instance.CrouchHeld;
+        if (isCrouching) Crouch();
 
-        // edgetimer
-        if (grounded)
-        {
-            _edgeTimer = edgeTime;
-        }
+        if (InputManager.Instance.RunHeld)
+            _movement.Run();
         else
-        {
-            _edgeTimer -= Time.fixedDeltaTime;
-        }
+            _movement.Walk();
 
-        //confirmar salto
+        float currentSpeed = speed * _movement.speedMultiplier;
+        if (isCrouching)
+            currentSpeed *= crouchSpeedFactor;
+
+        // Movimiento físico
+        Vector3 move = input * currentSpeed;
+        move.y = _rb.linearVelocity.y;
+        _rb.linearVelocity = move;
+
+        // Ground check
+        _isGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, groundMask, QueryTriggerInteraction.Ignore);
+        _edgeTimer = _isGrounded ? edgeTime : _edgeTimer - Time.deltaTime;
+
         if (_jumpRequested && _edgeTimer > 0.01f)
         {
-            if (_yVelocity < 0f)
-            {
-                _yVelocity = 0f;
-            }
-            _yVelocity = jumpForce;
+            _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             _anim.ResetTrigger(jumpTrig);
             _anim.SetTrigger(jumpTrig);
             _edgeTimer = 0f;
             _jumpRequested = false;
         }
 
-        //gravedad
-        if (grounded && _yVelocity <= 0f)
-        {
-            _yVelocity = -3f;
-        }
-        _yVelocity -= gravity * Time.fixedDeltaTime;
+        // Orientación
+        if (input.sqrMagnitude > 0.001f)
+            _lastLookDir = input;
 
-        //velocidad en el plano
-        float planarSpeed = speed;                // base
-        if (InputManager.Instance.RunHeld)    planarSpeed *= 1.6f;           // corre ~60% más
-        if (InputManager.Instance.CrouchHeld) planarSpeed *= crouchSpeedFactor; // ej. 0.5
+        float yaw = Mathf.Atan2(_lastLookDir.x, _lastLookDir.z) * Mathf.Rad2Deg;
+        Quaternion targetRot = Quaternion.Euler(0f, yaw, 0f);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * turnSpeed);
 
-        // normaliza input para diagonales sin turbo
-        Vector3 dir = _input.sqrMagnitude > 1f ? _input.normalized : _input;
+        // Animaciones
+        _anim.SetFloat(xParam, input.x, 0.08f, Time.deltaTime);
+        _anim.SetFloat(zParam, input.z, 0.08f, Time.deltaTime);
+        _anim.SetBool(crouchBool, isCrouching);
+        _anim.SetBool("Grounded", _isGrounded);
 
-        // aplica clamp Z si procede
-        if (clampDepth) {
-            float zPos = _rb.position.z;
-            if ((zPos <= minDepth && dir.z < 0f) || (zPos >= maxDepth && dir.z > 0f))
-                dir.z = 0f;
-        }
+        float ySpeed = 0f;
+        if (input.sqrMagnitude > 0.01f)
+            ySpeed = InputManager.Instance.RunHeld ? 2f : 1f;
 
-        // velocidad final en mundo (¡no dependas de la rotación!)
-        Vector3 planarVel = dir * planarSpeed;
-        Vector3 vel = new Vector3(planarVel.x, _yVelocity, planarVel.z);
-        _rb.linearVelocity = vel; 
-
-        // informar al animator de grounded (aquí es el valor real de física)
-        _anim.SetBool("Grounded", grounded);
+        _anim.SetFloat(yParam, ySpeed, 0.08f, Time.deltaTime);
+        _anim.SetFloat(blendParam, 0f); // Para pruebas
     }
-   
-    //ground check
-    private bool IsGrounded()
-    {Vector3 center = _col.bounds.center;
-        float r = Mathf.Max(0.05f, _col.radius * 0.95f);
-        Vector3 origin = new Vector3(center.x, _col.bounds.min.y + r + 0.01f, center.z);
-        return Physics.CheckSphere(origin, r, groundMask, QueryTriggerInteraction.Ignore);
-    }
-
-    //métodos de accion
-    private void WalkPlayer() => movement.Walk();
-    private void RunPlayer()  => movement.Run();
-    private void Crouch()     {  }// update
 
     private void Jump()
     {
         if (!isAlive) return;
         _jumpRequested = true;
-        //anim.SetTrigger(jumpTrig);
     }
+
+    private void Crouch() { }
+
+    private void WalkPlayer() => _movement.Walk();
+    private void RunPlayer() => _movement.Run();
 
     private void Interact()
     {
-        //TODO: implementar interaccion 
+        if (_currentInteractable != null && _currentInteractable.GetCanInteract())
+        {
+            _currentInteractable.SetIsInteracting(true);
+            //añadir anim interactuar
+            Debug.Log("Interactuando con " + _currentInteractable.gameObject.name);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out Interactable interactable) && interactable.GetCanInteract())
+        {
+            _currentInteractable = interactable;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out Interactable interactable) && _currentInteractable == interactable)
+        {
+            _currentInteractable = null;
+        }
     }
 
     public void Die()
     {
         if (!isAlive) return;
         isAlive = false;
-        _yVelocity = 0f;
+        _rb.linearVelocity = Vector3.zero;
 
-        _anim.SetTrigger("Die");//se quita es solopara probar death (en animator mientras se le da al play hacer click en die y se ve que si muere)
-        StartCoroutine(RespawnSequence());  //Respawn del jugador en los checkpoints
+        _anim.SetTrigger("Die");
+        StartCoroutine(RespawnSequence());
     }
 
     private IEnumerator RespawnSequence()
     {
-        //anim.SetTrigger("Die"); //Animacion de muerte
-        yield return new WaitForSeconds(0.8f); 
-
+        yield return new WaitForSeconds(0.8f);
         _rb.isKinematic = true;
         transform.position = CheckpointManager.Instance.GetCheckpointPosition();
         yield return null;
         _rb.isKinematic = false;
-
-        _yVelocity = 0f;
         _anim.SetFloat(xParam, 0f);
         _anim.SetFloat(zParam, 0f);
         _anim.SetFloat(blendParam, 0f);
+        
+        //Revivir al jugador
         isAlive = true;
     }
-    
 
-    
+    public void OnJumpAnimEvent()
+    {
+        if (!isAlive) return;
+        if (_edgeTimer > 0.01f)
+        {
+            _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            _edgeTimer = 0f;
+        }
+    }
+
     public IEnumerator PlaySound()
     {
         yield return new WaitForSeconds(timeStep);
     }
-    
-    //getters y setters
-    public bool  GetIsAlive()          => isAlive;
-    public void  SetIsAlive(float v)   => isAlive = v > 0f;
-    public float GetJumpForce()        => jumpForce;
-    public void  SetJumpForce(float v) => jumpForce = v;
-    public float GetSpeed()            => speed;
 
-    
-
+    // Getters y Setters
+    public bool GetIsAlive() => isAlive;
+    public void SetIsAlive(float v) => isAlive = v > 0f;
+    public float GetJumpForce() => jumpForce;
+    public void SetJumpForce(float v) => jumpForce = v;
+    public float GetSpeed() => speed;
 }
+

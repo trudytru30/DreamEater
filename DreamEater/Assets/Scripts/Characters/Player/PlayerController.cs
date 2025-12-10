@@ -15,9 +15,6 @@ public class PlayerController : MonoBehaviour
     
     [SerializeField] private float turnSpeed = 12f; // giro suave al cambiar de izquierda/derecha
     //[SerializeField] private float depthBias = 1.3f;// influencia del input Z sobre la orientación del personaje
-    
-    private Vector3 _lastLookDir = Vector3.right;
-
 
     //componentes
     private CharacterController cc;
@@ -48,14 +45,17 @@ public class PlayerController : MonoBehaviour
     //clamp de profundidad
     [Header("Depth Clamp (W/S)")]
     [SerializeField] private bool  clampDepth = true;
-    [SerializeField] private float minDepth   = -2f;
-    [SerializeField] private float maxDepth   =  2f;
+    [SerializeField] private float minDepth   = -3f;
+    [SerializeField] private float maxDepth   =  3f;
     
     
+    
+    private Vector3 _lastLookDir = Vector3.right;
     //jump request para sincronizar con animaciones
     private bool jumpRequested;
 
-    
+    private Interactable currentInteractable;
+
     private void Awake()
     {
         cc   = GetComponent<CharacterController>();
@@ -216,8 +216,6 @@ public class PlayerController : MonoBehaviour
 
         anim.SetFloat(blendParam, 0f);//para que interfiera en pruebas
         
-
-        
     }
 
     //grounding con spherecast
@@ -233,7 +231,7 @@ public class PlayerController : MonoBehaviour
     //métodos de accion
     private void WalkPlayer() => movement.Walk();
     private void RunPlayer()  => movement.Run();
-    private void Crouch()     { /* update */ }
+    private void Crouch()     {  }// estas en el update
 
     private void Jump()
     {
@@ -244,7 +242,29 @@ public class PlayerController : MonoBehaviour
 
     private void Interact()
     {
-        //TODO: implementar interaccion 
+        if (currentInteractable != null && currentInteractable.GetCanInteract())
+        {
+            currentInteractable.SetIsInteracting(true);
+            //añadir anim de interactuar
+            Debug.Log("Interactuando con " + currentInteractable.gameObject.name);
+        } 
+    }
+
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.TryGetComponent(out Interactable interactable) && interactable.GetCanInteract())
+        {
+            currentInteractable = interactable;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out Interactable interactable) && currentInteractable == interactable)
+        {
+            currentInteractable = null;
+        }
     }
 
     public void Die()
