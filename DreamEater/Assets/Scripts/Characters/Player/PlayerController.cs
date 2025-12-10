@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float timeStep  = 0.1f;
     
     [SerializeField] private float turnSpeed = 12f; // giro suave al cambiar de izquierda/derecha
-    [SerializeField] private float depthBias = 1.3f;// influencia del input Z sobre la orientación del personaje
+    //[SerializeField] private float depthBias = 1.3f;// influencia del input Z sobre la orientación del personaje
     
     private Vector3 _lastLookDir = Vector3.right;
 

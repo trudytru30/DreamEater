@@ -351,7 +351,7 @@ Transform:
   m_GameObject: {fileID: 260269978}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.4912374, y: 3.5236087, z: -8.932289}
+  m_LocalPosition: {x: -2.4913487, y: 3.5356083, z: -8.932289}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1190,7 +1190,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1062766362816513316, guid: 63ad732e37faf59449e55341c93f1055, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.95
+      value: 0.962
       objectReference: {fileID: 0}
     - target: {fileID: 1062766362816513316, guid: 63ad732e37faf59449e55341c93f1055, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1262,9 +1262,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7430689842732943328, guid: 63ad732e37faf59449e55341c93f1055, type: 3}
+    - {fileID: 5119517097708776516, guid: 63ad732e37faf59449e55341c93f1055, type: 3}
+    - {fileID: 1395257383095010520, guid: 63ad732e37faf59449e55341c93f1055, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6372072566298791268, guid: 63ad732e37faf59449e55341c93f1055, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 912597069}
+    - targetCorrespondingSourceObject: {fileID: 6372072566298791268, guid: 63ad732e37faf59449e55341c93f1055, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 912597068}
+    - targetCorrespondingSourceObject: {fileID: 6372072566298791268, guid: 63ad732e37faf59449e55341c93f1055, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 912597067}
   m_SourcePrefab: {fileID: 100100000, guid: 63ad732e37faf59449e55341c93f1055, type: 3}
 --- !u!1 &899967298
 GameObject:
@@ -1502,6 +1513,96 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f91ee9dcf3d5a44fb85e05034af8d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShockingPlatform
+--- !u!1 &912597066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6372072566298791268, guid: 63ad732e37faf59449e55341c93f1055, type: 3}
+  m_PrefabInstance: {fileID: 804820050}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &912597067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912597066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c0187de1f6c414499eb2f46857d2cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController2
+  isAlive: 1
+  jumpForce: 6.5
+  speed: 2.8
+  timeStep: 0.1
+  turnSpeed: 12
+  movement:
+    canMove: 1
+    speedMultiplier: 1
+  gravity: 20
+  crouchSpeedFactor: 0.5
+  blendParam: Blend
+  xParam: xSpeed
+  zParam: zSpeed
+  yParam: ySpeed
+  crouchBool: IsCrouching
+  jumpTrig: Jump
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  edgeTime: 0.12
+  clampDepth: 1
+  minDepth: -2
+  maxDepth: 2
+--- !u!136 &912597068
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912597066}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.39234507
+  m_Height: 1.8588156
+  m_Direction: 1
+  m_Center: {x: 0.019224256, y: 0.86002713, z: -0.04998225}
+--- !u!54 &912597069
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912597066}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 80
+  m_CollisionDetection: 1
 --- !u!1 &999565959
 GameObject:
   m_ObjectHideFlags: 0

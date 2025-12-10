@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement
 {
-    public bool canMove;
+    public bool canMove=true;
     public float speedMultiplier = 1f;//multiplicador de velocidad
 
     //getter y setter de canMove
