@@ -46,7 +46,11 @@ public class PlayerController2 : MonoBehaviour
     private CapsuleCollider _collider;
     private Vector3 _originalCenter;
     private float _originalHeight;
+    
+    private IGrabable _currentGrabbedObject;
 
+    [SerializeField] private Transform grabOrigin; // punto delante del jugador
+    [SerializeField] private float grabRange = 1.5f;
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -66,6 +70,7 @@ public class PlayerController2 : MonoBehaviour
         if (InputManager.Instance == null) return;
         InputManager.Instance.JumpPressed += Jump;
         InputManager.Instance.InteractPressed += Interact;
+        InputManager.Instance.InteractPressed += TryGrabOrRelease;
     }
 
     private void OnDisable()
@@ -73,6 +78,7 @@ public class PlayerController2 : MonoBehaviour
         if (InputManager.Instance == null) return;
         InputManager.Instance.JumpPressed -= Jump;
         InputManager.Instance.InteractPressed -= Interact;
+        InputManager.Instance.InteractPressed -= TryGrabOrRelease;
     }
 
     private void Update()
@@ -264,6 +270,27 @@ public class PlayerController2 : MonoBehaviour
         isAlive = true;
     }
 
+    private void TryGrabOrRelease()
+    {
+        if (_currentGrabbedObject != null)
+        {
+            _currentGrabbedObject.Release();
+            _currentGrabbedObject = null;
+            _anim.SetBool("IsPushing", false);
+            return;
+        }
+
+        if (Physics.Raycast(grabOrigin.position, grabOrigin.forward, out RaycastHit hit, grabRange))
+        {
+            IGrabable grabTarget = hit.collider.GetComponent<IGrabable>();
+            if (grabTarget != null)
+            {
+                _currentGrabbedObject = grabTarget;
+                grabTarget.Grab(grabOrigin);
+                _anim.SetBool("IsPushing", true);
+            }
+        }
+    }
     public void OnJumpAnimEvent()
     {
         if (!isAlive) return;

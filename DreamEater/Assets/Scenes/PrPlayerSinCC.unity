@@ -1730,6 +1730,7 @@ GameObject:
   - component: {fileID: 1130831242}
   - component: {fileID: 1130831241}
   - component: {fileID: 1130831245}
+  - component: {fileID: 1130831246}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -1823,8 +1824,8 @@ Transform:
   m_GameObject: {fileID: 1130831239}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.7, y: 3.29, z: -1.98}
-  m_LocalScale: {x: 0.68887, y: 0.68887, z: 0.68887}
+  m_LocalPosition: {x: -1.51, y: 1.55, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1853,9 +1854,29 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1130831246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130831239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8567cb4c2c8a99d4bbb63a10bef55b27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BlueBoxBehaviour
+  canBeGrabbed: 1
+  _grabberTransform: {fileID: 1538058716}
+  offsetX: 0.7
+  offsetY: 0
+  moveSpeed: 0
+  isMoving: 0
+  moveDistance: 1
+  currentDirection: 0
 --- !u!1 &1266393156
 GameObject:
   m_ObjectHideFlags: 0
@@ -2161,6 +2182,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!4 &1538058716 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6267974703519156573, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
+  m_PrefabInstance: {fileID: 6700620110510364295}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1759591543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2614,6 +2640,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 282208385}
     m_Modifications:
+    - target: {fileID: 103481117678206392, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
+      propertyPath: m_Name
+      value: grabOrigin
+      objectReference: {fileID: 0}
     - target: {fileID: 292634179959238536, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
       propertyPath: m_Name
       value: Player2
@@ -2657,6 +2687,10 @@ PrefabInstance:
     - target: {fileID: 5675314313350645821, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267974703519156573, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.351
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
