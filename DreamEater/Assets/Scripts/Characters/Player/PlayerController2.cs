@@ -10,7 +10,6 @@ public class PlayerController2 : MonoBehaviour
     [SerializeField] private float timeStep = 0.1f;
     
     [SerializeField] private float turnSpeed = 12f;
-    [SerializeField] private float gravity = 20f;
     [SerializeField] private float crouchSpeedFactor = 0.5f;
     [SerializeField] private float edgeTime = 0.12f;
     [SerializeField] private LayerMask groundMask = ~0;
@@ -43,14 +42,22 @@ public class PlayerController2 : MonoBehaviour
 
     private Vector3 _lastLookDir = Vector3.right;
     private Interactable _currentInteractable;
+    
+    private CapsuleCollider _collider;
+    private Vector3 _originalCenter;
+    private float _originalHeight;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        _anim = GetComponent<Animator>();
+        _collider = GetComponent<CapsuleCollider>();
+
+        _originalCenter = _collider.center;
+        _originalHeight = _collider.height;
+
         _rb.constraints = RigidbodyConstraints.FreezeRotation;
         _rb.interpolation = RigidbodyInterpolation.Interpolate;
-
-        _anim = GetComponent<Animator>();
         _anim.applyRootMotion = false;
     }
 
@@ -77,40 +84,70 @@ public class PlayerController2 : MonoBehaviour
 
         Vector3 input = new Vector3(h, 0f, z);
 
-// Normalizamos para evitar valores mayores a 1 en diagonal
+        //normalizar input
         if (input.sqrMagnitude > 1f)
+        {
             input.Normalize();
+        }
 
-// Al correr, multiplicamos el vector completo sin alterar su dirección
+        //al correr multiplica el vector de input por 2
         if (InputManager.Instance.RunHeld && input.sqrMagnitude > 0.01f)
         {
-            input *= 2f;
+            input *= 2.0f;
         }
         // Clamp de profundidad
         if (clampDepth)
         {
             float currZ = transform.position.z;
-            if (currZ <= minDepth && input.z < 0f) input.z = 0f;
-            if (currZ >= maxDepth && input.z > 0f) input.z = 0f;
+            if (currZ <= minDepth && input.z < 0f)
+            {
+                input.z = 0f;
+            }
+
+            if (currZ >= maxDepth && input.z > 0f)
+            {
+                input.z = 0f;
+            }
 
             if (currZ < minDepth)
+            {
                 transform.position = new Vector3(transform.position.x, transform.position.y, minDepth);
+            }
+
             if (currZ > maxDepth)
+            {
                 transform.position = new Vector3(transform.position.x, transform.position.y, maxDepth);
+            }
         }
 
         // Movimiento base
         bool isCrouching = InputManager.Instance.CrouchHeld;
-        if (isCrouching) Crouch();
+        
+        if (!isCrouching && _collider.height != _originalHeight)
+        {
+            _collider.height = _originalHeight;
+            _collider.center = _originalCenter;
+        }
+
+        if (isCrouching)
+        {
+            Crouch();
+        }
 
         if (InputManager.Instance.RunHeld)
+        {
             _movement.Run();
+        }
         else
+        {
             _movement.Walk();
+        }
 
         float currentSpeed = speed * _movement.speedMultiplier;
         if (isCrouching)
+        {
             currentSpeed *= crouchSpeedFactor;
+        }
 
         // Movimiento físico
         Vector3 move = input * currentSpeed;
@@ -132,7 +169,9 @@ public class PlayerController2 : MonoBehaviour
 
         // Orientación
         if (input.sqrMagnitude > 0.001f)
+        {
             _lastLookDir = input;
+        }
 
         float yaw = Mathf.Atan2(_lastLookDir.x, _lastLookDir.z) * Mathf.Rad2Deg;
         Quaternion targetRot = Quaternion.Euler(0f, yaw, 0f);
@@ -146,10 +185,12 @@ public class PlayerController2 : MonoBehaviour
 
         float ySpeed = 0f;
         if (input.sqrMagnitude > 0.01f)
+        {
             ySpeed = InputManager.Instance.RunHeld ? 2f : 1f;
+        }
 
         _anim.SetFloat(yParam, ySpeed, 0.08f, Time.deltaTime);
-        _anim.SetFloat(blendParam, 0f); // Para pruebas
+
     }
 
     private void Jump()
@@ -158,7 +199,13 @@ public class PlayerController2 : MonoBehaviour
         _jumpRequested = true;
     }
 
-    private void Crouch() { }
+    private void Crouch()
+    {
+        float crouchHeight = _originalHeight * 0.5f;//se puede cambiar por 0.7 y se hace mas pequeño /0.7 se hace mas grande
+        _collider.height = crouchHeight;
+        _collider.center = new Vector3(_originalCenter.x, crouchHeight / 2f, _originalCenter.z);
+    }
+
 
     private void WalkPlayer() => _movement.Walk();
     private void RunPlayer() => _movement.Run();
@@ -201,8 +248,11 @@ public class PlayerController2 : MonoBehaviour
 
     private IEnumerator RespawnSequence()
     {
+        Debug.Log("Inicia respawn...");
         yield return new WaitForSeconds(0.8f);
         _rb.isKinematic = true;
+        
+        Debug.Log("Checkpoint pos: " + CheckpointManager.Instance?.GetCheckpointPosition());
         transform.position = CheckpointManager.Instance.GetCheckpointPosition();
         yield return null;
         _rb.isKinematic = false;

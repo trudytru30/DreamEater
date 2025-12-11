@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
             Crouch(); 
             currentSpeed *= crouchSpeedFactor;
         }
+        Debug.Log($"RunHeld: {InputManager.Instance.RunHeld}");
 
         if (InputManager.Instance.RunHeld)
         {
@@ -214,7 +215,8 @@ public class PlayerController : MonoBehaviour
         anim.SetBool ("Grounded", groundedNow);
         anim.SetBool (crouchBool, isCrouching);
 
-        anim.SetFloat(blendParam, 0f);//para que interfiera en pruebas
+        anim.SetFloat(blendParam, style, 0.08f, Time.deltaTime);
+//para que interfiera en pruebas
         
     }
 
