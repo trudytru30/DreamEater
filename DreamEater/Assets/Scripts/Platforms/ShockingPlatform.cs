@@ -25,7 +25,7 @@ public class ShockingPlatform : MonoBehaviour
 
         if (canShock)
         {
-            Debug.Log("MATA");
+            Debug.Log("mata");
             collision.gameObject.GetComponent<PlayerController2>()?.Die();
         }
     }
@@ -49,4 +49,10 @@ public class ShockingPlatform : MonoBehaviour
     {
         return canShock;
     }
+    
+    private void Update()
+    {
+        Debug.Log("Shock activo: " + canShock);
+    }
+
 }
