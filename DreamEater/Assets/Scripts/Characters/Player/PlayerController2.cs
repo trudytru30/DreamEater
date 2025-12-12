@@ -51,6 +51,9 @@ public class PlayerController2 : MonoBehaviour
 
     [SerializeField] private Transform grabOrigin; // punto delante del jugador
     [SerializeField] private float grabRange = 1.5f;
+    
+    //[SerializeField] private LayerMask movableLayer;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
@@ -70,7 +73,7 @@ public class PlayerController2 : MonoBehaviour
         if (InputManager.Instance == null) return;
         InputManager.Instance.JumpPressed += Jump;
         InputManager.Instance.InteractPressed += Interact;
-        InputManager.Instance.InteractPressed += TryGrabOrRelease;
+        //InputManager.Instance.InteractPressed += TryGrabOrRelease;
     }
 
     private void OnDisable()
@@ -78,7 +81,7 @@ public class PlayerController2 : MonoBehaviour
         if (InputManager.Instance == null) return;
         InputManager.Instance.JumpPressed -= Jump;
         InputManager.Instance.InteractPressed -= Interact;
-        InputManager.Instance.InteractPressed -= TryGrabOrRelease;
+        //InputManager.Instance.InteractPressed -= TryGrabOrRelease;
     }
 
     private void Update()
@@ -269,7 +272,7 @@ public class PlayerController2 : MonoBehaviour
         //Revivir al jugador
         isAlive = true;
     }
-
+/*
     private void TryGrabOrRelease()
     {
         if (_currentGrabbedObject != null)
@@ -280,17 +283,42 @@ public class PlayerController2 : MonoBehaviour
             return;
         }
 
-        if (Physics.Raycast(grabOrigin.position, grabOrigin.forward, out RaycastHit hit, grabRange))
+        Collider[] hits = Physics.OverlapSphere(transform.position, grabRange, movableLayer);
+        float closestDistance = Mathf.Infinity;
+        IGrabable closestGrabable = null;
+
+        foreach (var hit in hits)
         {
-            IGrabable grabTarget = hit.collider.GetComponent<IGrabable>();
+            IGrabable grabTarget = hit.GetComponent<IGrabable>();
             if (grabTarget != null)
             {
-                _currentGrabbedObject = grabTarget;
-                grabTarget.Grab(grabOrigin);
-                _anim.SetBool("IsPushing", true);
+                float distance = Vector3.Distance(transform.position, hit.transform.position);
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestGrabable = grabTarget;
+                }
             }
         }
+
+        if (closestGrabable != null)
+        {
+            _currentGrabbedObject = closestGrabable;
+            _currentGrabbedObject.Grab(grabOrigin);
+            _anim.SetBool("IsPushing", true);
+        }
     }
+    
+    //PRUEBA RADIO PARA GRAB
+    private void OnDrawGizmosSelected()
+    {
+        if (grabOrigin == null) return;
+
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(grabOrigin.position, grabRange);
+    }
+    */
+
     public void OnJumpAnimEvent()
     {
         if (!isAlive) return;

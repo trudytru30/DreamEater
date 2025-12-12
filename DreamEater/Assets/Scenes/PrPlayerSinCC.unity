@@ -1732,7 +1732,7 @@ GameObject:
   - component: {fileID: 1130831245}
   - component: {fileID: 1130831246}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2648,6 +2648,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 2219868225079561398, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
+      propertyPath: grabOrigin
+      value: 
+      objectReference: {fileID: 1538058716}
     - target: {fileID: 5675314313350645821, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.2754121
