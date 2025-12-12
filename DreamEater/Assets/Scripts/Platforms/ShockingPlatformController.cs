@@ -33,7 +33,6 @@ public class ShockingPlatformController : MonoBehaviour
                 }
 
                 yield return new WaitForSeconds(changeTime);
-                Debug.Log(shockingPlatforms.Length);
             }
         }
     }
