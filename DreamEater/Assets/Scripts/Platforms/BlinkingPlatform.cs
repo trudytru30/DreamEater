@@ -25,7 +25,6 @@ public class BlinkingPlatform : MonoBehaviour
     {
         while (true) //para que se repita de forma constante
         {
-            Debug.Log("Vuelta");
             yield return new WaitForSeconds(blinkingTime);
 
             isActive = !isActive; // cambia el estado al contrario de on/off

@@ -31,7 +31,6 @@ public class ShockingPlatformController : MonoBehaviour
                 {
                     shockingPlatforms[shockingPlatforms.Length-1].setCanShock(false);
                 }
-
                 yield return new WaitForSeconds(changeTime);
             }
         }
