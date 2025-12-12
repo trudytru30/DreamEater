@@ -8,17 +8,25 @@ public class Torch : MonoBehaviour
 {
     [SerializeField] private bool isActive; //esto hace referencia a la ANTORCHA NO al OBJETO
 
-    private void MakeInteractable()
+    private void MakeInteractable(GameObject obj)
     {
-        gameObject.GetComponent<Interactable>().SetCanInteract(true); //activa la opcion de interactuar
+        //gameObject.GetComponent<Interactable>().SetCanInteract(true); //activa la opcion de interactuar
+        var interactable = obj.GetComponent<Interactable>();
+        if (interactable != null)
+        {
+            interactable.SetCanInteract(true);
+            Debug.Log("Se activó interactable en: " + obj.name);
+        }
     }
 
     /*gestiona que sea en el rango de accion de la antorcha donde los objetos se hacen interactuables*/
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<Interactable>().GetCanInteract() == false)
+        var interactable = other.GetComponent<Interactable>();
+        if (interactable != null && !interactable.GetCanInteract())
         {
-            MakeInteractable();
+            MakeInteractable(other.gameObject);//MakeInteractable();
         }
     }
+
 }

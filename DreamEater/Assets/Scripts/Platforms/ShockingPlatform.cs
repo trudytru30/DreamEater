@@ -8,18 +8,29 @@ using UnityEngine;
 public class ShockingPlatform : MonoBehaviour
 {
     private bool canShock = false; //inidica si es la plataforma de shock activa
-    
+    private PlayerController2 playerOnTop;
+
+    //registra al player colisionando con esa plataforma
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Enter");
-        if (collision.gameObject.CompareTag("Player") && canShock) //comprueba que sea el player y que la plataforma este activa
-        {
-            Debug.Log("mata");
-            collision.gameObject.GetComponent<PlayerController>().Die(); //mata al player
-        }
-        return;
+        if (collision.gameObject.CompareTag("Player"))
+            playerOnTop = collision.gameObject.GetComponent<PlayerController2>();
     }
 
+    //desregistra al player colisionando con esa plataforma
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+            playerOnTop = null;
+    }
+
+    //si el player esta registrado y la plataforma activa lo mata
+    private void FixedUpdate()
+    {
+        if (canShock && playerOnTop != null)
+            playerOnTop.Die();
+    }
+ 
     //getters y setters
     public void setCanShock(bool _canShock)
     {
