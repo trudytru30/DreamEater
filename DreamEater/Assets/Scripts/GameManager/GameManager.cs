@@ -41,4 +41,9 @@ public class GameManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
     }
+
+    public void ChangePuertasDesbloqueadas(int puertasDesbloq)
+    {
+        puertasDesbloqueadas = puertasDesbloq;
+    }
 }
