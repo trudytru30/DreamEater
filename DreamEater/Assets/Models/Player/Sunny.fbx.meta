@@ -3,7 +3,12 @@ guid: 08c61f686bcdd83428548475359d8762
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ear_5.001
+    second: {fileID: 2100000, guid: 2748e2f0977eef84681209bd3a6eeaaa, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
