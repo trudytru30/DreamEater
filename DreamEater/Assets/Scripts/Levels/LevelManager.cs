@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(BoxCollider))]
 public class LevelManager : MonoBehaviour
 {
     //Carga escenas
@@ -12,6 +13,10 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private ShowRecuerdo _showRecuerdo;
     public bool _canSwapScene;
 
+    private void Start()
+    {
+        _canSwapScene = false;
+    }
 
     private void Awake()
     {
@@ -23,6 +28,7 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        Debug.Log(gameObject.name);
 
     }
 
