@@ -37,7 +37,7 @@ public class PlayerController2 : MonoBehaviour
 
     private float _verticalVelocity;
     private float _edgeTimer = 0f;
-    private bool _jumpRequested;
+    //private bool _jumpRequested;
     private bool _isGrounded;
 
     private Vector3 _lastLookDir = Vector3.right;
@@ -87,7 +87,9 @@ public class PlayerController2 : MonoBehaviour
     private void Update()
     {
         if (!isAlive || InputManager.Instance == null) return;
+        _isGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, groundMask, QueryTriggerInteraction.Ignore);//verifica si esta en el suelo para saltar
 
+        
         float h = InputManager.Instance.Horizontal;
         float z = InputManager.Instance.Depth;
 
@@ -166,15 +168,15 @@ public class PlayerController2 : MonoBehaviour
         // Ground check
         _isGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, groundMask, QueryTriggerInteraction.Ignore);
         _edgeTimer = _isGrounded ? edgeTime : _edgeTimer - Time.deltaTime;
-
-        if (_jumpRequested && _edgeTimer > 0.01f)
+/*
+        if (_jumpRequested && _isGrounded)
         {
             _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             _anim.ResetTrigger(jumpTrig);
             _anim.SetTrigger(jumpTrig);
-            _edgeTimer = 0f;
             _jumpRequested = false;
         }
+        */
 
         // Orientación
         if (input.sqrMagnitude > 0.001f)
@@ -205,9 +207,14 @@ public class PlayerController2 : MonoBehaviour
     private void Jump()
     {
         if (!isAlive) return;
-        _jumpRequested = true;
-    }
 
+        if (_isGrounded)
+        {
+            _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            _anim.ResetTrigger(jumpTrig);
+            _anim.SetTrigger(jumpTrig);
+        }
+    }
     private void Crouch()
     {
         float crouchHeight = _originalHeight * 0.5f;//se puede cambiar por 0.7 y se hace mas pequeño /0.7 se hace mas grande
