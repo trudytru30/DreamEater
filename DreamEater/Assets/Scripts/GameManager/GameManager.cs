@@ -24,6 +24,10 @@ public class GameManager : MonoBehaviour
     public int puertasDesbloqueadas;
     #endregion
 
+    #region
+    public int nextScene = 1;
+    #endregion
+
     private void Start()
     {
         puertasDesbloqueadas = 1;
@@ -45,5 +49,9 @@ public class GameManager : MonoBehaviour
     public void ChangePuertasDesbloqueadas(int puertasDesbloq)
     {
         puertasDesbloqueadas = puertasDesbloq;
+    }
+    public void ChangeNextLevelLoading(int nextlevel)
+    {
+        nextScene = nextlevel;
     }
 }

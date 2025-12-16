@@ -15,7 +15,7 @@ public class Loading : MonoBehaviour
     private IEnumerator Delay ()
     {
         yield return new WaitForEndOfFrame();
-        m_operation = SceneManager.LoadSceneAsync(AppScenes.GAME_SCENE, LoadSceneMode.Single);
+        m_operation = SceneManager.LoadSceneAsync(GameManager.Instance.nextScene, LoadSceneMode.Single);
         m_operation.allowSceneActivation = false;
 
         while (!(m_operation.progress >= 0.9f))
