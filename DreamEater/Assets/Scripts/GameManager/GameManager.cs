@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region
-    public int nextScene = 1;
+    public int nextScene = 2;
     #endregion
 
     private void Start()

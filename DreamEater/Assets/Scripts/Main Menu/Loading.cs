@@ -2,14 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Loading : MonoBehaviour
 {
 
-    private AsyncOperation m_operation; 
+    private AsyncOperation m_operation;
+    [SerializeField] private Image _progressbar;
+    [SerializeField] private Text _progresstext;
     private void OnEnable ()
     {
         StartCoroutine(Delay());
+    }
+
+    private void Update()
+    {
+        _progressbar.fillAmount = m_operation.progress;
+        _progresstext.text = m_operation.progress.ToString()+"%";
     }
 
     private IEnumerator Delay ()
@@ -24,6 +33,7 @@ public class Loading : MonoBehaviour
             yield return null;
         }
         
+        yield return new WaitForSeconds(5);
         FinishLoading();
 
     }

@@ -4006,6 +4006,7 @@ MonoBehaviour:
   darkBrightnessFloat: 0
   lightBrightnessFloat: 0
   puertasDesbloqueadas: 0
+  nextScene: 2
 --- !u!4 &696546189
 Transform:
   m_ObjectHideFlags: 0
