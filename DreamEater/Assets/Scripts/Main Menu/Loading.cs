@@ -18,7 +18,7 @@ public class Loading : MonoBehaviour
     private void Update()
     {
         _progressbar.fillAmount = m_operation.progress;
-        _progresstext.text = m_operation.progress.ToString()+"%";
+        _progresstext.text = (m_operation.progress*100f).ToString()+"%";
     }
 
     private IEnumerator Delay ()
