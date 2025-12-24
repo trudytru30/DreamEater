@@ -13975,8 +13975,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376936060}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -35.37, y: 10.2, z: 91.21}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
+  m_LocalPosition: {x: -35.37, y: 8.87, z: 96.17}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -13984,7 +13984,7 @@ Transform:
   - {fileID: 696232637}
   - {fileID: 1348435769}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!114 &376936062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70172,13 +70172,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790810736}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -35.41207, y: 10.853608, z: 75.45}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
+  m_LocalPosition: {x: -35.37, y: 15.456379, z: 66.13148}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1527331664}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!114 &1790810738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70205,19 +70205,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachinePositionComposer
-  CameraDistance: 10
+  CameraDistance: 20
   DeadZoneDepth: 0
   Composition:
-    ScreenPosition: {x: 0.0025206953, y: 0.1474858}
+    ScreenPosition: {x: 0, y: 0}
     DeadZone:
       Enabled: 1
-      Size: {x: 0.12959042, y: 0.4867031}
+      Size: {x: 0.01, y: 0.1}
     HardLimits:
       Enabled: 0
       Size: {x: 0.8, y: 0.88}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
-  TargetOffset: {x: 0, y: 1.5, z: 0}
+  TargetOffset: {x: 0, y: 2, z: 0}
   Damping: {x: 0.25, y: 0, z: 0.5}
   Lookahead:
     Enabled: 0
@@ -73916,8 +73916,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845247433}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -35.41208, y: 10.853607, z: 60.758976}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
+  m_LocalPosition: {x: -35.37, y: 15.456379, z: 66.13148}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -81295,8 +81295,8 @@ Transform:
   m_GameObject: {fileID: 1980873786}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -274.2898, y: -26.2, z: 60.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 207.2, y: -26.2, z: 85}
+  m_LocalScale: {x: 0.6608908, y: 1, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1527331664}
@@ -87174,12 +87174,12 @@ Mesh:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1527331664}
   - {fileID: 906094475}
   - {fileID: 1357968938}
   - {fileID: 351741802}
   - {fileID: 1586106222}
   - {fileID: 1141237663}
-  - {fileID: 1527331664}
   - {fileID: 1185154170}
   - {fileID: 376936061}
   - {fileID: 1052617128}
