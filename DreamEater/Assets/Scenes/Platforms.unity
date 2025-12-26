@@ -890,6 +890,68 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
+--- !u!1 &1673995535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1673995538}
+  - component: {fileID: 1673995537}
+  - component: {fileID: 1673995536}
+  m_Layer: 0
+  m_Name: Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1673995536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673995535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28655724192cb7b4096dfd53ba3d32a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIPickupCounter
+  counterText: {fileID: 0}
+  rootToShow: {fileID: 0}
+  itemTypeToTrack: 0
+  totalRequired: 4
+--- !u!114 &1673995537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673995535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0266cf3b5d2ebd740ace916c27e25502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickUps
+  itemType: 0
+--- !u!4 &1673995538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673995535}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.41816, y: 0, z: -10.70183}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1687903062
 GameObject:
   m_ObjectHideFlags: 0
@@ -1085,3 +1147,4 @@ SceneRoots:
   - {fileID: 1534273949}
   - {fileID: 265258697}
   - {fileID: 1792145207}
+  - {fileID: 1673995538}

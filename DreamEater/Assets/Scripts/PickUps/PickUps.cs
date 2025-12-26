@@ -17,7 +17,7 @@ public class PickUps : MonoBehaviour
                     AddToUI(ItemType.Bellota);
                     break;
                 case ItemType.Music:
-                    AddToUI(ItemType.Bellota);
+                    AddToUI(ItemType.Music);
                     break;
             }
         }
@@ -28,6 +28,12 @@ public class PickUps : MonoBehaviour
 
     private void AddToUI(ItemType itemType)
     {
-        //TODO: Mostrar items en la UI
+        // Mostrar contador en la UI y actualizar x/total
+        UIPickupCounter[] counters = FindObjectsOfType<UIPickupCounter>();
+        for (int i = 0; i < counters.Length; i++)
+        {
+            counters[i].RegisterPickup(itemType);
+        }
     }
 }
+
