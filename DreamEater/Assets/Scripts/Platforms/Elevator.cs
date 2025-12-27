@@ -21,7 +21,6 @@ public class Elevator : MonoBehaviour
 
     private void Awake()
     {
-        // Aseguramos trigger
         GetComponent<BoxCollider>().isTrigger = true;
     }
 
@@ -29,59 +28,57 @@ public class Elevator : MonoBehaviour
     {
         targetArriba = new Vector3(transform.position.x, maxY, transform.position.z);
         targetAbajo = new Vector3(transform.position.x, minY, transform.position.z);
-
         targetActual = transform.position;
     }
 
-    // 🔹 Llamadas desde palancas
     public void LlamarArriba()
     {
         targetActual = targetArriba;
         tieneOrden = true;
-        Debug.Log("Ascensor: orden SUBIR");
     }
 
     public void LlamarAbajo()
     {
         targetActual = targetAbajo;
         tieneOrden = true;
-        Debug.Log("Ascensor: orden BAJAR");
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
-
-        jugadorEncima = true;
-        Debug.Log("Jugador encima del ascensor");
-
-        // Para que el jugador suba con el ascensor
-        other.transform.SetParent(transform);
+        if (other.CompareTag("Player"))
+        {
+            jugadorEncima = true;
+            // Usamos true para que mantenga su posición en el mundo al hacerse hijo
+            other.transform.SetParent(transform, true);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
-
-        jugadorEncima = false;
-        other.transform.SetParent(null);
+        if (other.CompareTag("Player"))
+        {
+            jugadorEncima = false;
+            other.transform.SetParent(null);
+            // IMPORTANTE: Al salir, asegúrate de que el objeto no herede escalas raras
+            DontDestroyOnLoad(other.gameObject); // Opcional, dependiendo de tu setup
+        }
     }
 
-    private void Update()
+    private void FixedUpdate() // Cambiamos Update por FixedUpdate para físicas
     {
-        if (!tieneOrden || !jugadorEncima) return;
+        if (!tieneOrden) return;
 
+        // Movemos el ascensor
         transform.position = Vector3.MoveTowards(
             transform.position,
             targetActual,
-            velocidad * Time.deltaTime
+            velocidad * Time.fixedDeltaTime
         );
 
-        if (Vector3.Distance(transform.position, targetActual) < 0.01f)
+        if (Vector3.Distance(transform.position, targetActual) < 0.001f)
         {
             transform.position = targetActual;
             tieneOrden = false;
-            Debug.Log("Ascensor: destino alcanzado");
         }
     }
 }
