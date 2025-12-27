@@ -7,34 +7,19 @@ using UnityEngine;
 public abstract class Switch : MonoBehaviour
 {
     [SerializeField] protected bool isActive; //inidca si esta activado, es serializable para el estado incial
-    private bool isButton;
 
-    //cmabia el estado
+    //cambia el estado
     public void ChangeActive()
     {
         if (isActive)
         {
             isActive = false;
-            if (!isButton)
-            {
-                this.gameObject.transform.rotation = Quaternion.Euler(-180, 0, 0);
-            }
-            else
-            {
-                //cambiar posicion si es boton
-            }
+            this.gameObject.transform.rotation = Quaternion.Euler(-180, 0, 0);
         }
         else if (!isActive)
         {
             isActive = true;
-            if (!isButton)
-            {
-                this.gameObject.transform.rotation = Quaternion.Euler(180, 0, 0);
-            }
-            else
-            {
-                //cambiar posicion si es boton
-            }
+            this.gameObject.transform.rotation = Quaternion.Euler(180, 0, 0);
         }
     }
     //getters y setters
