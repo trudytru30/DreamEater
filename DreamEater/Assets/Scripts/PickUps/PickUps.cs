@@ -7,7 +7,7 @@ public class PickUps : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        PlayerController player = collision.GetComponent<PlayerController>();
+        PlayerController2 player = collision.GetComponent<PlayerController2>();
 
         if (player != null)
         {
