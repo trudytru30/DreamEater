@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PickUps : MonoBehaviour
 {
-    public enum ItemType { Bellota, Music }  // Tipo de ítem
+    public enum ItemType { Bellota }  // Tipo de ítem
     [SerializeField] private ItemType itemType;  // Tipo de ítem específico
 
     private void OnTriggerEnter(Collider collision)
@@ -15,9 +15,6 @@ public class PickUps : MonoBehaviour
             {
                 case ItemType.Bellota:
                     AddToUI(ItemType.Bellota);
-                    break;
-                case ItemType.Music:
-                    AddToUI(ItemType.Music);
                     break;
             }
         }
