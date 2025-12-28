@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private bool _hasMemoryToPlay;
     [SerializeField] private string _sceneName;
     [SerializeField] private ShowRecuerdo _showRecuerdo;
+    [SerializeField] private int nivelDesbloqueado;
+    [SerializeField] private int nextScene;
     public bool _canSwapScene;
 
     private void Start()
@@ -40,6 +42,8 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
+            GameManager.Instance.ChangeNextLevelLoading(nextScene);
+            GameManager.Instance.ChangePuertasDesbloqueadas(nivelDesbloqueado);
             SceneManager.LoadScene(_sceneName);
         }
     }
