@@ -10,8 +10,10 @@ public class Loading : MonoBehaviour
     private AsyncOperation m_operation;
     [SerializeField] private Image _progressbar;
     [SerializeField] private Text _progresstext;
+    [SerializeField] private Text _consejosText;
     private void OnEnable ()
     {
+        SelectConsejo();
         StartCoroutine(Delay());
     }
 
@@ -41,5 +43,31 @@ public class Loading : MonoBehaviour
     private void FinishLoading()
     {
         m_operation.allowSceneActivation = true;
+    }
+
+    private void SelectConsejo()
+    {
+        int selec = Random.Range(0, 4);
+        switch (selec)
+        {
+            case 0:
+                _consejosText.text = "\"Nunca subestimes el poder de los sueños.\"" ;
+                break;
+            case 1:
+                _consejosText.text = "\"Cuando se acerque una ola, busca un lugar para refugiarte.\"";
+                break;
+            case 2:
+                _consejosText.text = "\"Los amigos son la familia que elegimos\".";
+                break;
+            case 3:
+                _consejosText.text = "\"Vigila tu espalda que el DreamEater acecha.\"";
+                break;
+            case 4:
+                _consejosText.text = "\"Solo el DreamEater tiene el corazón tan podrido como para perturbar los sueños de un niño\".";
+                break;
+            default:
+                return;
+        }
+
     }
 }
