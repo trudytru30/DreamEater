@@ -5022,6 +5022,15 @@ MonoBehaviour:
   _trigger_3: {fileID: 36774794}
   _trigger_4: {fileID: 1710961279}
   _trigger_5: {fileID: 580123594}
+  puertaanim:
+  - {fileID: 1783841037}
+  - {fileID: 1675837570}
+  - {fileID: 1358194332}
+  - {fileID: 1792830654}
+  - {fileID: 1560782826}
+  - {fileID: 1966728575}
+  - {fileID: 358124599}
+  - {fileID: 2035786723}
 --- !u!4 &1174283352
 Transform:
   m_ObjectHideFlags: 0
@@ -6527,6 +6536,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1391514650}
   - component: {fileID: 1391514651}
+  - component: {fileID: 1391514652}
   m_Layer: 0
   m_Name: trigger_1
   m_TagString: Untagged
@@ -6570,6 +6580,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.02, y: 5.37, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1391514652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391514649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 742cb8aa0afd34949abdb03ec7a84b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PuertasNiveles
+  nextScene: 3
 --- !u!1 &1391729231
 GameObject:
   m_ObjectHideFlags: 0

@@ -18530,7 +18530,7 @@ MonoBehaviour:
   _sceneName: LoadingScreen
   _showRecuerdo: {fileID: 0}
   nivelDesbloqueado: 1
-  nextScene: 3
+  nextScene: 4
   _canSwapScene: 0
 --- !u!1 &192906863
 GameObject:
