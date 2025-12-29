@@ -13076,6 +13076,8 @@ MonoBehaviour:
   _hasMemoryToPlay: 0
   _sceneName: 
   _showRecuerdo: {fileID: 0}
+  nivelDesbloqueado: 0
+  nextScene: 0
   _canSwapScene: 0
 --- !u!114 &351741800
 MonoBehaviour:
@@ -14250,7 +14252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3399fa7fa86850546988fa2451545dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BGFollowPlayer
-  player: {fileID: 1845247434}
+  player: {fileID: 1357968938}
 --- !u!43 &377817010
 Mesh:
   m_ObjectHideFlags: 0
