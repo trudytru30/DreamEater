@@ -21,8 +21,6 @@ public class ActivatePuertas : MonoBehaviour
     [SerializeField] private Animator[] puertaanim;
 
 
-
-
     private void Start()
     {
         _puerta1.SetActive(true);

@@ -37,6 +37,7 @@ public class ControlsManager : MonoBehaviour
 
     public void ActivateControlsUI(string message)
     {
+        controlsMessage.enabled = true;
         controlsMessage.text = message;
         keyboardControl.enabled = true;
         gamepadControl.enabled = true;

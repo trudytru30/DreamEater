@@ -47,7 +47,7 @@ public class Loading : MonoBehaviour
 
     private void SelectConsejo()
     {
-        int selec = Random.Range(0, 4);
+        int selec = Random.Range(0, 5);
         switch (selec)
         {
             case 0:
