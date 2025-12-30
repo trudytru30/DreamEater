@@ -25,7 +25,7 @@ public class EnemyMovable : MonoBehaviour
     }
     
     //Cambiar direccion de movimiento si choca con un objeto
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
         {

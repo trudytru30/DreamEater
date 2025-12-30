@@ -5,38 +5,49 @@ public class UIPickupCounter : MonoBehaviour
 {
     [Header("UI")]
     [SerializeField] private Text counterText;          // Texto que mostrará x/total
-    [SerializeField] private GameObject rootToShow;     // Lo que se oculta/enseña (puede ser este mismo GO)
+    [SerializeField] private GameObject rootToShow;     // Lo que se oculta/enseña
 
     [Header("Config")]
     [SerializeField] private PickUps.ItemType itemTypeToTrack; // Bellota o Music
-    [SerializeField] private int totalRequired = 4;            // <- SERIALIZABLE (4 o 7)
+    [SerializeField] private int totalRequired; 
     
-    private int current = 0;
-    private bool isVisible = false;
+    private int _current;
+    private bool _isVisible;
 
     private void Awake()
     {
-        if (rootToShow == null) rootToShow = gameObject;
+        _current = 0;
+        _isVisible = false;
+        if (rootToShow == null)
+        {
+            rootToShow = gameObject;
+        }
 
         // Oculto al empezar el nivel
         rootToShow.SetActive(false);
-        isVisible = false;
+        _isVisible = false;
 
         UpdateText();
     }
 
     public void RegisterPickup(PickUps.ItemType pickedType)
     {
-        if (pickedType != itemTypeToTrack) return;
-
-        if (!isVisible)
+        if (pickedType != itemTypeToTrack)
         {
-            rootToShow.SetActive(true);
-            isVisible = true;
+            return;
         }
 
-        current += 1;
-        if (current < 0) current = 0;
+        if (!_isVisible)
+        {
+            rootToShow.SetActive(true);
+            _isVisible = true;
+        }
+
+        _current += 1;
+        if (_current < 0)
+        {
+            _current = 0;
+        }
 
         UpdateText();
     }
@@ -44,6 +55,6 @@ public class UIPickupCounter : MonoBehaviour
     private void UpdateText()
     {
         if (counterText == null) return;
-        counterText.text = $"{current}/{totalRequired}";
+        counterText.text = $"{_current}/{totalRequired}";
     }
 }

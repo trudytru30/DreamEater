@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BoxBehaviour : MonoBehaviour, IGrabable
@@ -11,7 +9,6 @@ public class BoxBehaviour : MonoBehaviour, IGrabable
     private bool canBeGrabbed = false;
     [SerializeField] private Transform _grabberTransform = null;
     private bool _isHeld = false;
-    // private Collider _boxCollider;
     [SerializeField] private float offsetX = 0.7f;
     [SerializeField] private float offsetY = 0;
 
@@ -29,7 +26,6 @@ public class BoxBehaviour : MonoBehaviour, IGrabable
     void Awake()
     {
         _rb = GetComponent<Rigidbody>();
-        // _boxCollider = GetComponent<Collider>();
     }
     void FixedUpdate()
     {
@@ -54,7 +50,6 @@ public class BoxBehaviour : MonoBehaviour, IGrabable
 
     public void Release()
     {
-        // transform.SetParent(null);
         _grabberTransform = null;
         _isHeld = false;
         

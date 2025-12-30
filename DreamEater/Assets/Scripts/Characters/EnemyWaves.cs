@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyWaves : MonoBehaviour
 {
     [SerializeField] private float speed = 3f;
+    [SerializeField] private float force;
     [SerializeField] private float timeLimit = 5f;
     
     private float _time;
@@ -33,7 +34,7 @@ public class EnemyWaves : MonoBehaviour
     {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            //TODO: Aniadir fuerza para empujar al player
+            other.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward, ForceMode.Force); //revisar que .fordward hace lo que debe sino probar a cambiar por .right
         }
     }
 }

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EnemyWavesSpawner : MonoBehaviour
 {
-    [SerializeField] float cooldown;
-    private EnemyWaves instance;
+    [SerializeField] private float cooldown;
+    [SerializeField] private EnemyWaves instance;
 
     IEnumerator Timer()
     {

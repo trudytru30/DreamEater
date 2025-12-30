@@ -22,6 +22,17 @@ public abstract class Switch : MonoBehaviour
             this.gameObject.transform.rotation = Quaternion.Euler(180, 0, 0);
         }
     }
+    
+    //se completa en los hijos y se usa para comprobar la posicion
+    protected virtual void CheckPosition()
+    {
+        //comprueba que son interactuables
+        if (!gameObject.GetComponent<Interactable>().GetCanInteract())
+        {
+            return;
+        }
+    }
+    
     //getters y setters
     public void SetIsActive(bool  _isActive)
     {
@@ -31,15 +42,5 @@ public abstract class Switch : MonoBehaviour
     public bool GetIsActive()
     {
         return isActive;
-    }
-
-    //se completa en los hijos y se usa para comprobar la posicion
-    protected virtual void CheckPosition()
-    {
-        //comprueba que son interactuables
-        if (!gameObject.GetComponent<Interactable>().GetCanInteract())
-        {
-            return;
-        }
     }
 }

@@ -9,14 +9,14 @@ public class BlinkingPlatform : MonoBehaviour
 {
     [SerializeField] private bool startsActive; //determina el estado INICIAL on/off
     [SerializeField] private float blinkingTime; //cooldown entre on/off
-    private bool isActive; //indica si esta ON
+    private bool _isActive; //indica si esta ON
 
     //setea configuracion inical
     private void Start()
     {
-        isActive = startsActive;
-        this.gameObject.GetComponent<MeshRenderer>().enabled = isActive; //setea visibilidad
-        this.gameObject.GetComponent<Collider>().enabled = isActive; //setea collider
+        _isActive = startsActive;
+        this.gameObject.GetComponent<MeshRenderer>().enabled = _isActive; //setea visibilidad
+        this.gameObject.GetComponent<Collider>().enabled = _isActive; //setea collider
         StartCoroutine(Blink()); //no va en update porque no se para ese hilo
     }
 
@@ -27,11 +27,11 @@ public class BlinkingPlatform : MonoBehaviour
         {
             yield return new WaitForSeconds(blinkingTime);
 
-            isActive = !isActive; // cambia el estado al contrario de on/off
+            _isActive = !_isActive; // cambia el estado al contrario de on/off
             
             //setea el cambio de estado
-            this.gameObject.GetComponent<MeshRenderer>().enabled = isActive;
-            this.gameObject.GetComponent<Collider>().enabled = isActive;
+            this.gameObject.GetComponent<MeshRenderer>().enabled = _isActive;
+            this.gameObject.GetComponent<Collider>().enabled = _isActive;
         }
     }
     
