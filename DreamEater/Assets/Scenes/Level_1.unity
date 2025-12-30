@@ -586,7 +586,7 @@ GameObject:
   - component: {fileID: 27921478}
   - component: {fileID: 27921477}
   - component: {fileID: 27921476}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 'Plataforma_04_05 '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1262,7 +1262,7 @@ GameObject:
   - component: {fileID: 56680826}
   - component: {fileID: 56680825}
   - component: {fileID: 56680824}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_04 (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1617,7 +1617,7 @@ GameObject:
   - component: {fileID: 70263135}
   - component: {fileID: 70263134}
   - component: {fileID: 70263133}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_04_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2327,7 +2327,7 @@ GameObject:
   - component: {fileID: 84220658}
   - component: {fileID: 84220657}
   - component: {fileID: 84220656}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_03_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6271,7 +6271,7 @@ GameObject:
   - component: {fileID: 152710415}
   - component: {fileID: 152710414}
   - component: {fileID: 152710413}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Elevatormesh_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6893,7 +6893,7 @@ GameObject:
   - component: {fileID: 157422891}
   - component: {fileID: 157422890}
   - component: {fileID: 157422889}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_02 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7426,7 +7426,7 @@ GameObject:
   - component: {fileID: 169905004}
   - component: {fileID: 169905003}
   - component: {fileID: 169905002}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9891,7 +9891,7 @@ GameObject:
   - component: {fileID: 250921669}
   - component: {fileID: 250921668}
   - component: {fileID: 250921667}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13331,7 +13331,7 @@ GameObject:
   - component: {fileID: 373655350}
   - component: {fileID: 373655349}
   - component: {fileID: 373655348}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_02 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13864,7 +13864,7 @@ GameObject:
   - component: {fileID: 375408563}
   - component: {fileID: 375408562}
   - component: {fileID: 375408561}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 'Plataforma_01_05 '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15155,7 +15155,7 @@ GameObject:
   - component: {fileID: 391565229}
   - component: {fileID: 391565228}
   - component: {fileID: 391565227}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15688,7 +15688,7 @@ GameObject:
   - component: {fileID: 403344855}
   - component: {fileID: 403344854}
   - component: {fileID: 403344853}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_01_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16096,7 +16096,7 @@ GameObject:
   - component: {fileID: 405694099}
   - component: {fileID: 405694098}
   - component: {fileID: 405694097}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17143,7 +17143,7 @@ GameObject:
   - component: {fileID: 424430566}
   - component: {fileID: 424430565}
   - component: {fileID: 424430564}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_03_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17531,7 +17531,7 @@ GameObject:
   - component: {fileID: 430642052}
   - component: {fileID: 430642051}
   - component: {fileID: 430642050}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18522,7 +18522,7 @@ GameObject:
   - component: {fileID: 461438138}
   - component: {fileID: 461438137}
   - component: {fileID: 461438136}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19587,7 +19587,7 @@ GameObject:
   - component: {fileID: 471287544}
   - component: {fileID: 471287543}
   - component: {fileID: 471287542}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_04 (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20653,7 +20653,7 @@ GameObject:
   - component: {fileID: 489064297}
   - component: {fileID: 489064296}
   - component: {fileID: 489064295}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_02 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21008,7 +21008,7 @@ GameObject:
   - component: {fileID: 500417463}
   - component: {fileID: 500417462}
   - component: {fileID: 500417461}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_04_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22394,7 +22394,7 @@ GameObject:
   - component: {fileID: 532123305}
   - component: {fileID: 532123304}
   - component: {fileID: 532123303}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_04 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23460,7 +23460,7 @@ GameObject:
   - component: {fileID: 557596164}
   - component: {fileID: 557596163}
   - component: {fileID: 557596162}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_04 (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27453,7 +27453,7 @@ GameObject:
   - component: {fileID: 644661370}
   - component: {fileID: 644661369}
   - component: {fileID: 644661368}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_01_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27840,7 +27840,7 @@ GameObject:
   - component: {fileID: 654712900}
   - component: {fileID: 654712899}
   - component: {fileID: 654712898}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Elevator_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28632,7 +28632,7 @@ GameObject:
   - component: {fileID: 666984332}
   - component: {fileID: 666984331}
   - component: {fileID: 666984330}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_04 (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28987,7 +28987,7 @@ GameObject:
   - component: {fileID: 677348915}
   - component: {fileID: 677348914}
   - component: {fileID: 677348913}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30782,7 +30782,7 @@ GameObject:
   - component: {fileID: 718849920}
   - component: {fileID: 718849919}
   - component: {fileID: 718849918}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_04 (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33597,7 +33597,7 @@ GameObject:
   - component: {fileID: 775038187}
   - component: {fileID: 775038186}
   - component: {fileID: 775038185}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_02 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34983,7 +34983,7 @@ GameObject:
   - component: {fileID: 794855676}
   - component: {fileID: 794855675}
   - component: {fileID: 794855674}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_04 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35338,7 +35338,7 @@ GameObject:
   - component: {fileID: 802384685}
   - component: {fileID: 802384684}
   - component: {fileID: 802384683}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_01_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36101,7 +36101,7 @@ GameObject:
   - component: {fileID: 813364435}
   - component: {fileID: 813364434}
   - component: {fileID: 813364433}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37057,7 +37057,7 @@ GameObject:
   - component: {fileID: 841374801}
   - component: {fileID: 841374800}
   - component: {fileID: 841374799}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_03_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38214,7 +38214,7 @@ GameObject:
   - component: {fileID: 871599888}
   - component: {fileID: 871599887}
   - component: {fileID: 871599886}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Elevator_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40488,7 +40488,7 @@ GameObject:
   - component: {fileID: 915483801}
   - component: {fileID: 915483800}
   - component: {fileID: 915483799}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 'Plataforma_02_05  '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42267,7 +42267,7 @@ GameObject:
   - component: {fileID: 959565491}
   - component: {fileID: 959565490}
   - component: {fileID: 959565489}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 'Plataforma_04_04 '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43156,7 +43156,7 @@ GameObject:
   - component: {fileID: 992922665}
   - component: {fileID: 992922664}
   - component: {fileID: 992922663}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44735,7 +44735,7 @@ GameObject:
   - component: {fileID: 1042552071}
   - component: {fileID: 1042552070}
   - component: {fileID: 1042552069}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_02 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46002,7 +46002,7 @@ GameObject:
   - component: {fileID: 1070427231}
   - component: {fileID: 1070427230}
   - component: {fileID: 1070427229}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47836,6 +47836,7 @@ Transform:
   - {fileID: 660981589}
   - {fileID: 1828047472}
   - {fileID: 733649902}
+  - {fileID: 1139531812}
   m_Father: {fileID: 906094475}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1101200690
@@ -48709,6 +48710,11 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!4 &1139531812 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7c467c3d1c8f97143af58e6282dfd195, type: 3}
+  m_PrefabInstance: {fileID: 1884914716}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1141237660
 GameObject:
   m_ObjectHideFlags: 0
@@ -51061,7 +51067,7 @@ GameObject:
   - component: {fileID: 1200502225}
   - component: {fileID: 1200502224}
   - component: {fileID: 1200502223}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_01_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52837,7 +52843,7 @@ GameObject:
   - component: {fileID: 1239457612}
   - component: {fileID: 1239457611}
   - component: {fileID: 1239457610}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_02 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54504,7 +54510,7 @@ GameObject:
   - component: {fileID: 1279730411}
   - component: {fileID: 1279730410}
   - component: {fileID: 1279730409}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_07
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55392,7 +55398,7 @@ GameObject:
   - component: {fileID: 1294006820}
   - component: {fileID: 1294006819}
   - component: {fileID: 1294006818}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_03_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56527,7 +56533,7 @@ GameObject:
   - component: {fileID: 1330141192}
   - component: {fileID: 1330141191}
   - component: {fileID: 1330141190}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56882,7 +56888,7 @@ GameObject:
   - component: {fileID: 1333085888}
   - component: {fileID: 1333085887}
   - component: {fileID: 1333085886}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_02 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58409,7 +58415,7 @@ GameObject:
   - component: {fileID: 1357923299}
   - component: {fileID: 1357923298}
   - component: {fileID: 1357923297}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_02_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59738,7 +59744,7 @@ GameObject:
   - component: {fileID: 1412547766}
   - component: {fileID: 1412547765}
   - component: {fileID: 1412547764}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_04 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60908,7 +60914,7 @@ GameObject:
   - component: {fileID: 1437281263}
   - component: {fileID: 1437281262}
   - component: {fileID: 1437281261}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_04 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61938,7 +61944,7 @@ GameObject:
   - component: {fileID: 1476375055}
   - component: {fileID: 1476375054}
   - component: {fileID: 1476375053}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: 'Plataforma_03_05  '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66103,7 +66109,7 @@ GameObject:
   - component: {fileID: 1599383396}
   - component: {fileID: 1599383395}
   - component: {fileID: 1599383394}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_02_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66647,7 +66653,7 @@ GameObject:
   - component: {fileID: 1618349924}
   - component: {fileID: 1618349923}
   - component: {fileID: 1618349922}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67358,7 +67364,7 @@ GameObject:
   - component: {fileID: 1636128864}
   - component: {fileID: 1636128863}
   - component: {fileID: 1636128862}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Elevator_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68775,7 +68781,7 @@ GameObject:
   - component: {fileID: 1694507392}
   - component: {fileID: 1694507391}
   - component: {fileID: 1694507390}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_04 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69385,7 +69391,7 @@ GameObject:
   - component: {fileID: 1709734994}
   - component: {fileID: 1709734993}
   - component: {fileID: 1709734992}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_02_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69918,7 +69924,7 @@ GameObject:
   - component: {fileID: 1721302101}
   - component: {fileID: 1721302100}
   - component: {fileID: 1721302099}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_04_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71729,7 +71735,7 @@ GameObject:
   - component: {fileID: 1759918343}
   - component: {fileID: 1759918342}
   - component: {fileID: 1759918341}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_04 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74940,7 +74946,7 @@ GameObject:
   - component: {fileID: 1818604826}
   - component: {fileID: 1818604825}
   - component: {fileID: 1818604824}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75444,7 +75450,7 @@ GameObject:
   - component: {fileID: 1832012197}
   - component: {fileID: 1832012196}
   - component: {fileID: 1832012195}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_02 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75799,7 +75805,7 @@ GameObject:
   - component: {fileID: 1834583931}
   - component: {fileID: 1834583930}
   - component: {fileID: 1834583929}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_02_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78367,6 +78373,79 @@ Transform:
   m_Children: []
   m_Father: {fileID: 20627299}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1884914716
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1097527770}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 7c467c3d1c8f97143af58e6282dfd195, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7c467c3d1c8f97143af58e6282dfd195, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7c467c3d1c8f97143af58e6282dfd195, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7c467c3d1c8f97143af58e6282dfd195, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.6931896
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7c467c3d1c8f97143af58e6282dfd195, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5567503
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7c467c3d1c8f97143af58e6282dfd195, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.045578003
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7c467c3d1c8f97143af58e6282dfd195, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7c467c3d1c8f97143af58e6282dfd195, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7c467c3d1c8f97143af58e6282dfd195, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7c467c3d1c8f97143af58e6282dfd195, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7c467c3d1c8f97143af58e6282dfd195, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7c467c3d1c8f97143af58e6282dfd195, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 7c467c3d1c8f97143af58e6282dfd195, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7c467c3d1c8f97143af58e6282dfd195, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 420b998584a456e429d316e0aab8a311, type: 2}
+    - target: {fileID: 919132149155446097, guid: 7c467c3d1c8f97143af58e6282dfd195, type: 3}
+      propertyPath: m_Name
+      value: CastilloArenaProp
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7c467c3d1c8f97143af58e6282dfd195, type: 3}
 --- !u!1 &1885117451
 GameObject:
   m_ObjectHideFlags: 0
@@ -78381,7 +78460,7 @@ GameObject:
   - component: {fileID: 1885117454}
   - component: {fileID: 1885117453}
   - component: {fileID: 1885117452}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79269,7 +79348,7 @@ GameObject:
   - component: {fileID: 1892613315}
   - component: {fileID: 1892613314}
   - component: {fileID: 1892613313}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79659,7 +79738,7 @@ GameObject:
   - component: {fileID: 1895627634}
   - component: {fileID: 1895627633}
   - component: {fileID: 1895627632}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81703,7 +81782,7 @@ GameObject:
   - component: {fileID: 1962839896}
   - component: {fileID: 1962839895}
   - component: {fileID: 1962839894}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82236,7 +82315,7 @@ GameObject:
   - component: {fileID: 1967797973}
   - component: {fileID: 1967797972}
   - component: {fileID: 1967797971}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_04 (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83923,7 +84002,7 @@ GameObject:
   - component: {fileID: 1995997661}
   - component: {fileID: 1995997660}
   - component: {fileID: 1995997659}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_04 (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84390,7 +84469,7 @@ GameObject:
   - component: {fileID: 2010969499}
   - component: {fileID: 2010969498}
   - component: {fileID: 2010969497}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Plataforma_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86344,7 +86423,7 @@ GameObject:
   - component: {fileID: 2046967999}
   - component: {fileID: 2046967998}
   - component: {fileID: 2046967997}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Box_04 (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
