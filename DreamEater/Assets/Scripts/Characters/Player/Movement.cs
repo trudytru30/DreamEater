@@ -1,4 +1,7 @@
-using UnityEngine;
+/*
+ Gestiona el movimiento del player 
+ Se llaman desde playerController2
+*/
 
 [System.Serializable]
 
@@ -14,7 +17,6 @@ public class Movement
         set => canMove = value;
     }
     
-    //walk
     public void Walk()
     {
         if (!canMove)
@@ -25,13 +27,12 @@ public class Movement
         speedMultiplier = 1f;
         
     }
-
-    //run
+    
     public void Run()
     {
         if (!canMove)
         {
-            speedMultiplier = 0f; //si es false np cprre
+            speedMultiplier = 0f; //si es false np corre
             return;
         }
         speedMultiplier = 1.3f;
