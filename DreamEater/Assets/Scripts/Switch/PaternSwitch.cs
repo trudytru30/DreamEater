@@ -1,4 +1,6 @@
-/*Comprueba un conjunto de switches*/
+/*
+ Comprueba un conjunto de switches
+ */
 
 using UnityEngine;
 

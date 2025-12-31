@@ -1,8 +1,8 @@
-/*Este es el codigo de cada platforma inidivual
- No esta gestionado el cambio de plataforma para eso ver ShockingPlatformController*/
-using System;
-using System.Collections;
-using Unity.VisualScripting;
+/*
+ Este es el codigo de cada platforma inidivual
+ No esta gestionado el cambio de plataforma para eso ver ShockingPlatformController
+*/
+
 using UnityEngine;
 
 public class ShockingPlatform : MonoBehaviour

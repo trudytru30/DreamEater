@@ -1,6 +1,7 @@
 /*NO CONFUNDIR CON SITCHES/INTERRUPTORES
  Se necesita un pivote o algo sobre lo que hacer palanca no se puede hacer en el aire por fisica el rb se cae
- Fisicamente se aplica el principio de palanca sobre otro rigidbody*/
+ Fisicamente se aplica el principio de palanca sobre otro rigidbody
+*/
 
 using Unity.VisualScripting;
 using UnityEngine;

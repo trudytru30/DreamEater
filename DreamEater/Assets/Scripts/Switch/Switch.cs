@@ -1,6 +1,8 @@
-/*Es una clase abstracta NO SE PUEDE INSTANCIAR/PONER COMO COMPONENTE
+/*
+ Es una clase abstracta NO SE PUEDE INSTANCIAR/PONER COMO COMPONENTE
  Es la clase padre de los interruptores tanto en patron como simples
- Gestiona los factores comunes de todos los switches es la clase padre*/
+ Gestiona los factores comunes de todos los switches es la clase padre
+*/
 
 using UnityEngine;
 

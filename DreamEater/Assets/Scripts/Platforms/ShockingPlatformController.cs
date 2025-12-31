@@ -1,5 +1,7 @@
-/*Este script gestiona el cambio de plataforma de shock dentro de un array de ShockingPlatforms
- El funcionamiento de cada plataforma individual se gestion desde ShockingPlatform*/
+/*
+ Este script gestiona el cambio de plataforma de shock dentro de un array de ShockingPlatforms
+ El funcionamiento de cada plataforma individual se gestion desde ShockingPlatform
+*/
 using System.Collections;
 using UnityEngine;
 
@@ -27,9 +29,9 @@ public class ShockingPlatformController : MonoBehaviour
                 {
                     shockingPlatforms[i - 1].setCanShock(false); //desactiva la plataforma anterior
                 }
-                else if (i == 0)
+                else if (i == 0) 
                 {
-                    shockingPlatforms[shockingPlatforms.Length-1].setCanShock(false);
+                    shockingPlatforms[shockingPlatforms.Length-1].setCanShock(false);//al dar la vuelta apaga la ultima
                 }
                 yield return new WaitForSeconds(changeTime);
             }

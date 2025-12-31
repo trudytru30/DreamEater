@@ -1,4 +1,6 @@
-/*Comprueba la posicion de un solo switch*/
+/*
+ Comprueba la posicion de un solo switch
+ */
 
 using Unity.VisualScripting;
 using UnityEngine;

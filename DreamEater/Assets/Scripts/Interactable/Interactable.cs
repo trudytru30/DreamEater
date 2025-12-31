@@ -1,4 +1,6 @@
-/*Script base para todos los interactuables con el player*/
+/*
+ Script base para todos los interactuables con el player
+ */
 
 using UnityEngine;
 
