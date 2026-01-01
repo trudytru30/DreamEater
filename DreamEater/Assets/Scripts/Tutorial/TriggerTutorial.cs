@@ -34,5 +34,6 @@ public class TriggerTutorial : MonoBehaviour
         {
             cm.DeactivateControlsUI();
         }
+        Debug.Log("Salido");
     }
 }
