@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eb97317f4daa21248a85bf9019433347
+guid: 86eea347c021eac4a95263f57add3685
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: SetaTexture
-    second: {fileID: 2100000, guid: 64cf561db4fc6054393d016b6ab008f3, type: 2}
+      name: Corteza
+    second: {fileID: 2100000, guid: a26c36a865d6ad94db8cf8c883da9b78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Interior
+    second: {fileID: 2100000, guid: 8ba601ea7da76794a945f58b5c51ed3f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
