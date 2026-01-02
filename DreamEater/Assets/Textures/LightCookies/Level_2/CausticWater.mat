@@ -42,7 +42,7 @@ Material:
     - _Offset: 0
     - _Stretch: 1
     m_Colors:
-    - _Color_1: {r: 0.12683436, g: 0.5572593, b: 1, a: 1}
-    - _Color_2: {r: 0.088443376, g: 1, b: 0.942294, a: 1}
+    - _Color_1: {r: 0.49043253, g: 0.71572286, b: 0.9716981, a: 1}
+    - _Color_2: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
