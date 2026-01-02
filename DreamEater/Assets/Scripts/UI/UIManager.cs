@@ -28,6 +28,9 @@ public class UIManager : MonoBehaviour
     #endregion
     [Header("Debuger(Luego se borra)")]
     [SerializeField] private KeyCode _pauseControl;
+    [Header("Die")]
+    [SerializeField] private GameObject _initDie;
+    [SerializeField] private GameObject _finishDie;
 
 
 
@@ -180,5 +183,15 @@ public class UIManager : MonoBehaviour
         _darkPanel.color = dp;
     }
 
-    
+    public void InitDieCharacter()
+    {
+        _finishDie.SetActive(false);
+        _initDie.SetActive(true);
+    }
+
+    public void FinishDieCharacter()
+    {
+        _initDie.SetActive(false);
+        _finishDie.SetActive(true);
+    }
 }

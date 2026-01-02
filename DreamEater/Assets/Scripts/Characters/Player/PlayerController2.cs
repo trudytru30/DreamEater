@@ -265,7 +265,7 @@ public class PlayerController2 : MonoBehaviour
     private IEnumerator RespawnSequence()
     {
         Debug.Log("Inicia respawn...");
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(6f);
         _rb.isKinematic = true;
         
         Debug.Log("Checkpoint pos: " + CheckpointManager.Instance?.GetCheckpointPosition());
