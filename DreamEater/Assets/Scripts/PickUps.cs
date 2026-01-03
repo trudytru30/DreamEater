@@ -29,5 +29,6 @@ public class PickUps : MonoBehaviour
     private void AddToUI(ItemType itemType)
     {
         //TODO: Mostrar items en la UI
+        PickUpUISHow.Instance.AddPickUp();
     }
 }
