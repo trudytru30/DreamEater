@@ -28,7 +28,7 @@ public class EnemyMovable : MonoBehaviour
     //movimiento del enemy
     private void Update()
     {
-        _rb.linearVelocity = new Vector2(speed, _rb.linearVelocity.y);
+        _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, _rb.linearVelocity.y,speed);
         anim.SetBool(_walkAnimState, true);
     }
     
@@ -39,7 +39,7 @@ public class EnemyMovable : MonoBehaviour
         {
             //rotar enemy para cambiar direccion de movimiento
             speed *= -1;
-            transform.Rotate(0, 180, 0);
+            transform.Rotate(0, 0, 180);
         }
         //mata al player
         else if(other.gameObject.layer == LayerMask.NameToLayer("Player"))
