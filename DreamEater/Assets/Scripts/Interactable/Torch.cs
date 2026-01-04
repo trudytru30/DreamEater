@@ -1,7 +1,8 @@
-/*Para los objetos que pueden ser interactuables y hay que hacer interactuables, en este caso con la antorcha
- TODO objeto que lleve torch TIENE que tener tambien el COMPONENTE INTERACTABLE*/
+/*
+ Para los objetos que pueden ser interactuables y hay que hacer interactuables, en este caso con la antorcha
+ TODO objeto que lleve torch TIENE que tener tambien el COMPONENTE INTERACTABLE
+*/
 
-using System;
 using UnityEngine;
 
 public class Torch : MonoBehaviour

@@ -1,3 +1,8 @@
+/*
+ Controlador del player por fisicas y rigidbody
+ Las funciones de movimiento se encuentran en la clase movement (Run y Walk)
+*/
+
 using System.Collections;
 using UnityEngine;
 

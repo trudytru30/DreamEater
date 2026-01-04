@@ -1,27 +1,52 @@
-/*Es una clase abstracta NO SE PUEDE INSTANCIAR/PONER COMO COMPONENTE
+/*
+ Es una clase abstracta NO SE PUEDE INSTANCIAR/PONER COMO COMPONENTE
  Es la clase padre de los interruptores tanto en patron como simples
- Gestiona los factores comunes de todos los switches es la clase padre*/
+ Gestiona los factores comunes de todos los switches es la clase padre
+*/
 
+using System;
 using UnityEngine;
 
 public abstract class Switch : MonoBehaviour
 {
     [SerializeField] protected bool isActive; //inidca si esta activado, es serializable para el estado incial
 
-    //cmabia el estado
-    public void ChangeActive()
+    //cambia estado al interactuar
+    private void Update()
+    {
+        if (this.gameObject.GetComponent<Interactable>().GetIsInteracting())
+        {
+            ChangeActive();
+            //lanzar llamada al observer para comprobar estado de palancas
+            SwitchSubject.Notify(this);
+        }
+    }
+
+    //cambia el estado
+    private void ChangeActive()
     {
         if (isActive)
         {
             isActive = false;
-            //cambiar posicion desactivado
+            this.gameObject.transform.rotation = Quaternion.Euler(-180, 0, 0);
         }
         else if (!isActive)
         {
             isActive = true;
-            //cambiar posicion activo
+            this.gameObject.transform.rotation = Quaternion.Euler(180, 0, 0);
         }
     }
+    
+    //se completa en los hijos y se usa para comprobar la posicion
+    protected virtual void CheckPosition()
+    {
+        //comprueba que son interactuables
+        if (!gameObject.GetComponent<Interactable>().GetCanInteract())
+        {
+            return;
+        }
+    }
+    
     //getters y setters
     public void SetIsActive(bool  _isActive)
     {
@@ -31,15 +56,5 @@ public abstract class Switch : MonoBehaviour
     public bool GetIsActive()
     {
         return isActive;
-    }
-
-    //se completa en los hijos y se usa para comprobar la posicion
-    protected virtual void CheckPosition()
-    {
-        //comprueba que son interactuables
-        if (!gameObject.GetComponent<Interactable>().GetCanInteract())
-        {
-            return;
-        }
     }
 }

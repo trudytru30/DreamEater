@@ -1,11 +1,13 @@
-/*Script base para todos los interactuables con el player*/
+/*
+ Script base para todos los interactuables con el player
+ */
 
 using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
     [SerializeField] private bool canInteract; //si el player PUEDE interactuar con ello
-    private bool isInteracting; //si el player ESTA interactuando con ello
+    private bool _isInteracting; //si el player ESTA interactuando con ello
 
     //Getters y setters
     public void SetCanInteract(bool _canInteract)
@@ -18,13 +20,13 @@ public class Interactable : MonoBehaviour
         return canInteract;
     }
 
-    public void SetIsInteracting(bool _isInteracting)
+    public void SetIsInteracting(bool isInteracting)
     {
-        isInteracting = _isInteracting;
+        _isInteracting = isInteracting;
     }
 
     public bool GetIsInteracting()
     {
-        return isInteracting;
+        return _isInteracting;
     }
 }

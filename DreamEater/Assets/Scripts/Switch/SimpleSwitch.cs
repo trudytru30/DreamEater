@@ -1,15 +1,35 @@
-/*Comprueba la posicion de un solo switch*/
+/*
+ Comprueba la posicion de un solo switch
+ */
 
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class SimpleSwitch : Switch
 {
     [SerializeField] private bool correctPosition; //la posicion que el jugador debe poner
 
+    private void OnEnable()
+    {
+        SwitchSubject.OnSwitchStateChanged += OnSwitchStateChanged;
+        CheckPosition();
+    }
+
+    private void OnDisable()
+    {
+        SwitchSubject.OnSwitchStateChanged -= OnSwitchStateChanged;
+    }
+
+    private void OnSwitchStateChanged(Switch changedSwitch)
+    {
+        if (changedSwitch == this)
+        {
+            CheckPosition();
+        }
+    }
+    
     protected override void CheckPosition()
-    { ;
-        //acceder a la funcion del padre
+    { 
+        base.CheckPosition();
         if (correctPosition == isActive)
         {
             Debug.Log("correcto");
