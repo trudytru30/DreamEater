@@ -8,13 +8,6 @@ public class FallObjects : MonoBehaviour
     [SerializeField] private GameObject blackmask;
     
 
-    private void Start()
-    {
-        for(int i = 0; i < objects.Length; i++)
-        {
-            objects[i].useGravity = false;
-        }
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

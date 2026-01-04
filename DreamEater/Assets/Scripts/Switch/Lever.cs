@@ -10,13 +10,17 @@ public class Lever : MonoBehaviour
 {
     [SerializeField] private float force; //fuerza que aplica la palanca
     [SerializeField] private Rigidbody rb; //para las fisicas tiene que tener componente rigidboy PROPIO NO CON LO QUE SE VA A INTERWACTUAR
+    [SerializeField] private Transform socket;
     
     private void OnTriggerEnter(Collider other)
     {
         //comprueba que el otro objeto sea player
         if (other.tag == "Player")
         {
-            rb.AddForce(Vector3.down,ForceMode.Force); //aplica la fuerza hacia abajo, principio de palanca
+            //rb.AddForce(Vector3.up,ForceMode.Force); //aplica la fuerza hacia abajo, principio de palanca
+            rb.gameObject.transform.position = socket.position;
+            rb.gameObject.transform.rotation = socket.rotation;
+            Destroy(gameObject);
         }
     }
 }
