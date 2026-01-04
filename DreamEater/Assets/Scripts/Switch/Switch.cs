@@ -4,14 +4,26 @@
  Gestiona los factores comunes de todos los switches es la clase padre
 */
 
+using System;
 using UnityEngine;
 
 public abstract class Switch : MonoBehaviour
 {
     [SerializeField] protected bool isActive; //inidca si esta activado, es serializable para el estado incial
 
+    //cambia estado al interactuar
+    private void Update()
+    {
+        if (this.gameObject.GetComponent<Interactable>().GetIsInteracting())
+        {
+            ChangeActive();
+            //lanzar llamada al observer para comprobar estado de palancas
+            SwitchSubject.Notify(this);
+        }
+    }
+
     //cambia el estado
-    public void ChangeActive()
+    private void ChangeActive()
     {
         if (isActive)
         {
