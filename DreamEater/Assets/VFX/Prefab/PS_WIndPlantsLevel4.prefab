@@ -4843,7 +4843,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1124107450270917259}
   m_Layer: 0
-  m_Name: PS_WIndPlants
+  m_Name: PS_WIndPlantsLevel4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
