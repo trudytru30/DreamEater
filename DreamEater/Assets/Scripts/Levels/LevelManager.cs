@@ -43,12 +43,9 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            if (CheckLevel4Completed()) //Comprueba si es el nivel 4 y si lo es, comprueba que halla cogido los pickups
-            {
-                GameManager.Instance.ChangeNextLevelLoading(nextScene);
-                GameManager.Instance.ChangePuertasDesbloqueadas(nivelDesbloqueado);
-                SceneManager.LoadScene(_sceneName);
-            }
+            GameManager.Instance.ChangeNextLevelLoading(nextScene);
+            GameManager.Instance.ChangePuertasDesbloqueadas(nivelDesbloqueado);
+            SceneManager.LoadScene(_sceneName);
         }
     }
 
@@ -60,27 +57,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    private bool CheckLevel4Completed()
-    {
-        Scene actualscene = SceneManager.GetActiveScene();
-
-        if(actualscene.name == "Level_4")
-        {
-            if (PickUpUISHow.Instance._counter >= PickUpUISHow.Instance._maxPickups)
-            {
-                return true;
-            }
-            else
-            {
-                StartCoroutine(PickUpUISHow.Instance.MustPickUpAll());
-                return false;
-            }
-        }
-        else
-        {
-            return true;
-        }
-    }
 
 
 }
