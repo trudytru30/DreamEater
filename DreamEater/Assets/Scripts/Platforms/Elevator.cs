@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 
 
@@ -7,40 +8,37 @@
 [RequireComponent(typeof(BoxCollider))]
 public class Elevator : MonoBehaviour
 {
-    [Header("Movimiento")]
+    [Header("Configuración de Movimiento")]
     [SerializeField] private float velocidad = 2.5f;
-    [SerializeField] private float minY;
-    [SerializeField] private float maxY;
+    [SerializeField] private List<float> pisosY; // Lista de alturas (Piso 0, Piso 1, etc.)
+    [SerializeField] private bool detenerSiJugadorSale = true;
 
-    private Vector3 targetArriba;
-    private Vector3 targetAbajo;
     private Vector3 targetActual;
-
-    private bool jugadorEncima = false;
     private bool tieneOrden = false;
+    private bool jugadorEncima = false;
+
+    // Para no perder la jerarquía original del player
+    private Transform originalParent;
 
     private void Awake()
     {
-        GetComponent<BoxCollider>().isTrigger = true;
+        // Aseguramos que el collider sea trigger
+        if (GetComponent<BoxCollider>()) GetComponent<BoxCollider>().isTrigger = true;
     }
 
     private void Start()
     {
-        targetArriba = new Vector3(transform.position.x, maxY, transform.position.z);
-        targetAbajo = new Vector3(transform.position.x, minY, transform.position.z);
         targetActual = transform.position;
     }
 
-    public void LlamarArriba()
+    // Método universal para llamar a cualquier piso
+    public void IrAlPiso(int indicePiso)
     {
-        targetActual = targetArriba;
-        tieneOrden = true;
-    }
-
-    public void LlamarAbajo()
-    {
-        targetActual = targetAbajo;
-        tieneOrden = true;
+        if (indicePiso >= 0 && indicePiso < pisosY.Count)
+        {
+            targetActual = new Vector3(transform.position.x, pisosY[indicePiso], transform.position.z);
+            tieneOrden = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -48,8 +46,9 @@ public class Elevator : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             jugadorEncima = true;
-            // Usamos true para que mantenga su posición en el mundo al hacerse hijo
-            other.transform.SetParent(transform, true);
+            // Guardamos el padre original antes de cambiarlo
+            originalParent = other.transform.parent;
+            other.transform.SetParent(transform);
         }
     }
 
@@ -58,17 +57,21 @@ public class Elevator : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             jugadorEncima = false;
-            other.transform.SetParent(null);
-            // IMPORTANTE: Al salir, asegúrate de que el objeto no herede escalas raras
-            DontDestroyOnLoad(other.gameObject); // Opcional, dependiendo de tu setup
+            // Devolvemos al jugador a su padre original (no a null)
+            other.transform.SetParent(originalParent);
+
+            // Si quieres que se pare al salir:
+            if (detenerSiJugadorSale)
+            {
+                tieneOrden = false;
+            }
         }
     }
 
-    private void FixedUpdate() // Cambiamos Update por FixedUpdate para físicas
+    private void FixedUpdate()
     {
         if (!tieneOrden) return;
 
-        // Movemos el ascensor
         transform.position = Vector3.MoveTowards(
             transform.position,
             targetActual,

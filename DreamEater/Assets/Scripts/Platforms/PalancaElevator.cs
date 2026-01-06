@@ -6,36 +6,22 @@ using UnityEngine.InputSystem;
 public class PalancaElevator : MonoBehaviour
 {
     [SerializeField] private Elevator ascensor;
-    [SerializeField] private float retardo = 1.5f;
-    [SerializeField] private bool isPalancaDeSubir;
-
-    private void Awake()
-    {
-        GetComponent<BoxCollider>().isTrigger = true;
-    }
+    [SerializeField] private float retardo = 0.5f;
+    [SerializeField] private int numeroDePisoAlQueLlamar; // 0 para PB, 1 para Piso 1, etc.
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
-
-        Debug.Log("Palanca activada");
-
-        if (isPalancaDeSubir)
-            StartCoroutine(Subir());
-        else
-            StartCoroutine(Bajar());
+        if (other.CompareTag("Player"))
+        {
+            StopAllCoroutines(); // Evita errores si entras y sales rápido
+            StartCoroutine(ActivarPalanca());
+        }
     }
 
-    private IEnumerator Subir()
+    private IEnumerator ActivarPalanca()
     {
+        Debug.Log("Llamando al piso: " + numeroDePisoAlQueLlamar);
         yield return new WaitForSeconds(retardo);
-        ascensor.LlamarArriba();
-    }
-
-    private IEnumerator Bajar()
-    {
-        yield return new WaitForSeconds(retardo);
-        ascensor.LlamarAbajo();
+        ascensor.IrAlPiso(numeroDePisoAlQueLlamar);
     }
 }
-
