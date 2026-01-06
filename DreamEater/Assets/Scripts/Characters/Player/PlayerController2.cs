@@ -42,7 +42,6 @@ public class PlayerController2 : MonoBehaviour
 
     private float _verticalVelocity;
     private float _edgeTimer = 0f;
-    //private bool _jumpRequested;
     private bool _isGrounded;
 
     private Vector3 _lastLookDir = Vector3.right;
@@ -51,6 +50,7 @@ public class PlayerController2 : MonoBehaviour
     private CapsuleCollider _collider;
     private Vector3 _originalCenter;
     private float _originalHeight;
+    private bool _isCrouching ;
     
     private IGrabable _currentGrabbedObject;
 
@@ -92,8 +92,7 @@ public class PlayerController2 : MonoBehaviour
     private void Update()
     {
         if (!isAlive || InputManager.Instance == null) return;
-        _isGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, groundMask, QueryTriggerInteraction.Ignore);//verifica si esta en el suelo para saltar
-
+        _isGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, groundMask, QueryTriggerInteraction.Ignore);//comprobar suelo
         
         float h = InputManager.Instance.Horizontal;
         float z = InputManager.Instance.Depth;
@@ -136,18 +135,55 @@ public class PlayerController2 : MonoBehaviour
             }
         }
 
-        // Movimiento base
-        bool isCrouching = InputManager.Instance.CrouchHeld;
-        
-        if (!isCrouching && _collider.height != _originalHeight)
-        {
-            _collider.height = _originalHeight;
-            _collider.center = _originalCenter;
-        }
+        //movimiento base
+        bool wantCrouch = InputManager.Instance.CrouchHeld;
 
-        if (isCrouching)
+        if (_isCrouching)
         {
-            Crouch();
+            //si agachado se mantiene agachado si se pide o no hay espacio para levantarse
+            if (!wantCrouch && CanStandUp())
+            {
+                _isCrouching = false;
+                // restaurar cápsula
+                _collider.height = _originalHeight;
+                _collider.center = _originalCenter;
+            }
+            else
+            {
+                //mantiene agachado
+                float crouchHeight   = _originalHeight * 0.5f; //0.7f
+                float originalBottom = _originalCenter.y - (_originalHeight * 0.5f);
+                float newCenterY     = originalBottom + (crouchHeight * 0.5f);
+
+                _collider.height = crouchHeight;
+                _collider.center = new Vector3(_originalCenter.x, newCenterY, _originalCenter.z);
+            }
+        }
+        else
+        {
+            //si esta de pie y no techo,si se quiere agachar se agacha
+            if (wantCrouch)
+            {
+                _isCrouching = true;
+
+                float crouchHeight   = _originalHeight * 0.5f;
+                float originalBottom = _originalCenter.y - (_originalHeight * 0.5f);
+                float newCenterY     = originalBottom + (crouchHeight * 0.5f);
+
+                _collider.height = crouchHeight;
+                _collider.center = new Vector3(_originalCenter.x, newCenterY, _originalCenter.z);
+            }
+            else
+            {
+               
+                if (_collider.height != _originalHeight)
+                {
+                    _collider.height = _originalHeight;
+                    _collider.center = _originalCenter;
+                }
+            }
+            _anim.SetBool(crouchBool, _isCrouching);
+            if (_isCrouching) _anim.ResetTrigger(jumpTrig);
         }
 
         if (InputManager.Instance.RunHeld)
@@ -160,28 +196,20 @@ public class PlayerController2 : MonoBehaviour
         }
 
         float currentSpeed = speed * _movement.speedMultiplier;
-        if (isCrouching)
+        if (_isCrouching)
         {
             currentSpeed *= crouchSpeedFactor;
         }
 
-        // Movimiento físico
+        //mov físico
         Vector3 move = input * currentSpeed;
         move.y = _rb.linearVelocity.y;
         _rb.linearVelocity = move;
 
-        // Ground check
+        //ground check
         _isGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, groundMask, QueryTriggerInteraction.Ignore);
         _edgeTimer = _isGrounded ? edgeTime : _edgeTimer - Time.deltaTime;
-/*
-        if (_jumpRequested && _isGrounded)
-        {
-            _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            _anim.ResetTrigger(jumpTrig);
-            _anim.SetTrigger(jumpTrig);
-            _jumpRequested = false;
-        }
-        */
+
 
         // Orientación
         if (input.sqrMagnitude > 0.001f)
@@ -196,16 +224,18 @@ public class PlayerController2 : MonoBehaviour
         // Animaciones
         _anim.SetFloat(xParam, input.x, 0.08f, Time.deltaTime);
         _anim.SetFloat(zParam, input.z, 0.08f, Time.deltaTime);
-        _anim.SetBool(crouchBool, isCrouching);
+        //_anim.SetBool(crouchBool, _isCrouching);
         _anim.SetBool("Grounded", _isGrounded);
 
-        float ySpeed = 0f;
+        /*float ySpeed = 0f;
         if (input.sqrMagnitude > 0.01f)
         {
             ySpeed = InputManager.Instance.RunHeld ? 2f : 1f;
         }
 
-        _anim.SetFloat(yParam, ySpeed, 0.08f, Time.deltaTime);
+        _anim.SetFloat(yParam, ySpeed, 0.08f, Time.deltaTime);*/
+        _anim.SetFloat(yParam, _rb.linearVelocity.y, 0.08f, Time.deltaTime);
+
 
     }
 
@@ -213,20 +243,52 @@ public class PlayerController2 : MonoBehaviour
     {
         if (!isAlive) return;
 
-        if (_isGrounded)
+        if (!_isGrounded) return;//solo salta si esta en el suelo
+        if (_isCrouching || !CanStandUp())
         {
-            _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            _anim.ResetTrigger(jumpTrig);
-            _anim.SetTrigger(jumpTrig);
+            _anim.ResetTrigger(jumpTrig);//cancela salto en crouch po ej
+            return;
         }
+
+        //salto
+        _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        _anim.ResetTrigger(jumpTrig);
+        _anim.SetTrigger(jumpTrig);
     }
     private void Crouch()
     {
-        float crouchHeight = _originalHeight * 0.5f;//se puede cambiar por 0.7 y se hace mas pequeño /0.7 se hace mas grande
+        float crouchHeight   = _originalHeight * 0.5f;
+        float originalBottom = _originalCenter.y - (_originalHeight * 0.5f);
+        float newCenterY     = originalBottom + (crouchHeight * 0.5f);
+
         _collider.height = crouchHeight;
-        _collider.center = new Vector3(_originalCenter.x, crouchHeight / 2f, _originalCenter.z);
+        _collider.center = new Vector3(_originalCenter.x, newCenterY, _originalCenter.z);
     }
 
+    private bool CanStandUp()
+    {
+        var bounds      = _collider.bounds; 
+        float radius    = _collider.radius * 0.95f;
+        float feetY     = bounds.min.y;//pos pies
+        float headYFull = feetY + _originalHeight;
+
+        //para que casula no toque justo el techo
+        float epsilon   = 0.02f;
+
+        Vector3 worldBottom = new Vector3(bounds.center.x, feetY + radius + epsilon, bounds.center.z);
+        Vector3 worldTop    = new Vector3(bounds.center.x, headYFull - radius,       bounds.center.z);
+        
+        var hits = Physics.OverlapCapsule(worldBottom, worldTop, radius, groundMask, QueryTriggerInteraction.Ignore);
+
+        //si hay algun collider encima no puede levantarse
+        foreach (var col in hits)
+        {
+            //ignora el propio collider
+            if (col.transform.root == transform.root) continue;
+            return false; //hay techo
+        }
+        return true;
+    }
 
     private void WalkPlayer() => _movement.Walk();
     private void RunPlayer() => _movement.Run();
