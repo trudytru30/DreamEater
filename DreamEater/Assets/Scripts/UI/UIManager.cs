@@ -93,15 +93,16 @@ public class UIManager : MonoBehaviour
                 break;
             default: return;
         }
+        Debug.Log(Screen.currentResolution);
     }
     public void ChangeBrightness(float bright)
     {
-        if(bright < 0.5f)
+        if (bright < 0.5f)
         {
             _brightPanel.enabled = false;
             _darkPanel.enabled = true;
-            Color c =_darkPanel.color;
-            c.a = (1-bright)*0.9f;
+            Color c = _darkPanel.color;
+            c.a = (1 - bright) * 0.9f;
             Debug.Log((1 - bright) * 0.9f);
             _darkPanel.color = c;
         }
@@ -110,11 +111,15 @@ public class UIManager : MonoBehaviour
             _darkPanel.enabled = false;
             _brightPanel.enabled = true;
             Color c = _brightPanel.color;
-            c.a = (bright-0.5f)*0.039f;
+            c.a = (bright - 0.5f) * 0.039f;
             Debug.Log((bright - 0.5f) * 0.039f);
             _brightPanel.color = c;
         }
-        
+
+    }
+    public void ChangeQuality(int index)
+    {
+        QualitySettings.SetQualityLevel(index);
     }
     public void FullScreen(bool fullScreen)
     {
@@ -139,7 +144,7 @@ public class UIManager : MonoBehaviour
         GameManager.Instance.darkBrightnessFloat = dp.a;
         GameManager.Instance.darkBrightnessActive= _darkPanel.enabled;
     }
-    private void OpenClosePauseMenu()
+    public void OpenClosePauseMenu()
     {
         _pauseCanvas.SetActive(!isGamePaused);
         isGamePaused = !isGamePaused;
@@ -154,6 +159,7 @@ public class UIManager : MonoBehaviour
     }
     public void RestartLevel()
     {
+        Time.timeScale = 1;
         var actualScene = SceneManager.GetActiveScene();
         var actualSceneName = actualScene.name;
 
