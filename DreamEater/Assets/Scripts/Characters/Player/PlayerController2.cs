@@ -35,6 +35,10 @@ public class PlayerController2 : MonoBehaviour
     [SerializeField] private string yParam = "ySpeed";
     [SerializeField] private string crouchBool = "IsCrouching";
     [SerializeField] private string jumpTrig = "Jump";
+    
+    [Header("Particles")]
+    [SerializeField] private ParticleSystem runParticles;
+    private ParticleSystem.EmissionModule _runParticlesEmission;
 
     private Rigidbody _rb;
     private Animator _anim;
@@ -71,6 +75,14 @@ public class PlayerController2 : MonoBehaviour
         _rb.constraints = RigidbodyConstraints.FreezeRotation;
         _rb.interpolation = RigidbodyInterpolation.Interpolate;
         _anim.applyRootMotion = false;
+        
+        
+        //Particulas
+        if (runParticles)
+        {
+            _runParticlesEmission = runParticles.emission;
+            _runParticlesEmission.enabled = false;
+        }
     }
 
     private void OnEnable()
@@ -87,6 +99,10 @@ public class PlayerController2 : MonoBehaviour
         InputManager.Instance.JumpPressed -= Jump;
         InputManager.Instance.InteractPressed -= Interact;
         //InputManager.Instance.InteractPressed -= TryGrabOrRelease;
+        if (runParticles)
+        {
+            runParticles.Stop(true,ParticleSystemStopBehavior.StopEmitting);
+        }
     }
 
     private void Update()
@@ -236,6 +252,13 @@ public class PlayerController2 : MonoBehaviour
         _anim.SetFloat(yParam, ySpeed, 0.08f, Time.deltaTime);*/
         _anim.SetFloat(yParam, _rb.linearVelocity.y, 0.08f, Time.deltaTime);
 
+        bool isMoving = input.sqrMagnitude > 0.01f;
+        bool isRunning = isMoving && InputManager.Instance.RunHeld && !_isCrouching;
+
+        if (runParticles)
+        {
+            _runParticlesEmission.enabled = isRunning;
+        }
 
     }
 
