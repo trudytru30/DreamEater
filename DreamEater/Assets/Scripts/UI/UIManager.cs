@@ -156,6 +156,7 @@ public class UIManager : MonoBehaviour
         {
             Time.timeScale=1;
         }
+        CursorManager.Instance.ShowCursor(isGamePaused);
     }
     public void RestartLevel()
     {
