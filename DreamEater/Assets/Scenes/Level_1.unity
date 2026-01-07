@@ -8009,7 +8009,7 @@ PrefabInstance:
     - target: {fileID: 2219868225079561398, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
       propertyPath: runParticles
       value: 
-      objectReference: {fileID: 5295919753836702536, guid: c425fd7dcc8d027479ea7519ffa32f73, type: 3}
+      objectReference: {fileID: 1605230862}
     - target: {fileID: 2219868225079561398, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
       propertyPath: groundMask.m_Bits
       value: 512
@@ -93318,6 +93318,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7, y: 10, z: 21}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!198 &1605230862 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5295919753836702536, guid: c425fd7dcc8d027479ea7519ffa32f73, type: 3}
+  m_PrefabInstance: {fileID: 1176537864}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1605280251
 PrefabInstance:
   m_ObjectHideFlags: 0
