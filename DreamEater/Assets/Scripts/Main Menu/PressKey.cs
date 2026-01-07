@@ -34,7 +34,11 @@ public class PressKey : MonoBehaviour
         if (pressed)
         {
             if (mainMenuCanvas != null)
+            {
                 mainMenuCanvas.SetActive(true);
+                CursorManager.Instance.ShowCursor(true);
+            }
+                
             gameObject.SetActive(false);
         }
     }
