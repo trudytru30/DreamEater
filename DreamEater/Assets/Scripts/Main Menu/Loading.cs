@@ -51,19 +51,19 @@ public class Loading : MonoBehaviour
         switch (selec)
         {
             case 0:
-                _consejosText.text = "\"Nunca subestimes el poder de los sueños.\"" ;
+                _consejosText.text = "\"Never underestimate the power of dreams.\"";
                 break;
             case 1:
-                _consejosText.text = "\"Cuando se acerque una ola, busca un lugar para refugiarte.\"";
+                _consejosText.text = "\"When a wave approaches, find a place to take shelter.\"";
                 break;
             case 2:
-                _consejosText.text = "\"Los amigos son la familia que elegimos\".";
+                _consejosText.text = "\"Friends are the family we choose\".";
                 break;
             case 3:
-                _consejosText.text = "\"Vigila tu espalda que el DreamEater acecha.\"";
+                _consejosText.text = "\"Watch your back, the DreamEater is stalking.\"";
                 break;
             case 4:
-                _consejosText.text = "\"Solo el DreamEater tiene el corazón tan podrido como para perturbar los sueños de un niño\".";
+                _consejosText.text = "\"Only the DreamEater has a heart rotten enough to disturb a child's dream\".";
                 break;
             default:
                 return;
