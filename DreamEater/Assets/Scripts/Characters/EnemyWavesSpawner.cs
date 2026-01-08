@@ -12,15 +12,15 @@ public class EnemyWavesSpawner : MonoBehaviour
     [SerializeField] private EnemyWaves instance; //poner el prefab de la ola para que cree la instancia
 
     //gestiona tiempo el cooldown
-    IEnumerator Timer()
+    IEnumerator InstanceWaves()
     {
+        Instantiate(instance, this.gameObject.transform.position, Quaternion.identity);
         yield return new WaitForSeconds(cooldown);
     }
 
     //gestiona el proceso de instaciamiento
     private void Update()
     {
-        Instantiate(instance, this.gameObject.transform.position, Quaternion.identity);
-        StartCoroutine(Timer());
+        StartCoroutine(InstanceWaves());
     }
 }
