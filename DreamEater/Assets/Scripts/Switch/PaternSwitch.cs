@@ -11,12 +11,6 @@ public class PaternSwitch : Switch
     [SerializeField] private Switch[] totalSwitches; //numero del conjunto de interruptores
     [SerializeField] private bool[] correctPositions; //position correcta de cada switch del array TIENEN QUE TENER MISMO TAMAÑO
 
-    //intentar cambiar por un observer
-    private void Update()
-    {
-        // CheckPosition();
-    }
-
     private void OnEnable()
     {
         SwitchSubject.OnSwitchStateChanged += OnSwitchStateChanged;
