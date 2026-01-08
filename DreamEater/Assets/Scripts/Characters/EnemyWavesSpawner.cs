@@ -10,17 +10,25 @@ public class EnemyWavesSpawner : MonoBehaviour
 {
     [SerializeField] private float cooldown; //tiempo entre ola y ola, nada que ver con el lifetime
     [SerializeField] private EnemyWaves instance; //poner el prefab de la ola para que cree la instancia
+    private bool isWaiting = false; // Variable para controlar el flujo
 
-    //gestiona tiempo el cooldown
-    IEnumerator Timer()
-    {
-        yield return new WaitForSeconds(cooldown);
-    }
-
-    //gestiona el proceso de instaciamiento
     private void Update()
     {
-        Instantiate(instance, this.gameObject.transform.position, Quaternion.identity);
-        StartCoroutine(Timer());
+        // Si no estamos esperando, disparamos la ola
+        if (!isWaiting)
+        {
+            StartCoroutine(SpawnRoutine());
+        }
+    }
+
+    IEnumerator SpawnRoutine()
+    {
+        isWaiting = true; // Bloqueamos el spawner
+        
+        Instantiate(instance, transform.position, Quaternion.identity);
+        
+        yield return new WaitForSeconds(cooldown); // Esperamos el tiempo definido
+        
+        isWaiting = false; // Liberamos el spawner
     }
 }

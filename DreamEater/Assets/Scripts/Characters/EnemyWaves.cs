@@ -24,7 +24,7 @@ public class EnemyWaves : MonoBehaviour
     //mover la ola
     private void Move()
     {
-        transform.position += new Vector3(Direction * speed * Time.deltaTime, 0f, 0f);
+        transform.position += new Vector3(0f, 0f,-(Direction * speed * Time.deltaTime));
         
         //desaparecer la ola despues de x segundos
         _time += Time.deltaTime;
