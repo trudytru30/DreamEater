@@ -15,7 +15,6 @@ public class EnemyWaves : MonoBehaviour
     [SerializeField] private Vector3 direction;
     
     private float _time;
-    private const int Direction = 1;
 
     private void Update()
     {
@@ -25,7 +24,7 @@ public class EnemyWaves : MonoBehaviour
     //mover la ola
     private void Move()
     {
-        transform.position += new Vector3(Direction * speed * Time.deltaTime, 0f, 0f);
+        transform.position += direction.normalized * speed * Time.deltaTime;
         
         //desaparecer la ola despues de x segundos
         _time += Time.deltaTime;
