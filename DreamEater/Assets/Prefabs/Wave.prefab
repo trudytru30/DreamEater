@@ -70,6 +70,7 @@ MonoBehaviour:
   speed: 7
   force: 3
   timeLimit: 3
+  direction: {x: 0, y: 0, z: -1}
 --- !u!1001 &4123395309167988166
 PrefabInstance:
   m_ObjectHideFlags: 0
