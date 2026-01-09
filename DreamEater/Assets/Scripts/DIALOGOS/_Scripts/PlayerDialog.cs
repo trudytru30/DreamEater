@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerDialog : MonoBehaviour
 {
     [SerializeField] private DialogueController dialogueController;
     [SerializeField] private Transform interactionSource;
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
         // Interacción normal si no hay diálogo
         Ray ray = new Ray(interactionSource.position, interactionSource.forward);
         if(Physics.Raycast(ray, out RaycastHit hit, interactRange))
-            if(hit.collider.TryGetComponent(out IInteractable interactable))
+            if(hit.collider.TryGetComponent(out IInteractableDialog interactable))
                 interactable.Interact();
     }
     
