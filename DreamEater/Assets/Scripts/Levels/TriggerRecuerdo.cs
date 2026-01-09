@@ -14,6 +14,7 @@ public class TriggerRecuerdo : MonoBehaviour
             _systemParticle.SetActive(true);
             StartCoroutine(MiDestello());
             other.GetComponent<PlayerController2>().enabled = false;
+            
         }
         
 

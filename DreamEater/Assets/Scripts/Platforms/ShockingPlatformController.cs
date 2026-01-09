@@ -25,13 +25,16 @@ public class ShockingPlatformController : MonoBehaviour
             for (int i = 0; i < shockingPlatforms.Length; i++)
             {
                 shockingPlatforms[i].setCanShock(true); //activa la plataforma que toca
+               
                 if (i > 0)
                 {
-                    shockingPlatforms[i - 1].setCanShock(false); //desactiva la plataforma anterior
+                    shockingPlatforms[i - 1].setCanShock(false);
+                   //desactiva la plataforma anterior
                 }
                 else if (i == 0) 
                 {
-                    shockingPlatforms[shockingPlatforms.Length-1].setCanShock(false);//al dar la vuelta apaga la ultima
+                    shockingPlatforms[shockingPlatforms.Length-1].setCanShock(false);
+                    //al dar la vuelta apaga la ultima
                 }
                 yield return new WaitForSeconds(changeTime);
             }
