@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 [RequireComponent(typeof(BoxCollider))]
 public class ElevatorNonStop : MonoBehaviour
@@ -13,57 +12,60 @@ public class ElevatorNonStop : MonoBehaviour
     private Vector3 targetArriba;
     private Vector3 targetAbajo;
     private Vector3 targetActual;
+    
+    private float cronometroPausa = 0f;
+    private bool estaEsperando = false;
 
     private void Awake()
     {
-        // El trigger es necesario para detectar al jugador sin bloquear su paso
-        GetComponent<BoxCollider>().isTrigger = true;
+        if (GetComponent<BoxCollider>()) GetComponent<BoxCollider>().isTrigger = true;
     }
 
     private void Start()
     {
-        // Inicializamos los vectores de destino
         targetArriba = new Vector3(transform.position.x, maxY, transform.position.z);
         targetAbajo = new Vector3(transform.position.x, minY, transform.position.z);
         
-        // Determinar el objetivo inicial (el más alejado de la posición actual)
+        // Empezamos yendo hacia el punto más lejano
         targetActual = (Vector3.Distance(transform.position, targetArriba) > 0.1f) ? targetArriba : targetAbajo;
-
-        StartCoroutine(CicloMovimiento());
     }
 
-    private IEnumerator CicloMovimiento()
+    private void FixedUpdate()
     {
-        while (true)
+        // Lógica de pausa
+        if (estaEsperando)
         {
-            // Movimiento hacia el objetivo actual
-            while (Vector3.Distance(transform.position, targetActual) > 0.001f)
+            cronometroPausa += Time.fixedDeltaTime;
+            if (cronometroPausa >= tiempoEspera)
             {
-                transform.position = Vector3.MoveTowards(
-                    transform.position,
-                    targetActual,
-                    velocidad * Time.deltaTime
-                );
-                yield return null; 
+                estaEsperando = false;
+                cronometroPausa = 0f;
+                // Cambiamos el destino al llegar al final de la espera
+                targetActual = (targetActual == targetArriba) ? targetAbajo : targetArriba;
             }
+            return; // No se mueve mientras espera
+        }
 
-            // Ajuste exacto de posición y pausa
+        // Movimiento suave compatible con la física del Player
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            targetActual,
+            velocidad * Time.fixedDeltaTime
+        );
+
+        // Si llega al destino, activa la pausa
+        if (Vector3.Distance(transform.position, targetActual) < 0.001f)
+        {
             transform.position = targetActual;
-            yield return new WaitForSeconds(tiempoEspera);
-
-            // Alternar destino
-            targetActual = (targetActual == targetArriba) ? targetAbajo : targetArriba;
+            estaEsperando = true;
         }
     }
-
-    // --- Lógica de Player Parent ---
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            // Hacemos al jugador hijo de la plataforma para que se mueva con ella
-            // 'true' mantiene la posición, rotación y escala global actual
+            // Mantenemos la jerarquía global para libertad de movimiento
             other.transform.SetParent(transform, true);
         }
     }
@@ -72,7 +74,6 @@ public class ElevatorNonStop : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Quitamos el parentesco al salir
             other.transform.SetParent(null);
         }
     }
