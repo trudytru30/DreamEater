@@ -10759,11 +10759,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5675314313350645821, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1226.09
+      value: 501.1
       objectReference: {fileID: 0}
     - target: {fileID: 5675314313350645821, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.81
+      value: -38.66
       objectReference: {fileID: 0}
     - target: {fileID: 5675314313350645821, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -124218,7 +124218,7 @@ Transform:
   m_GameObject: {fileID: 1655361860}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1194.09, y: 5.68, z: 64.13}
+  m_LocalPosition: {x: 469.1, y: -29.17, z: 64.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -131381,7 +131381,7 @@ Transform:
   m_GameObject: {fileID: 1790810736}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: 1194.09, y: 11.856379, z: 64.811485}
+  m_LocalPosition: {x: 469.1, y: -22.99362, z: 64.81148}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -134217,7 +134217,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pulsa E para ir arriba
+  m_Text: Pulsa E para subir
 --- !u!222 &1829458509
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -135938,7 +135938,7 @@ Transform:
   m_GameObject: {fileID: 1845247433}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: 1194.09, y: 11.856379, z: 64.811485}
+  m_LocalPosition: {x: 469.1, y: -22.99362, z: 64.81148}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
