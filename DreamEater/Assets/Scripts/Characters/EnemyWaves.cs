@@ -12,9 +12,9 @@ public class EnemyWaves : MonoBehaviour
     [SerializeField] private float speed = 3f;
     [SerializeField] private float force;
     [SerializeField] private float timeLimit = 5f;
+    [SerializeField] private Vector3 direction;
     
     private float _time;
-    private const int Direction = 1;
 
     private void Update()
     {
@@ -24,7 +24,7 @@ public class EnemyWaves : MonoBehaviour
     //mover la ola
     private void Move()
     {
-        transform.position += new Vector3(0f, 0f,-(Direction * speed * Time.deltaTime));
+        transform.position += direction.normalized * speed * Time.deltaTime;
         
         //desaparecer la ola despues de x segundos
         _time += Time.deltaTime;
@@ -38,9 +38,15 @@ public class EnemyWaves : MonoBehaviour
     //si la ola interactua con el player
     private void OnTriggerEnter(Collider other)
     {
+        //no aplica la fuerza si esta en zona segura
+        if (other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        {
+            return;
+        }
+
         if (other.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            other.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.forward, ForceMode.Force); //revisar que .fordward hace lo que debe sino probar a cambiar por .right
+            other.gameObject.GetComponent<Rigidbody>().AddForce(direction, ForceMode.Force);
         }
     }
 }
