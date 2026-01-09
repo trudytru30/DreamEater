@@ -946,6 +946,14 @@ PrefabInstance:
       propertyPath: minDepth
       value: -10
       objectReference: {fileID: 0}
+    - target: {fileID: 2219868225079561398, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
+      propertyPath: grabOrigin
+      value: 
+      objectReference: {fileID: 1110743784}
+    - target: {fileID: 2219868225079561398, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
+      propertyPath: groundMask.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 5675314313350645821, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.79
@@ -985,6 +993,10 @@ PrefabInstance:
     - target: {fileID: 5675314313350645821, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267974703519156573, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.064
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2229,6 +2241,10 @@ PrefabInstance:
       value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6181449549415908616, guid: e41d886d405342c469f3acba3c060bbb, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6181449549415908616, guid: e41d886d405342c469f3acba3c060bbb, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0.1953097
       objectReference: {fileID: 0}
@@ -2239,6 +2255,10 @@ PrefabInstance:
     - target: {fileID: 6181449549415908616, guid: e41d886d405342c469f3acba3c060bbb, type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
       value: 0.5377358
+      objectReference: {fileID: 0}
+    - target: {fileID: 6181449549415908616, guid: e41d886d405342c469f3acba3c060bbb, type: 3}
+      propertyPath: InitialModule.startColor.minColor.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6181449549415908616, guid: e41d886d405342c469f3acba3c060bbb, type: 3}
       propertyPath: InitialModule.startColor.minColor.b
@@ -2279,6 +2299,10 @@ PrefabInstance:
     - target: {fileID: 6181449549415908616, guid: e41d886d405342c469f3acba3c060bbb, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.atime4
       value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 6181449549415908616, guid: e41d886d405342c469f3acba3c060bbb, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 0.3019608
       objectReference: {fileID: 0}
     - target: {fileID: 6181449549415908616, guid: e41d886d405342c469f3acba3c060bbb, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key3.a
@@ -5335,6 +5359,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110463345}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1110743784 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6267974703519156573, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
+  m_PrefabInstance: {fileID: 327213482}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1174283350
 GameObject:
   m_ObjectHideFlags: 0
@@ -5369,6 +5398,10 @@ MonoBehaviour:
   _puerta3: {fileID: 51053008}
   _puerta4: {fileID: 213256917}
   _puerta5: {fileID: 0}
+  _bicho1: {fileID: 0}
+  _bicho2: {fileID: 0}
+  _bicho3: {fileID: 0}
+  _bicho4: {fileID: 0}
   _trigger_1: {fileID: 1391514649}
   _trigger_2: {fileID: 1317463809}
   _trigger_3: {fileID: 36774794}
