@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef9c500f39d4161bc8318cc49e8e3da, type: 3}
+  m_Name: Dialogue_03_05_LVL01
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  Speaker: RomeoSantos
+  Line: "Estas son las reglas del mecanismo:\r\nLa Ardilla y el Conejo nunca est\xE1n
+    en la misma posici\xF3n: si uno sube, el otro baja.\r\nLa Cabra ha visto que
+    la Ardilla est\xE1 Arriba, y ha decidido imitarla.\r\n\r\n"
+  Choices:
+  - text: Continuar
+    nextNode: {fileID: 11400000, guid: 249e02c79fee6a04798406b78fe69fc2, type: 2}
+  - text: Volver
+    nextNode: {fileID: 11400000, guid: 1096639c8f6937740a2575f559328da3, type: 2}
+  NextNode: {fileID: 0}

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef9c500f39d4161bc8318cc49e8e3da, type: 3}
+  m_Name: Dialogue_03_02_LVL01
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  Speaker: RomeoSantos
+  Line: "Esto de al lado nuestro, se trata de un puzzle que fue dise\xF1ado por DreamEater,
+    pero cambia dependiendo de al individuo que atrapa."
+  Choices:
+  - text: Continuar
+    nextNode: {fileID: 11400000, guid: 73d1cd65bc3a4a04eb0a9da5cdda0d8b, type: 2}
+  - text: Volver
+    nextNode: {fileID: 11400000, guid: 9e6f80ab9a5432c40a15baf1a42a8eaa, type: 2}
+  NextNode: {fileID: 0}
