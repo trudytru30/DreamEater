@@ -1,15 +1,14 @@
-/*NO CONFUNDIR CON SITCHES/INTERRUPTORES
- Se necesita un pivote o algo sobre lo que hacer palanca no se puede hacer en el aire por fisica el rb se cae
- Fisicamente se aplica el principio de palanca sobre otro rigidbody
+/*
+ NO CONFUNDIR CON SITCHES/INTERRUPTORES
+ Se pone una animacion para hacer la simulacion para conseguir un resultado realista
+ No se hace por fisicas el obejto no se lanza como tal
 */
 
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Lever : MonoBehaviour
 {
-    [SerializeField] private float force; //fuerza que aplica la palanca
-    [SerializeField] private Animator anim; //para las fisicas tiene que tener componente rigidboy PROPIO NO CON LO QUE SE VA A INTERWACTUAR
+    [SerializeField] private Animator anim; //animacion de lanzamiiento
     [SerializeField] private Transform socket;
     
     private void OnTriggerEnter(Collider other)
@@ -17,7 +16,6 @@ public class Lever : MonoBehaviour
         //comprueba que el otro objeto sea player
         if (other.tag == "Player")
         {
-            //rb.AddForce(Vector3.up,ForceMode.Force); //aplica la fuerza hacia abajo, principio de palanca
             anim.enabled = true;
             Destroy(gameObject);
         }

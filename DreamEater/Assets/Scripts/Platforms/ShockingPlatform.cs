@@ -7,15 +7,16 @@ using UnityEngine;
 
 public class ShockingPlatform : MonoBehaviour
 {
-    [SerializeField] GameObject _particleSystem;
-    private bool _canShock = false; //inidica si es la plataforma de shock activa
+    [SerializeField] private GameObject particleSystem;
+    private bool _canShock; //inidica si es la plataforma de shock activa
     private PlayerController2 _playerOnTop;
 
 
-
-    private void Start()
+    //configuracion por defecto de variables
+    private void Awake()
     {
-        _particleSystem.SetActive(false);
+        _canShock = false;
+        particleSystem.SetActive(false);
     }
 
     //registra al player colisionando con esa plataforma
@@ -37,13 +38,14 @@ public class ShockingPlatform : MonoBehaviour
     {
         if (_canShock && _playerOnTop != null)
             _playerOnTop.Die();
-        if (_canShock == false)
+        //activa y desactiva particulas
+        if (!_canShock)
         {
-            _particleSystem.SetActive(false);
+            particleSystem.SetActive(false);
         }
         else if (_canShock)
         {
-            _particleSystem.SetActive(true);
+            particleSystem.SetActive(true);
         }
     }
  
@@ -58,9 +60,13 @@ public class ShockingPlatform : MonoBehaviour
         return _canShock;
     }
 
-
+    public void setParticle(GameObject _particleSystem)
+    {
+        particleSystem = _particleSystem;
+    }
+    
     public GameObject getParticle()
     {
-
-    return _particleSystem; }
+        return particleSystem;
+    }
 }

@@ -28,13 +28,11 @@ public class ShockingPlatformController : MonoBehaviour
                
                 if (i > 0)
                 {
-                    shockingPlatforms[i - 1].setCanShock(false);
-                   //desactiva la plataforma anterior
+                    shockingPlatforms[i - 1].setCanShock(false); //desactiva la plataforma anterior
                 }
                 else if (i == 0) 
                 {
-                    shockingPlatforms[shockingPlatforms.Length-1].setCanShock(false);
-                    //al dar la vuelta apaga la ultima
+                    shockingPlatforms[shockingPlatforms.Length-1].setCanShock(false); //al dar la vuelta apaga la ultima
                 }
                 yield return new WaitForSeconds(changeTime);
             }
