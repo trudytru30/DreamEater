@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class NPCDialogue : MonoBehaviour, IInteractable
+public class NPCDialogue : MonoBehaviour, IInteractableDialog
 {
     [SerializeField] private DialogueController dialogueController;
     [SerializeField] private DialogueNode firstDialogue;

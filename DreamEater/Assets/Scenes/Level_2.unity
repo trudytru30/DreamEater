@@ -194462,11 +194462,6 @@ MonoBehaviour:
   m_EditMode: 0
   m_FlipNormals: 0
   isOnGrid: 1
---- !u!1 &792655373 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 292634179959238536, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
-  m_PrefabInstance: {fileID: 2097008982}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &793554554 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 20d98bb9aed81a34bbccdaf3e9c549ca, type: 3}
@@ -236045,7 +236040,7 @@ GameObject:
   - component: {fileID: 987226884}
   - component: {fileID: 987226886}
   - component: {fileID: 987226885}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: TriggerCamara_Dialogo_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -427809,6 +427804,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1927787048}
     m_Modifications:
+    - target: {fileID: 3287313548832389067, guid: 709895d87c44e9049bcfeb8d79827533, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4461540408903841278, guid: 709895d87c44e9049bcfeb8d79827533, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5440213312889005563, guid: 709895d87c44e9049bcfeb8d79827533, type: 3}
       propertyPath: startDelay.scalar
       value: 0.1
@@ -427880,6 +427883,10 @@ PrefabInstance:
     - target: {fileID: 6303752215350919740, guid: 709895d87c44e9049bcfeb8d79827533, type: 3}
       propertyPath: m_Name
       value: PS_Aterrizaje2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6303752215350919740, guid: 709895d87c44e9049bcfeb8d79827533, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6303752215350919740, guid: 709895d87c44e9049bcfeb8d79827533, type: 3}
       propertyPath: m_IsActive
@@ -479474,7 +479481,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   dialogueController: {fileID: 803114439}
   firstDialogue: {fileID: 11400000, guid: 848eabb368ba0a74597bd43c221a6f9d, type: 2}
-  repeatDialogue: {fileID: 0}
+  repeatDialogue: {fileID: 11400000, guid: 848eabb368ba0a74597bd43c221a6f9d, type: 2}
 --- !u!1001 &1927831416
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -522929,6 +522936,18 @@ PrefabInstance:
       propertyPath: groundMask.m_Bits
       value: 512
       objectReference: {fileID: 0}
+    - target: {fileID: 2219868225079561398, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
+      propertyPath: interactionSource
+      value: 
+      objectReference: {fileID: 2097008984}
+    - target: {fileID: 2219868225079561398, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
+      propertyPath: dialogueController
+      value: 
+      objectReference: {fileID: 803114439}
+    - target: {fileID: 2219868225079561398, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
+      propertyPath: interactMask.m_Bits
+      value: 1024
+      objectReference: {fileID: 0}
     - target: {fileID: 4649883113781749995, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -523007,10 +523026,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5675314313350645821, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 895874182}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 292634179959238536, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2097008985}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
 --- !u!4 &2097008983 stripped
 Transform:
@@ -523022,21 +523038,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6267974703519156573, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
   m_PrefabInstance: {fileID: 2097008982}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2097008985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 792655373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b72f03fad147694285fe955cbd686c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
-  dialogueController: {fileID: 803114439}
-  interactionSource: {fileID: 2097008984}
-  interactRange: 5
 --- !u!1001 &2097024808
 PrefabInstance:
   m_ObjectHideFlags: 0

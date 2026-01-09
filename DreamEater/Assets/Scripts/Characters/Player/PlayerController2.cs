@@ -40,6 +40,12 @@ public class PlayerController2 : MonoBehaviour
     [SerializeField] private ParticleSystem runParticles;
     private ParticleSystem.EmissionModule _runParticlesEmission;
 
+    [Header("Dialogues")]
+    [SerializeField] private DialogueController dialogueController;
+    [SerializeField] private Transform interactionSource;
+    [SerializeField] private float interactRange = 5f;
+    [SerializeField] private LayerMask interactMask;
+    
     private Rigidbody _rb;
     private Animator _anim;
     private Movement _movement = new Movement();
@@ -57,7 +63,7 @@ public class PlayerController2 : MonoBehaviour
     private bool _isCrouching ;
     
     private IGrabable _currentGrabbedObject;
-
+    [Header("Grab")]
     [SerializeField] private Transform grabOrigin; // punto delante del jugador
     [SerializeField] private float grabRange = 1.5f;
     
@@ -318,12 +324,30 @@ public class PlayerController2 : MonoBehaviour
 
     private void Interact()
     {
-        if (_currentInteractable != null && _currentInteractable.GetCanInteract())
+     /*   if (_currentInteractable != null && _currentInteractable.GetCanInteract())
         {
             _currentInteractable.SetIsInteracting(true);
             //añadir anim interactuar
             Debug.Log("Interactuando con " + _currentInteractable.gameObject.name);
         }
+        */
+     
+     // Si hay diálogo, avanzar en el
+     if (dialogueController != null && dialogueController.IsDialogueActive)
+     {
+         dialogueController.AdvanceDialogue();
+         return;
+     }
+        
+     // Interacción normal si no hay diálogo
+     Ray ray = new Ray(interactionSource.position, interactionSource.forward);
+     if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactMask))
+     {
+         if (hit.collider.TryGetComponent(out IInteractableDialog interactable))
+         {
+             interactable.Interact();   
+         }
+     }
     }
 
     private void OnTriggerEnter(Collider other)

@@ -75,7 +75,7 @@ public class DialogueController : MonoBehaviour
     // Función que permite al jugador moverse o no al estar en diálogo 
     private static void TogglePlayerMovement(bool canMove) 
     { 
-        Player player = FindFirstObjectByType<Player>(); 
+        PlayerController2 player = FindFirstObjectByType<PlayerController2>(); 
         if (player) 
         { 
             player.enabled = canMove; 
