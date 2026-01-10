@@ -11,7 +11,7 @@ public class PlayerController2 : MonoBehaviour
 {
     [SerializeField] private bool isAlive = true;
     [SerializeField] private float jumpForce = 6.5f;
-    [SerializeField] private float speed = 2.8f;
+    [SerializeField] public float speed = 2.8f;
     [SerializeField] private float timeStep = 0.1f;
     
     [SerializeField] private float turnSpeed = 12f;

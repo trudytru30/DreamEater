@@ -15,7 +15,7 @@ public class TriggerRecuerdo : MonoBehaviour
             StartCoroutine(MiDestello());
             other.GetComponent<Animator>().SetFloat("xSpeed", 0);
             other.GetComponent<Animator>().SetFloat("zSpeed", 0);
-            other.GetComponent<PlayerController2>().enabled = false;
+            other.GetComponent<PlayerController2>().speed = 0;
             
         }
         
