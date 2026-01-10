@@ -9,9 +9,9 @@ public class UIPickupCounter : MonoBehaviour
 
     [Header("Config")]
     [SerializeField] private PickUps.ItemType itemTypeToTrack; //el tipo de item en este caso bellota
-    [SerializeField] private int totalRequired; //total de elementos que conseguir
+    [SerializeField] public int totalRequired; //total de elementos que conseguir
     
-    private int _current; //numero actual de elementos
+    public int _current; //numero actual de elementos
     private bool _isVisible; //estado de visibilidad
 
     private void Awake()
