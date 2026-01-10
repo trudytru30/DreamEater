@@ -97,6 +97,10 @@ public class PlayerController2 : MonoBehaviour
         InputManager.Instance.JumpPressed += Jump;
         InputManager.Instance.InteractPressed += Interact;
         //InputManager.Instance.InteractPressed += TryGrabOrRelease;
+        if (runParticles)
+        {
+            runParticles.Play(true);
+        }
     }
 
     private void OnDisable()
