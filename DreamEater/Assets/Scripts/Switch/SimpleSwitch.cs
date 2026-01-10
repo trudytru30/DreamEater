@@ -2,11 +2,13 @@
  Comprueba la posicion de un solo switch
  */
 
+using UnityEditor;
 using UnityEngine;
 
-public class SimpleSwitch : Switch
+public class SimpleSwitch : MonoBehaviour
 {
     [SerializeField] private bool correctPosition; //la posicion que el jugador debe poner
+    [SerializeField] private Switch switchObject;
 
     private void OnEnable()
     {
@@ -27,12 +29,16 @@ public class SimpleSwitch : Switch
         }
     }
     
-    protected override void CheckPosition()
+    private void CheckPosition()
     { 
-        base.CheckPosition();
-        if (correctPosition == isActive)
+        //comprueba que son interactuables
+        if (!gameObject.GetComponent<Interactable>().GetCanInteract())
+        {
+            return;
+        }
+        if (correctPosition == switchObject.GetIsActive())
         {
             Debug.Log("correcto");
-        }
+        } 
     }
 }
