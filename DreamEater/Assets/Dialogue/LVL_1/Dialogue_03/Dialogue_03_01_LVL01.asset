@@ -15,7 +15,7 @@ MonoBehaviour:
   Speaker: RomeoSantos
   Line: "Espero no haberte asustado, ven\xEDa avisarte sobre lo que se te aproxima"
   Choices:
-  - text: Continuar
+  - text: Continue
     nextNode: {fileID: 11400000, guid: c76ea53c6f897ee4a977217fa86198bf, type: 2}
   - text: Volver
     nextNode: {fileID: 0}

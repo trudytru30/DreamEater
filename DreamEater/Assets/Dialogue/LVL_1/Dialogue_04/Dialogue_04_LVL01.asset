@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Dialogue_04_LVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: RomeoSantos
-  Line: 
+  Line: 'Cuidado con estas plataformas, se activan y desactivan '
   Choices:
-  - text: Entendido
+  - text: Continuar
     nextNode: {fileID: 0}
-  - text: "\xBFMe lo explicas mejor?"
+  - text: Volver
     nextNode: {fileID: 0}
   NextNode: {fileID: 0}
