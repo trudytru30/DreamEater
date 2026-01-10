@@ -2,11 +2,9 @@
  Comprueba un conjunto de switches
  */
 
-using System;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
-public class PaternSwitch : Switch
+public class PaternSwitch : MonoBehaviour
 {
     [SerializeField] private Switch[] totalSwitches; //numero del conjunto de interruptores
     [SerializeField] private bool[] correctPositions; //position correcta de cada switch del array TIENEN QUE TENER MISMO TAMAÑO
@@ -22,19 +20,23 @@ public class PaternSwitch : Switch
         SwitchSubject.OnSwitchStateChanged -= OnSwitchStateChanged;
     }
 
-    private void OnSwitchStateChanged(Switch _)
+    private void OnSwitchStateChanged(Switch changedSwitch)
     {
         CheckPosition();
     }
 
-    protected override void CheckPosition()
-    {
-        base.CheckPosition();
+    private void CheckPosition()
+    { 
+        //comprueba que son interactuables
+        if (!gameObject.GetComponent<Interactable>().GetCanInteract())
+        {
+            return;
+        }
         //recorre el array comprobando posiciones
         for (int i = 0; i < totalSwitches.Length; i++)
         {
             //si una posicion no es correcta no sigue comprobando
-            if (totalSwitches[i] != correctPositions[i])
+            if (totalSwitches[i].GetIsActive() != correctPositions[i])
             {
                 return;
             }
