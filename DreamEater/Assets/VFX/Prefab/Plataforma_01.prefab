@@ -45,10 +45,8 @@ GameObject:
   - component: {fileID: 4701521426016255458}
   - component: {fileID: 8843394371624113972}
   - component: {fileID: 1808699363268267408}
-  - component: {fileID: 5145042569795109530}
   - component: {fileID: 8213411302786899378}
   - component: {fileID: 5276652141138331333}
-  - component: {fileID: 8484606637681956032}
   m_Layer: 9
   m_Name: Plataforma_01
   m_TagString: Untagged
@@ -369,28 +367,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9009094841670043724}
   m_Mesh: {fileID: 0}
---- !u!64 &5145042569795109530
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9009094841670043724}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!114 &8213411302786899378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f91ee9dcf3d5a44fb85e05034af8d32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShockingPlatform
-  _particleSystem: {fileID: 3678329365603858049}
+  particleSystem: {fileID: 9127202671196325828}
 --- !u!65 &5276652141138331333
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -425,18 +401,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 65.17592, y: 904.55505, z: 124.69009}
   m_Center: {x: 0.05435646, y: -0.00012715659, z: 0}
---- !u!114 &8484606637681956032
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9009094841670043724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3163c37042378d340b2b1640cf87d730, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DieTrigger
 --- !u!1001 &228905038956476837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -447,7 +411,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2246043334476629203, guid: 5d43031aaee7c7c4eb18da5719aa60d5, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.5463
+      value: 6.9994836
       objectReference: {fileID: 0}
     - target: {fileID: 2246043334476629203, guid: 5d43031aaee7c7c4eb18da5719aa60d5, type: 3}
       propertyPath: m_LocalScale.y
@@ -455,15 +419,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2246043334476629203, guid: 5d43031aaee7c7c4eb18da5719aa60d5, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4.5463
+      value: 5.365998
       objectReference: {fileID: 0}
     - target: {fileID: 2246043334476629203, guid: 5d43031aaee7c7c4eb18da5719aa60d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2246043334476629203, guid: 5d43031aaee7c7c4eb18da5719aa60d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 2246043334476629203, guid: 5d43031aaee7c7c4eb18da5719aa60d5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -505,6 +469,10 @@ PrefabInstance:
       propertyPath: ShapeModule.m_Scale.z
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 8876626777679363191, guid: 5d43031aaee7c7c4eb18da5719aa60d5, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1200
+      objectReference: {fileID: 0}
     - target: {fileID: 9045318855796948577, guid: 5d43031aaee7c7c4eb18da5719aa60d5, type: 3}
       propertyPath: m_Name
       value: PS_Electricidad
@@ -517,5 +485,10 @@ PrefabInstance:
 --- !u!4 &2019503143243562358 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2246043334476629203, guid: 5d43031aaee7c7c4eb18da5719aa60d5, type: 3}
+  m_PrefabInstance: {fileID: 228905038956476837}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &9127202671196325828 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9045318855796948577, guid: 5d43031aaee7c7c4eb18da5719aa60d5, type: 3}
   m_PrefabInstance: {fileID: 228905038956476837}
   m_PrefabAsset: {fileID: 0}

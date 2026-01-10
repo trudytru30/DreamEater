@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef9c500f39d4161bc8318cc49e8e3da, type: 3}
+  m_Name: Dialogue_02_LVL00
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  Speaker: RomeoSantos
+  Line: "Yo no tengo nombre, hace mucho que lo deje atr\xE1s, aquellos que han estado
+    aqui antes que tu, me llamaban victima."
+  Choices:
+  - text: Yo soy Sunny, que este lugar? no tiene pinta de un lugar amigable
+    nextNode: {fileID: 11400000, guid: 6dbccd1d08ef8124c96a32b307da773e, type: 2}
+  - text: Return
+    nextNode: {fileID: 11400000, guid: 184f044428f3f6740b7714805876b23e, type: 2}
+  NextNode: {fileID: 0}
