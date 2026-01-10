@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef9c500f39d4161bc8318cc49e8e3da, type: 3}
+  m_Name: Dialogue_02-01_LVL02
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
+  Speaker: The Victim
+  Line: The second memory, where are we?
+  Choices:
+  - text: The river, i used to play with my friend Turtle here.
+    nextNode: {fileID: 11400000, guid: d3277e0da24d6c4459279c99c57ef793, type: 2}
+  - text: Exit
+    nextNode: {fileID: 0}
+  NextNode: {fileID: 0}

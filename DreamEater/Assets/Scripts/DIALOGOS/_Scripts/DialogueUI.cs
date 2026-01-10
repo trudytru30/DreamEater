@@ -193,7 +193,7 @@ public class DialogueUI : MonoBehaviour
         foreach (char letter in textToType)
         { 
             if (lineText) lineText.text += letter; 
-            yield return new WaitForSeconds(0.1f); 
+            yield return new WaitForSeconds(0.05f); 
         } 
         _isTyping = false; 
         if (_pendingNameCallback != null) 
