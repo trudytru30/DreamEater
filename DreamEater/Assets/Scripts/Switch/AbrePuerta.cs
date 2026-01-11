@@ -39,6 +39,7 @@ public class AbrePuerta : MonoBehaviour
 
     public void activarPalanca()
     {
+        AudioManager.Instance.PlayPalanca();
         if (_animatorPuertaIzquierda != null)
         {
             _animatorPuertaIzquierda.SetTrigger("puerta");

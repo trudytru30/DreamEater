@@ -57767,6 +57767,7 @@ MonoBehaviour:
   _pasos: []
   _morirSound: {fileID: 8300000, guid: 97c2ee4d4f330944b9ce3133497d4b99, type: 3}
   _pickUpSound: {fileID: 8300000, guid: d54477acae6c987479e2628ca7801756, type: 3}
+  _palanca: {fileID: 8300000, guid: 35df7849b83e32e46b40db3573fb9479, type: 3}
 --- !u!4 &1442085355
 Transform:
   m_ObjectHideFlags: 0
@@ -67788,6 +67789,7 @@ MonoBehaviour:
   _pasos: []
   _morirSound: {fileID: 0}
   _pickUpSound: {fileID: 0}
+  _palanca: {fileID: 0}
 --- !u!114 &1683839073
 MonoBehaviour:
   m_ObjectHideFlags: 0

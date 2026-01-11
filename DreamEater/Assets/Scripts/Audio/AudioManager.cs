@@ -25,6 +25,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip[] _pasos;
     [SerializeField] private AudioClip   _morirSound;
     [SerializeField] private AudioClip   _pickUpSound;
+    [SerializeField] private AudioClip   _palanca;
 
 
     private void Awake()
@@ -104,6 +105,11 @@ public class AudioManager : MonoBehaviour
     public void PlayButton()
     {
         _sfxAudioSource.clip = _buttonSound;
+        _sfxAudioSource.Play();
+    }
+    public void PlayPalanca()
+    {
+        _sfxAudioSource.clip = _palanca;
         _sfxAudioSource.Play();
     }
 }
