@@ -10,17 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ef9c500f39d4161bc8318cc49e8e3da, type: 3}
-  m_Name: Dialogue_02-01_LVL02
+  m_Name: Dialogue_04-01_LVL02
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: 'WE CAN BREATHE UNDERWATER?!?!?
+  Line: '
 
-
-
-'
+    I think there are 4 levers like this one in the area,'
   Choices:
-  - text: We are in a dream
-    nextNode: {fileID: 11400000, guid: 6f638eb21806adc4696aaa377721d50e, type: 2}
+  - text: Continue
+    nextNode: {fileID: 11400000, guid: 055933cde18c9ae4c829e9a22d3f8490, type: 2}
   - text: Exit
     nextNode: {fileID: 0}
   NextNode: {fileID: 0}
