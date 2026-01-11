@@ -67757,7 +67757,6 @@ GameObject:
   - component: {fileID: 1683839075}
   - component: {fileID: 1683839074}
   - component: {fileID: 1683839073}
-  - component: {fileID: 1683839072}
   m_Layer: 0
   m_Name: GAMEMANAGER
   m_TagString: Untagged
@@ -67765,31 +67764,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1683839072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1683839071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6b49903cadf0054b8486fa1cbc716e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  _sfxAudioSource: {fileID: 0}
-  _musicAudioSource: {fileID: 0}
-  _buttonSound: {fileID: 0}
-  _jumpSound: {fileID: 0}
-  _agacharseSound: {fileID: 0}
-  _pasosNieve: []
-  _pasosArena: []
-  _pasosAgua: []
-  _pasosBosque: []
-  _pasos: []
-  _morirSound: {fileID: 0}
-  _pickUpSound: {fileID: 0}
-  _palanca: {fileID: 0}
 --- !u!114 &1683839073
 MonoBehaviour:
   m_ObjectHideFlags: 0
