@@ -5384,7 +5384,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Necesitas una palanca para activarla
+  m_Text: You need a lever to active it
 --- !u!222 &62918984
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -47495,7 +47495,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pulsa E para llamar
+  m_Text: Press E to call the elevator
 --- !u!222 &496132920
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -101076,7 +101076,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pulsa E para bajar
+  m_Text: Press E to go down
 --- !u!222 &1084272236
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -162713,7 +162713,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Pulsa E para subir
+  m_Text: Press E to go up
 --- !u!222 &1829458509
 CanvasRenderer:
   m_ObjectHideFlags: 0
