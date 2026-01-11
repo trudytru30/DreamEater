@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ef9c500f39d4161bc8318cc49e8e3da, type: 3}
-  m_Name: Dialogue_02_05_LVL05
+  m_Name: Dialogue_01_DreamEaterLVL00
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  Speaker: The Victim
-  Line: The second memory, where are we?
+  Speaker: DreamEater
+  Line: "Chupapi mu\xF1a\xF1o"
   Choices:
-  - text: The river, i used to play with my friend Turtle here.
-    nextNode: {fileID: 11400000, guid: c91d382a85fbe9a45a84fd7efa9a649c, type: 2}
+  - text: "\xBFQuien eres?"
+    nextNode: {fileID: 11400000, guid: 3fdac91acda44304d90b566e10c3d6d6, type: 2}
   - text: Exit
-    nextNode: {fileID: 11400000, guid: e869596942953554caa3ce0a6b989f5d, type: 2}
+    nextNode: {fileID: 0}
   NextNode: {fileID: 0}

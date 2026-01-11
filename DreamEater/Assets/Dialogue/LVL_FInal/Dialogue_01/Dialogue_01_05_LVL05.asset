@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Dialogue_01_05_LVL05
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: The second memory, where are we?
+  Line: "Chupapi Mu\xF1ano nos vemos"
   Choices:
   - text: The river, i used to play with my friend Turtle here.
-    nextNode: {fileID: 11400000, guid: d3277e0da24d6c4459279c99c57ef793, type: 2}
+    nextNode: {fileID: 11400000, guid: a3571731445e0ca49ba8696718157dd3, type: 2}
   - text: Exit
     nextNode: {fileID: 0}
   NextNode: {fileID: 0}
