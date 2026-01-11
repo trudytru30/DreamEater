@@ -73564,7 +73564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
   _hasMemoryToPlay: 0
-  _sceneName: LoadingScreen
+  _sceneName: LevelFinal
   _showRecuerdo: {fileID: 0}
   nivelDesbloqueado: 5
   nextScene: 4
