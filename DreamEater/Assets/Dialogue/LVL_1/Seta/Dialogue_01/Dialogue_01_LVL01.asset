@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Dialogue_01_LVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: "Este parecer ser el primer sue\xF1o, cada lugar esta relacionado con los
-    sue\xF1os de la propia persona, te recuerda esto a algo?"
+  Line: This seems to be the first dream. Each one is related to the person's owned
+    dreams. Does this remind you anything?
   Choices:
-  - text: La verdad que si, es la playa a la que iba con mi amigo el cangrejo
+  - text: Yeah, it's the beach I used to go to with my friend the crab.
     nextNode: {fileID: 11400000, guid: 20a3accf313bf4442b4b3393bfbfee67, type: 2}
-  - text: Volver
+  - text: Exit
     nextNode: {fileID: 0}
   NextNode: {fileID: 0}

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Dialogue_03_LVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: "No te preocupes, te ayud\xE1re para llegar hasta \xE9l."
+  Line: 'Don''t worry!!! I will guide you. '
   Choices:
-  - text: Gracias, eso aporta
+  - text: Thanks!!!
     nextNode: {fileID: 11400000, guid: c4d5a45110e8deb4bba6e44e5df19a93, type: 2}
-  - text: Volver
+  - text: Return
     nextNode: {fileID: 11400000, guid: 20a3accf313bf4442b4b3393bfbfee67, type: 2}
   NextNode: {fileID: 0}

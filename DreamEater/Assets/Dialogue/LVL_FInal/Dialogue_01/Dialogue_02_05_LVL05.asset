@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Dialogue_02_05_LVL05
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: The second memory, where are we?
+  Line: Don't worry!! I'll stay here protecting the children when the DreamEater
+    returns.
   Choices:
-  - text: The river, i used to play with my friend Turtle here.
+  - text: Thanks!!!
     nextNode: {fileID: 11400000, guid: c91d382a85fbe9a45a84fd7efa9a649c, type: 2}
   - text: Exit
-    nextNode: {fileID: 11400000, guid: e869596942953554caa3ce0a6b989f5d, type: 2}
+    nextNode: {fileID: 0}
   NextNode: {fileID: 0}

@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: Dialogue_01_DreamEaterLVL00 1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: DreamEater
-  Line: otro chupapi
+  Line: 'I''m the powerful and feared DreamEater. And I''m going to eat your good
+    dreams. '
   Choices:
-  - text: "\xBFQuien eres?"
-    nextNode: {fileID: 0}
   - text: Exit
     nextNode: {fileID: 0}
   NextNode: {fileID: 0}

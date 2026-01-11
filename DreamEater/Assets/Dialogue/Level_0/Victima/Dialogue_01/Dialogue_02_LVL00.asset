@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Dialogue_02_LVL00
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: "Yo no tengo nombre, hace mucho que lo deje atr\xE1s, aquellos que han estado
-    aqui antes que tu, me llamaban victima."
+  Line: I have no name, I left it behind long ago; those who were here before you,
+    called me "The Victim".
   Choices:
-  - text: Yo soy Sunny, que este lugar? no tiene pinta de un lugar amigable
+  - text: I'm the Child, what's this place? It doesn't look like a friendly place.
     nextNode: {fileID: 11400000, guid: 6dbccd1d08ef8124c96a32b307da773e, type: 2}
   - text: Return
     nextNode: {fileID: 11400000, guid: 184f044428f3f6740b7714805876b23e, type: 2}

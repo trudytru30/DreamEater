@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Dialogue_03_02_LVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: "Esto de al lado nuestro, se trata de un puzzle que fue dise\xF1ado por DreamEater,
-    pero cambia dependiendo de al individuo que atrapa."
+  Line: This thing next to us is a puzzle that was designed by DreamEater, but it
+    changes depending on the individual it catches.
   Choices:
-  - text: Continuar
+  - text: Continue
     nextNode: {fileID: 11400000, guid: 73d1cd65bc3a4a04eb0a9da5cdda0d8b, type: 2}
-  - text: Volver
+  - text: Return
     nextNode: {fileID: 11400000, guid: 9e6f80ab9a5432c40a15baf1a42a8eaa, type: 2}
   NextNode: {fileID: 0}

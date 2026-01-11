@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: Dialogue_01_LVL00
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: "Qui\xE9n eres? Llevo aqu\xED desde hace mucho tiempo y no habia visto ninguna
-    sola alma en a\xF1os."
+  Line: Who are you? I've been here for a long and I haven't seen anyone in years.
   Choices:
-  - text: "No se que hago aqu\xED, tu quien eres"
+  - text: I don't know what I am doing here. Who are you?
     nextNode: {fileID: 11400000, guid: 2cfd4b5181a46594eb779bfaf25edd04, type: 2}
   - text: Exit
     nextNode: {fileID: 0}

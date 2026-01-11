@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Dialogue_03_01_LVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: "Espero no haberte asustado, ven\xEDa avisarte sobre lo que se te aproxima"
+  Line: I hope I haven't scared you. I came to warn you about what's coming.
   Choices:
   - text: Continue
     nextNode: {fileID: 11400000, guid: c76ea53c6f897ee4a977217fa86198bf, type: 2}
-  - text: Volver
+  - text: Exit
     nextNode: {fileID: 0}
   NextNode: {fileID: 0}

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Dialogue_03_07_LVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: El Conejo tiene su palanca hacia el suelo porque prefiere su madriguera.
+  Line: The Rabbit has his lever towards the ground because he prefers his burrow.
   Choices:
-  - text: Continuar
+  - text: Exit
     nextNode: {fileID: 0}
-  - text: Volver
+  - text: Return
     nextNode: {fileID: 11400000, guid: 249e02c79fee6a04798406b78fe69fc2, type: 2}
   NextNode: {fileID: 0}
