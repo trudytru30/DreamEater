@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: Dialogue_04_LVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: "Cuidado con estas plataformas, se activan y desactivan, asi que salta en
-    el momento justo para no caerte al vac\xEDo."
+  Line: Be careful with these platforms, they activate and deactivate, so jump at
+    the right moment to avoid falling.
   Choices:
-  - text: Continuar
-    nextNode: {fileID: 0}
-  - text: Volver
+  - text: Exit
     nextNode: {fileID: 0}
   NextNode: {fileID: 0}

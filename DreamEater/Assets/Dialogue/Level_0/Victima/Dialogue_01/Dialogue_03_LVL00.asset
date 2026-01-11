@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Dialogue_03_LVL00
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: "Est\xE1s en un mundo parelelo, causado por el DreamEater, un ser que consume
-    los sue\xF1os de las personas para alimentarse a s\xED mismo."
+  Line: You are in your subconscious, with some changes caused by the DreamEater,
+    a being that consumes people's dreams to feed itself.
   Choices:
-  - text: Y como has llegado a este lugar
+  - text: And, how did you get here?
     nextNode: {fileID: 11400000, guid: 840a73821f9ac3448a600c098b4f1468, type: 2}
   - text: Return
     nextNode: {fileID: 11400000, guid: 2cfd4b5181a46594eb779bfaf25edd04, type: 2}

@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Dialogue_03_05_LVL
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: The second memory, where are we?
+  Line: Don't forget the importance of dreams in life. Sometimes, dreams are where
+    we find our happiness.
   Choices:
-  - text: The river, i used to play with my friend Turtle here.
+  - text: I will remmember
     nextNode: {fileID: 0}
-  - text: Exit
+  - text: Return
     nextNode: {fileID: 11400000, guid: a3571731445e0ca49ba8696718157dd3, type: 2}
   NextNode: {fileID: 0}

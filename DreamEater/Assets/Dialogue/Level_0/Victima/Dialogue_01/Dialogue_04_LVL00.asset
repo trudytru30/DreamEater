@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Dialogue_04_LVL00
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: Yo fui el primero de todos, no pude escapar y desde entonces estoy anclado
-    a este mundo, intentando ayudar a salir a los que llegan.
+  Line: I was the first of them all, I couldn't escape and since then I've been anchored
+    to this world, trying to help those who arrive to get out.
   Choices:
-  - text: "Gracias por la informaci\xF3n, te veo m\xE1s tarde"
+  - text: Thanks!! See you later
     nextNode: {fileID: 11400000, guid: 30636cc6b5740be4683a6985a5ee072f, type: 2}
   - text: Return
     nextNode: {fileID: 11400000, guid: 6dbccd1d08ef8124c96a32b307da773e, type: 2}

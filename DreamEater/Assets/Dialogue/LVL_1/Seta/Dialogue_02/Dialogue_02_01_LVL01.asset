@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Dialogue_02_01_LVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: "Cuidado con estas plataformas, ya que tienen una corriente el\xE9ctrica
-    que podr\xEDa hacerte da\xF1o, asi que cruza en el momento adecuado."
+  Line: Be careful with these platforms, as they carry an electric current that could
+    harm you. Cross them at the appropriate time.
   Choices:
-  - text: "Est\xE1 bien saberlo"
+  - text: Good to know it!!!
     nextNode: {fileID: 11400000, guid: 196667f65b037c24d9ef832293a708ea, type: 2}
-  - text: Volver
+  - text: Exit
     nextNode: {fileID: 0}
   NextNode: {fileID: 0}

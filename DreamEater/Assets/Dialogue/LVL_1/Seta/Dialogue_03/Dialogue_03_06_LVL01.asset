@@ -13,11 +13,20 @@ MonoBehaviour:
   m_Name: Dialogue_03_06_LVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: "El Cangrejo est\xE1 en la posici\xF3n opuesta a la Tortuga.\nLa Tortuga
-    solo subir\xE1 su palanca si el Conejo tambi\xE9n tiene la suya Arriba.\n\n\r\n\r\n"
+  Line: 'The Crab is in the opposite position of the Turtle.
+
+    The Turtle will
+    only raise its lever if the Rabbit also has its lever up.
+
+
+    
+
+    
+
+'
   Choices:
-  - text: Continuar
+  - text: Continue
     nextNode: {fileID: 11400000, guid: 409c335768916e04b9794adfc04a507d, type: 2}
-  - text: Volver
+  - text: Return
     nextNode: {fileID: 11400000, guid: 6b38cec68fe2eeb43a8b2db2268abe59, type: 2}
   NextNode: {fileID: 0}

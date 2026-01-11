@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Dialogue_02_LVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: "Pues seguramente el DreamEater, lo tenga retenido en algun lugar de este
-    sue\xF1o, debes encontralo y salvarlo."
+  Line: The DreamEater probably has him trapped somewhere in this dream. You must
+    find and save him.
   Choices:
-  - text: "\xBFComo lo encuentro?"
+  - text: How can I find him?
     nextNode: {fileID: 11400000, guid: 0f6ea12610b37664e8dd67053c87f700, type: 2}
-  - text: Volver
+  - text: Return
     nextNode: {fileID: 0}
   NextNode: {fileID: 0}
