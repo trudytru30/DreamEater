@@ -328,29 +328,29 @@ public class PlayerController2 : MonoBehaviour
 
     private void Interact()
     {
-     /*   if (_currentInteractable != null && _currentInteractable.GetCanInteract())
+        if (_currentInteractable != null && _currentInteractable.GetCanInteract())
         {
             _currentInteractable.SetIsInteracting(true);
             //añadir anim interactuar
             Debug.Log("Interactuando con " + _currentInteractable.gameObject.name);
         }
-        */
-     
-     // Si hay diálogo, avanzar en el
-     if (dialogueController != null && dialogueController.IsDialogueActive)
-     {
-         dialogueController.AdvanceDialogue();
-         return;
-     }
         
-     // Interacción normal si no hay diálogo
-     Ray ray = new Ray(interactionSource.position, interactionSource.forward);
-     if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactMask))
-     {
-         if (hit.collider.TryGetComponent(out IInteractableDialog interactable))
+     
+        // Si hay diálogo, avanzar en el
+         if (dialogueController != null && dialogueController.IsDialogueActive)
          {
-             interactable.Interact();   
+             dialogueController.AdvanceDialogue();
+             return;
          }
+            
+         // Interacción normal si no hay diálogo
+         Ray ray = new Ray(interactionSource.position, interactionSource.forward);
+         if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactMask))
+         {
+             if (hit.collider.TryGetComponent(out IInteractableDialog interactable))
+             {
+                 interactable.Interact();   
+             }
      }
     }
 

@@ -6,9 +6,12 @@ using UnityEngine;
 
 public class PaternSwitch : MonoBehaviour
 {
+    [Header("Configuración")]
     [SerializeField] private Switch[] totalSwitches; //numero del conjunto de interruptores
     [SerializeField] private bool[] correctPositions; //position correcta de cada switch del array TIENEN QUE TENER MISMO TAMAÑO
 
+    [Header("Puerta")]
+    [SerializeField] private AbrePuerta puertaASolucionar; //referencia al script de la puerta
     private void OnEnable()
     {
         SwitchSubject.OnSwitchStateChanged += OnSwitchStateChanged;
@@ -27,11 +30,6 @@ public class PaternSwitch : MonoBehaviour
 
     private void CheckPosition()
     { 
-        //comprueba que son interactuables
-        if (!gameObject.GetComponent<Interactable>().GetCanInteract())
-        {
-            return;
-        }
         //recorre el array comprobando posiciones
         for (int i = 0; i < totalSwitches.Length; i++)
         {
@@ -43,5 +41,11 @@ public class PaternSwitch : MonoBehaviour
         }
         
         Debug.Log("Correcto");
+        if (puertaASolucionar != null)
+        {
+            puertaASolucionar.activarPalanca();
+            // Opcional: Desactivar este script para que no se abra dos veces
+            this.enabled = false; 
+        }
     }
 }

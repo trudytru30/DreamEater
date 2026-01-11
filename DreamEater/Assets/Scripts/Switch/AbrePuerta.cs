@@ -5,10 +5,10 @@ using UnityEngine;
 public class AbrePuerta : MonoBehaviour
 {
     [SerializeField] Animator _animatorPuertaIzquierda;
-    [SerializeField] Animator _animataorPuertaDerecha;
+    [SerializeField] Animator _animatorPuertaDerecha;
     [SerializeField] Animator _animatorPalanca;
 
-    private bool estaCerca = false; // Variable para saber si el jugador está en el área
+    private bool estaCerca = false; // Variable para saber si el jugador estï¿½ en el ï¿½rea
 
     private void Update()
     {
@@ -37,10 +37,19 @@ public class AbrePuerta : MonoBehaviour
         }
     }
 
-    void activarPalanca()
+    public void activarPalanca()
     {
-        _animatorPuertaIzquierda.SetTrigger("puerta");
-        _animataorPuertaDerecha.SetTrigger("puerta");
-        _animatorPalanca.SetTrigger("Activar2");
+        if (_animatorPuertaIzquierda != null)
+        {
+            _animatorPuertaIzquierda.SetTrigger("puerta");
+        }
+        if (_animatorPuertaDerecha != null)
+        {
+            _animatorPuertaDerecha.SetTrigger("puerta");
+        }
+        if (_animatorPalanca != null)
+        {
+            _animatorPalanca.SetTrigger("Activar2");
+        }
     }
 }

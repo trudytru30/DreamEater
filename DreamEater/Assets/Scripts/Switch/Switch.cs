@@ -11,11 +11,16 @@ public class Switch : MonoBehaviour
     //cambia estado al interactuar
     private void Update()
     {
-        if (this.gameObject.GetComponent<Interactable>().GetIsInteracting())
+        // Cacheamos la referencia
+        var interactable = this.gameObject.GetComponent<Interactable>();
+
+        if (interactable != null && interactable.GetIsInteracting())
         {
             ChangeActive();
-            //lanzar llamada al observer para comprobar estado de palancas
             SwitchSubject.Notify(this);
+            
+            // CORRECCIÓN VITAL: "Consumimos" el input para que no parpadee
+            interactable.SetIsInteracting(false);
         }
     }
 
@@ -24,13 +29,15 @@ public class Switch : MonoBehaviour
     {
         if (isActive)
         {
+            Debug.Log("isNOTActive");
             isActive = false;
-            this.gameObject.transform.rotation = Quaternion.Euler(-180, 0, 0);
+            this.gameObject.transform.rotation = Quaternion.Euler(-45, 0, 0);
         }
         else if (!isActive)
         {
+            Debug.Log("isActive");
             isActive = true;
-            this.gameObject.transform.rotation = Quaternion.Euler(180, 0, 0);
+            this.gameObject.transform.rotation = Quaternion.Euler(45, 0, 0);
         }
     }
     

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialogue_02-01_LVL02
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: The second memory, where are we?
+  Line: 
   Choices:
   - text: The river, i used to play with my friend Turtle here.
     nextNode: {fileID: 11400000, guid: d3277e0da24d6c4459279c99c57ef793, type: 2}
