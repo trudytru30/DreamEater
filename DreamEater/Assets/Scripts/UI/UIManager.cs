@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -15,10 +16,6 @@ public class UIManager : MonoBehaviour
     private float _generalVolume = 1, _sfxVolume = 1, _musicVolume = 1, _dialogsVolume = 1;
     private bool _fullScreen = true;
     [SerializeField] private Slider _brightnessSlider;
-    [SerializeField] private Slider _generalVolumeSlider;
-    [SerializeField] private Slider _sfxVolumeSlider;
-    [SerializeField] private Slider _musicVolumeSlider;
-    [SerializeField] private Slider _dialogsVolumeSlider;
     [SerializeField] private Toggle _fullScreenToggle;
     [SerializeField] private Image _brightPanel;
     [SerializeField] private Image _darkPanel;
@@ -31,6 +28,9 @@ public class UIManager : MonoBehaviour
     [Header("Die")]
     [SerializeField] private GameObject _initDie;
     [SerializeField] private GameObject _finishDie;
+    
+    [Header("AudioSources")]
+    [SerializeField] private AudioMixer _audioMixer;
 
 
 
@@ -126,14 +126,6 @@ public class UIManager : MonoBehaviour
         _fullScreen = fullScreen;
         Screen.fullScreen = fullScreen;
     }
-    public void SetSlidersValue()
-    {
-        _dialogsVolumeSlider.value = _dialogsVolume;
-        _generalVolumeSlider.value = _generalVolume;
-        _musicVolumeSlider.value = _musicVolume;
-        _fullScreenToggle.isOn = _fullScreen;
-        
-    }
     public void SaveBrightnessData()
     {
         var bp = _brightPanel.color;
@@ -200,5 +192,20 @@ public class UIManager : MonoBehaviour
     {
         _initDie.SetActive(false);
         _finishDie.SetActive(true);
+    }
+
+    public void ChangeSFXVolume(float volume)
+    {
+        _audioMixer.SetFloat("VolumeEfectos", volume);
+    }
+
+    public void ChangeMusicVolume(float volume)
+    {
+        _audioMixer.SetFloat("VolumeMusica", volume);
+    }
+
+    public void ChangeGeneralVolume(float volume)
+    {
+        _audioMixer.SetFloat("VolumeGeneral", volume);
     }
 }

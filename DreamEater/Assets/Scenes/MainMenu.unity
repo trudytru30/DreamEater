@@ -1567,7 +1567,7 @@ AudioSource:
   m_GameObject: {fileID: 180121563}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1972150445061716358, guid: 08d7d1c592c9e8e4f9bb962bdc274ce7, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 0f5ae5e743244994da23f6aac5b104c7, type: 3}
   m_PlayOnAwake: 0
@@ -2110,9 +2110,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 284304069}
-        m_TargetAssemblyTypeName: MenuOpciones, Assembly-CSharp
-        m_MethodName: CambiarVolumenGeneral
+      - m_Target: {fileID: 1999773600}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ChangeGeneralVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6521,9 +6521,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 284304069}
-        m_TargetAssemblyTypeName: MenuOpciones, Assembly-CSharp
-        m_MethodName: CambiarVolumenMusica
+      - m_Target: {fileID: 1999773600}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ChangeMusicVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8327,9 +8327,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 284304069}
-        m_TargetAssemblyTypeName: MenuOpciones, Assembly-CSharp
-        m_MethodName: CambiarVolumenEfectos
+      - m_Target: {fileID: 1999773600}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: ChangeSFXVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11051,7 +11051,7 @@ AudioSource:
   m_GameObject: {fileID: 1876276082}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 432287627129391533, guid: 08d7d1c592c9e8e4f9bb962bdc274ce7, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 233c56112fd768344a97b099f546bc63, type: 3}
   m_PlayOnAwake: 1
@@ -11655,10 +11655,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIManager
   _brightnessSlider: {fileID: 1584270802}
-  _generalVolumeSlider: {fileID: 0}
-  _sfxVolumeSlider: {fileID: 0}
-  _musicVolumeSlider: {fileID: 0}
-  _dialogsVolumeSlider: {fileID: 0}
   _fullScreenToggle: {fileID: 530862856}
   _brightPanel: {fileID: 2112564753}
   _darkPanel: {fileID: 1503796643}
@@ -11667,6 +11663,7 @@ MonoBehaviour:
   _pauseControl: 0
   _initDie: {fileID: 0}
   _finishDie: {fileID: 0}
+  _audioMixer: {fileID: 24100000, guid: 08d7d1c592c9e8e4f9bb962bdc274ce7, type: 2}
 --- !u!4 &1999773601
 Transform:
   m_ObjectHideFlags: 0
