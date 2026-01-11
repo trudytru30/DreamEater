@@ -12,11 +12,12 @@ public class DieTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            StartCoroutine(KillPlayer(other));
+            //StartCoroutine(KillPlayer(other));
+            other.GetComponent<PlayerController2>().Die();
         }
     }
 
-    private IEnumerator KillPlayer(Collider otherl)
+    /*private IEnumerator KillPlayer(Collider otherl)
     {
         otherl.GetComponent<PlayerController2>().Die();
         yield return new WaitForSeconds(1);
@@ -26,5 +27,5 @@ public class DieTrigger : MonoBehaviour
         yield return new WaitForSeconds(6); 
         UIManager.Instance.FinishDieCharacter();
 
-    }
+    }*/
 }

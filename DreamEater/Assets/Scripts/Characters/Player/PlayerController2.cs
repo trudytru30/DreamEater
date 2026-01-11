@@ -382,6 +382,8 @@ public class PlayerController2 : MonoBehaviour
 
     private IEnumerator RespawnSequence()
     {
+        yield return new WaitForSeconds(1);
+        UIManager.Instance.InitDieCharacter();
         Debug.Log("Inicia respawn...");
         yield return new WaitForSeconds(6f);
         _rb.isKinematic = true;
@@ -393,7 +395,8 @@ public class PlayerController2 : MonoBehaviour
         _anim.SetFloat(xParam, 0f);
         _anim.SetFloat(zParam, 0f);
         _anim.SetFloat(blendParam, 0f);
-        
+        UIManager.Instance.FinishDieCharacter();
+
         //Revivir al jugador
         isAlive = true;
     }
