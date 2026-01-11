@@ -3,7 +3,72 @@ guid: f3570f8b2a23e744e97f1588f9a34b80
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arm_l.001
+    second: {fileID: 2100000, guid: 72564d1a6424f7a4b9faf7822dbb7877, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arm_r.001
+    second: {fileID: 2100000, guid: 72564d1a6424f7a4b9faf7822dbb7877, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cape
+    second: {fileID: 2100000, guid: 895ce1b038d617a4e9a2ec25e8ab3c47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ears
+    second: {fileID: 2100000, guid: 1b5e0e14292a38342889dd690cdfcda5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: head
+    second: {fileID: 2100000, guid: 72564d1a6424f7a4b9faf7822dbb7877, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: innerhead+pupils
+    second: {fileID: 2100000, guid: c7477740e99e0064691991b58c7b70cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: leg_l.001
+    second: {fileID: 2100000, guid: 1b5e0e14292a38342889dd690cdfcda5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: leg_r.001
+    second: {fileID: 2100000, guid: 1b5e0e14292a38342889dd690cdfcda5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: neck
+    second: {fileID: 2100000, guid: 895ce1b038d617a4e9a2ec25e8ab3c47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ribbon_1
+    second: {fileID: 2100000, guid: 290bd7b7a84f559468c6c9ca02149557, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ribbon_2
+    second: {fileID: 2100000, guid: 290bd7b7a84f559468c6c9ca02149557, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ribbon_center
+    second: {fileID: 2100000, guid: 0b26d90455a4e664c8caadb604c55fc4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: torso
+    second: {fileID: 2100000, guid: 72564d1a6424f7a4b9faf7822dbb7877, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

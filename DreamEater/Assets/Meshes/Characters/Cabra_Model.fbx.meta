@@ -3,7 +3,47 @@ guid: 2427ccbdcf1f1b448adc1b0cec599392
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cremallera
+    second: {fileID: 963798294112862009, guid: 81804de0ab318d24faa15a84a6587de5, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ear_5
+    second: {fileID: 2100000, guid: 6f8ca8394f7c4e242a0a7dcc4181d788, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ear_l
+    second: {fileID: 2100000, guid: 6f8ca8394f7c4e242a0a7dcc4181d788, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ear_r
+    second: {fileID: 2100000, guid: 6f8ca8394f7c4e242a0a7dcc4181d788, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: horn_l
+    second: {fileID: 2100000, guid: 72564d1a6424f7a4b9faf7822dbb7877, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: horn_r
+    second: {fileID: 2100000, guid: 72564d1a6424f7a4b9faf7822dbb7877, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: interior_head.002
+    second: {fileID: 2100000, guid: c7477740e99e0064691991b58c7b70cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ribbon
+    second: {fileID: 2100000, guid: 290bd7b7a84f559468c6c9ca02149557, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

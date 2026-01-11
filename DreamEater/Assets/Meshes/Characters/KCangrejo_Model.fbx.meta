@@ -3,7 +3,42 @@ guid: 05e8d0bd90532a946a6366dacbe3c7ec
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: arms.001
+    second: {fileID: 2100000, guid: 895ce1b038d617a4e9a2ec25e8ab3c47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: clothes.001
+    second: {fileID: 2100000, guid: 3c9400fa1444f7844a7bda8df4e2e08b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ears.001
+    second: {fileID: 2100000, guid: 2a699f6c19012e44f848c4f671dae66b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: head.001
+    second: {fileID: 2100000, guid: 895ce1b038d617a4e9a2ec25e8ab3c47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: interior_head.001
+    second: {fileID: 2100000, guid: c7477740e99e0064691991b58c7b70cb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: legs.001
+    second: {fileID: 2100000, guid: 895ce1b038d617a4e9a2ec25e8ab3c47, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: torso.001
+    second: {fileID: 2100000, guid: 895ce1b038d617a4e9a2ec25e8ab3c47, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
