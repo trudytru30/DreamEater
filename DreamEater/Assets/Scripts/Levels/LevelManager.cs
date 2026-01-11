@@ -40,6 +40,8 @@ public class LevelManager : MonoBehaviour
         if (_hasMemoryToPlay)
         {
             _showRecuerdo.PlayMemory();
+            GameManager.Instance.ChangeNextLevelLoading(nextScene);
+            GameManager.Instance.ChangePuertasDesbloqueadas(nivelDesbloqueado);
         }
         else
         {
