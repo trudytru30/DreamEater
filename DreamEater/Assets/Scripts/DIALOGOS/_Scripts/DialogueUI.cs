@@ -262,7 +262,8 @@ public class DialogueUI : MonoBehaviour
             var child = choiceContainer.GetChild(i); 
             if (Application.isPlaying) Destroy(child.gameObject); 
             else DestroyImmediate(child.gameObject); 
-        } 
+        }
+        
     } 
 
     private IEnumerator WaitForTextThenShowName() 

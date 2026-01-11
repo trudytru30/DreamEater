@@ -23,6 +23,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_Limbo.unity
     guid: 9a297d457cec24d4484ec3c6f4a5a688
+  - enabled: 1
+    path: Assets/Scenes/Level_2.unity
+    guid: dd565245a1221684686e947e76045ea3
+  - enabled: 1
+    path: Assets/Scenes/Level_3.unity
+    guid: 9f37c6591f84efd42a98df734fde2b3f
+  - enabled: 1
+    path: Assets/Scenes/Level_4.unity
+    guid: 77d1e4d7b3c18e84b8850ce6cc972b15
+  - enabled: 1
+    path: Assets/Scenes/LevelFInal.unity
+    guid: aff34da70e8990246a3e41b516347f73
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

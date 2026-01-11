@@ -13,7 +13,8 @@ public class DialogueController : MonoBehaviour
 
     // Iniciar un diálogo desde un nodo inicial 
     public void StartDialogue(DialogueNode startNode) 
-    { 
+    {
+        CursorManager.Instance.ShowCursor(true); //Para mostrar el cursor
         if (_isDialogueActive) return; 
         _isDialogueActive = true; 
         TogglePlayerMovement(false); 
@@ -48,7 +49,8 @@ public class DialogueController : MonoBehaviour
     { 
         if (!nextNode) 
         { 
-            EndDialogue(); 
+            EndDialogue();
+            CursorManager.Instance.ShowCursor(false);
             return; 
         } 
         currentNode = nextNode; 
