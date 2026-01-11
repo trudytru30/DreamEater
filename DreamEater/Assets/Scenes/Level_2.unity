@@ -138219,7 +138219,7 @@ Transform:
   m_GameObject: {fileID: 538041975}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13052616, y: -0, z: -0, w: 0.9914449}
-  m_LocalPosition: {x: 0, y: 14.377216, z: -19.318518}
+  m_LocalPosition: {x: 308.9, y: -22.862787, z: -19.318518}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -181997,8 +181997,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 443.56042, y: -217.4}
-  m_SizeDelta: {x: 131.081, y: 50}
+  m_AnchoredPosition: {x: 444, y: -226.8}
+  m_SizeDelta: {x: 199.9322, y: 62.8165}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &726404290
 MonoBehaviour:
@@ -182033,9 +182033,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Sunny
-
-'
+  m_Text: The Child
 --- !u!222 &726404291
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -196833,7 +196831,7 @@ Transform:
   m_GameObject: {fileID: 796189144}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13052616, y: -0, z: -0, w: 0.9914449}
-  m_LocalPosition: {x: 0, y: 14.377216, z: -19.318518}
+  m_LocalPosition: {x: 308.9, y: -22.862787, z: -19.318518}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -527974,6 +527972,7 @@ GameObject:
   - component: {fileID: 2095617136}
   - component: {fileID: 2095617138}
   - component: {fileID: 2095617137}
+  - component: {fileID: 2095617139}
   m_Layer: 0
   m_Name: TriggerDreamEater
   m_TagString: Untagged
@@ -528030,6 +528029,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 39, y: 17.7, z: 22.14}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2095617139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2095617135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b30e53d10b3dd49bcc8a3044a535f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueSpriteActivo
+  _activo: {fileID: 1327404854}
+  _desactivado: {fileID: 1043429592}
 --- !u!1 &2096051768
 GameObject:
   m_ObjectHideFlags: 0
@@ -528276,11 +528289,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5675314313350645821, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 308.9
       objectReference: {fileID: 0}
     - target: {fileID: 5675314313350645821, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -37.24
       objectReference: {fileID: 0}
     - target: {fileID: 5675314313350645821, guid: 1862aceaa3cdbda40862265d8a35ab3a, type: 3}
       propertyPath: m_LocalPosition.z
