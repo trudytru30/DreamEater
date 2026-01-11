@@ -25,7 +25,8 @@ public class ShowRecuerdo : MonoBehaviour
 
     private IEnumerator TimeOfMemory()
     {
-
+        yield return new WaitForSeconds(17);
+        _recuerdo.SetActive(true);
         yield return new WaitForSeconds(_memoryTime);
         _levelManager._canSwapScene = true;
 
