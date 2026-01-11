@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef9c500f39d4161bc8318cc49e8e3da, type: 3}
   m_Name: Dialogue_04_LVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  Speaker: RomeoSantos
-  Line: 'Cuidado con estas plataformas, se activan y desactivan '
+  Speaker: The Victim
+  Line: "Cuidado con estas plataformas, se activan y desactivan, asi que salta en
+    el momento justo para no caerte al vac\xEDo."
   Choices:
   - text: Continuar
     nextNode: {fileID: 0}

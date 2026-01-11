@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef9c500f39d4161bc8318cc49e8e3da, type: 3}
   m_Name: Dialogue_03_02_LVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  Speaker: RomeoSantos
+  Speaker: The Victim
   Line: "Esto de al lado nuestro, se trata de un puzzle que fue dise\xF1ado por DreamEater,
     pero cambia dependiendo de al individuo que atrapa."
   Choices:

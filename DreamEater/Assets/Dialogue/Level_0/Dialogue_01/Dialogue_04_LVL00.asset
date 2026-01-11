@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef9c500f39d4161bc8318cc49e8e3da, type: 3}
   m_Name: Dialogue_04_LVL00
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  Speaker: RomeoSantos
+  Speaker: The Victim
   Line: Yo fui el primero de todos, no pude escapar y desde entonces estoy anclado
     a este mundo, intentando ayudar a salir a los que llegan.
   Choices:

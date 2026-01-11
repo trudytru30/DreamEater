@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ef9c500f39d4161bc8318cc49e8e3da, type: 3}
-  m_Name: Dialogue_03_04_LVL01
+  m_Name: Dialogue_03_05_LVL
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: "Cinco animales custodian un mecanismo secreto. Cada uno tiene una palanca
-    que debe estar Arriba o Abajo. Si no logras poner las cinco en su posici\xF3n
-    correcta, la puerta no se abrir\xE1."
+  Line: The second memory, where are we?
   Choices:
-  - text: Continuar
-    nextNode: {fileID: 11400000, guid: 6b38cec68fe2eeb43a8b2db2268abe59, type: 2}
-  - text: Volver
-    nextNode: {fileID: 11400000, guid: 73d1cd65bc3a4a04eb0a9da5cdda0d8b, type: 2}
+  - text: The river, i used to play with my friend Turtle here.
+    nextNode: {fileID: 11400000, guid: d3277e0da24d6c4459279c99c57ef793, type: 2}
+  - text: Exit
+    nextNode: {fileID: 0}
   NextNode: {fileID: 0}

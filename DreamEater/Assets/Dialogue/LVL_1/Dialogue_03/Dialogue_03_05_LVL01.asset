@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef9c500f39d4161bc8318cc49e8e3da, type: 3}
   m_Name: Dialogue_03_05_LVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  Speaker: RomeoSantos
+  Speaker: The Victim
   Line: "Estas son las reglas del mecanismo:\r\nLa Ardilla y el Conejo nunca est\xE1n
     en la misma posici\xF3n: si uno sube, el otro baja.\r\nLa Cabra ha visto que
     la Ardilla est\xE1 Arriba, y ha decidido imitarla.\r\n\r\n"

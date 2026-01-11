@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef9c500f39d4161bc8318cc49e8e3da, type: 3}
   m_Name: Dialogue_03_LVL00
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  Speaker: RomeoSantos
+  Speaker: The Victim
   Line: "Est\xE1s en un mundo parelelo, causado por el DreamEater, un ser que consume
     los sue\xF1os de las personas para alimentarse a s\xED mismo."
   Choices:

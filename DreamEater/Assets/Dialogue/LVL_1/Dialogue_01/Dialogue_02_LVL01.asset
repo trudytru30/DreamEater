@@ -12,13 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef9c500f39d4161bc8318cc49e8e3da, type: 3}
   m_Name: Dialogue_02_LVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  Speaker: RomeoSantos
-  Line: "Ey!!! Solo ven\xEDa a decirte que tengas cuidado con estas plataformas,
-    ya que tienen una corriente el\xE9ctrica que podr\xEDa hacerte da\xF1o, asi que
-    cruza en el momento adecuado."
+  Speaker: The Victim
+  Line: "Pues seguramente el DreamEater, lo tenga retenido en algun lugar de este
+    sue\xF1o, debes encontralo y salvarlo."
   Choices:
-  - text: Continuar
-    nextNode: {fileID: 0}
+  - text: "\xBFComo lo encuentro?"
+    nextNode: {fileID: 11400000, guid: 0f6ea12610b37664e8dd67053c87f700, type: 2}
   - text: Volver
     nextNode: {fileID: 0}
   NextNode: {fileID: 0}
