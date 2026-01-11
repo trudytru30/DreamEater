@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: Dialogue_01-02_LVL02 1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: 'So a river... I think the Dream Eater will have some surprises for us.
+  Line: 'So a river... I think the DreamEater will have some surprises for us.
 
     Stay
     Alert.'
   Choices:
   - text: Continue
     nextNode: {fileID: 0}
-  - text: Return
-    nextNode: {fileID: 11400000, guid: a9867ebe82b9b3a44a7f95a81227985c, type: 2}
   NextNode: {fileID: 0}

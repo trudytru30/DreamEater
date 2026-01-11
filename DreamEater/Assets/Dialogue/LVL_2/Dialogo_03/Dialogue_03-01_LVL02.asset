@@ -13,12 +13,9 @@ MonoBehaviour:
   m_Name: Dialogue_03-01_LVL02
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: '
-
-    Well done! Let''s try to cross this cave as quickly as possible.'
+  Line: Well done! Let's try to cross this cave as quickly as possible. I sense the
+    DeamEater is somewhere near.
   Choices:
   - text: Continue
-    nextNode: {fileID: 0}
-  - text: Exit
     nextNode: {fileID: 0}
   NextNode: {fileID: 0}

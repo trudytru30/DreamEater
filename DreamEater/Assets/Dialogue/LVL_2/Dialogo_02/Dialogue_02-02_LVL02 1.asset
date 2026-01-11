@@ -13,16 +13,12 @@ MonoBehaviour:
   m_Name: Dialogue_02-02_LVL02 1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: '
+  Line: '...I guess anything is possible in a dream.
 
-    ...I guess anything is possible in a dream.
-
-    Anyway, I''ve seen
-    that the DreamEater is sending Waves that will push you toward the spikes, so
-    please be careful.'
+    Anyway, I''ve seen that
+    the DreamEater is sending Waves that will push you toward the spikes, so please
+    be careful.'
   Choices:
   - text: Continue
     nextNode: {fileID: 0}
-  - text: Return
-    nextNode: {fileID: 11400000, guid: ee2655739dfd8b7458013f23452d760e, type: 2}
   NextNode: {fileID: 0}

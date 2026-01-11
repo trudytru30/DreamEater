@@ -17,6 +17,4 @@ MonoBehaviour:
   Choices:
   - text: The river, i used to play with my friend Turtle here.
     nextNode: {fileID: 11400000, guid: d3277e0da24d6c4459279c99c57ef793, type: 2}
-  - text: Exit
-    nextNode: {fileID: 0}
   NextNode: {fileID: 0}

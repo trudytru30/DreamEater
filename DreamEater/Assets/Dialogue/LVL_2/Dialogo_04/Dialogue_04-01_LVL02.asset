@@ -13,12 +13,9 @@ MonoBehaviour:
   m_Name: Dialogue_04-01_LVL02
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: '
-
-    I think there are 4 levers like this one in the area,'
+  Line: I think there are 4 levers like this one in the area, make sure you activate
+    all of them.
   Choices:
   - text: Continue
     nextNode: {fileID: 11400000, guid: 055933cde18c9ae4c829e9a22d3f8490, type: 2}
-  - text: Exit
-    nextNode: {fileID: 0}
   NextNode: {fileID: 0}
