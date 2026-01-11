@@ -21858,7 +21858,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &333447029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73230,8 +73230,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   dialogueController: {fileID: 1036691432}
-  firstDialogue: {fileID: 11400000, guid: aae2da6dd4f18cd4cae8c028fedd3779, type: 2}
-  repeatDialogue: {fileID: 11400000, guid: aae2da6dd4f18cd4cae8c028fedd3779, type: 2}
+  firstDialogue: {fileID: 11400000, guid: 9b3d85ea20358b64488bfe08604b420b, type: 2}
+  repeatDialogue: {fileID: 11400000, guid: 9b3d85ea20358b64488bfe08604b420b, type: 2}
 --- !u!65 &1263933967
 BoxCollider:
   m_ObjectHideFlags: 0

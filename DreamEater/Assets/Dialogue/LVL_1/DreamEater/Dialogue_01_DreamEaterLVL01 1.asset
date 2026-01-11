@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Dialogue_01_DreamEaterLVL01 1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: DreamEater
-  Line: "Crees que tu amigo el cangrejo, es el \xFAnico, que inocente eres."
+  Line: You think your friend the crab is the only one? How naive you are.
   Choices:
-  - text: "\xBFQue has hecho con ellos?"
+  - text: What have you done with them?
     nextNode: {fileID: 11400000, guid: b0cff2d1ce0fc51418e3980f0cd09f52, type: 2}
   - text: Volver
     nextNode: {fileID: 0}

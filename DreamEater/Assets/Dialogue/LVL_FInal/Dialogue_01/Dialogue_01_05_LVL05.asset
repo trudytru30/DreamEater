@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialogue_01_05_LVL05
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: Well done!!! You manage to defeat The DreamEater
+  Line: Well done!!! You manage to defeat The DreamEater.
   Choices:
   - text: Thanks!!! What will happen to you?
     nextNode: {fileID: 11400000, guid: a3571731445e0ca49ba8696718157dd3, type: 2}

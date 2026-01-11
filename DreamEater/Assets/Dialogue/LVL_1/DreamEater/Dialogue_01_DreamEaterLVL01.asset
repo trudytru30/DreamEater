@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Dialogue_01_DreamEaterLVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: DreamEater
-  Line: "Crees que todo lo que est\xE1s haciendo va a servir para algo? Te han abandonado,
-    \xBFque vas hacer ahora?, no te queda nada."
+  Line: Do you think everything you're doing will amount to anything? They've abandoned
+    you, what are you going to do now? You have nothing left.
   Choices:
-  - text: "No te tengo miedo, conseguire recuperar a mi amigo y luego escapar\xE9
-      de aqu\xED."
+  - text: I'm not afraid of you, I'll get my friend back and then I'll escape from
+      here.
     nextNode: {fileID: 11400000, guid: 20a3accf313bf4442b4b3393bfbfee67, type: 2}
   - text: Volver
     nextNode: {fileID: 0}
