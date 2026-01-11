@@ -23,6 +23,7 @@ public class CambioCamaraAgachadoTrigger : MonoBehaviour
                 // Subimos la prioridad para que esta cámara tome el control
                 camaraAgachado.Priority = prioridadAlta;
             }
+            Debug.Log("Metido");
         }
     }
 
@@ -36,6 +37,7 @@ public class CambioCamaraAgachadoTrigger : MonoBehaviour
                 // Bajamos la prioridad para que el control vuelva a la cámara principal
                 camaraAgachado.Priority = prioridadBaja;
             }
+            Debug.Log("Salido");
         }
     }
 }

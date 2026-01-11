@@ -34,8 +34,8 @@ public class PushableBox : MonoBehaviour, IGrabable
     {
         _rb = GetComponent<Rigidbody>();
 
-        _defaultDrag = _rb.drag;
-        _defaultAngularDrag = _rb.angularDrag;
+        _defaultDrag = _rb.linearDamping;
+        _defaultAngularDrag = _rb.angularDamping;
         _defaultConstraints = _rb.constraints;
 
         _rb.interpolation = RigidbodyInterpolation.Interpolate;
@@ -79,7 +79,7 @@ public class PushableBox : MonoBehaviour, IGrabable
         _axisOrigin = _rb.position;
 
         // Ajustes físicos para empuje estable
-        _rb.drag = grabbedDrag;
+        _rb.linearDamping = grabbedDrag;
 
         if (freezeRotationWhileHeld)
         {
@@ -95,8 +95,8 @@ public class PushableBox : MonoBehaviour, IGrabable
         _grabber = null;
         _anchor = null;
 
-        _rb.drag = _defaultDrag;
-        _rb.angularDrag = _defaultAngularDrag;
+        _rb.linearDamping = _defaultDrag;
+        _rb.angularDamping = _defaultAngularDrag;
         _rb.constraints = _defaultConstraints;
     }
 

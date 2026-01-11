@@ -8,28 +8,21 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody), typeof(Collider))]
 public class EnemyMovable : MonoBehaviour
 {
-    [SerializeField] private Animator anim;
+    //[SerializeField] private Animator anim;
     [SerializeField] private float speed = 3f;
     
     private Rigidbody _rb;
-    
-    private readonly int _walkAnimState = Animator.StringToHash("Enemy_Walk");
-    
-    //inicializar enemy
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
-        if (anim == null)
-        {
-            anim = GetComponent<Animator>();
-        }
     }
-    
+
+
     //movimiento del enemy
     private void Update()
     {
         _rb.linearVelocity = new Vector3(_rb.linearVelocity.x, _rb.linearVelocity.y,speed);
-        anim.SetBool(_walkAnimState, true);
     }
     
     //cambiar direccion de movimiento si choca con un objeto

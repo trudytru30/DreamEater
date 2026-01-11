@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-[RequireComponent(typeof(Interactable), typeof(Collider))]
+[RequireComponent(typeof(Interactable), typeof(BoxCollider))]
 public class PushableBoxInteractableRelay : MonoBehaviour
 {
     [Header("References")]
