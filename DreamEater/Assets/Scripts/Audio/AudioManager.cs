@@ -11,7 +11,6 @@ public class AudioManager : MonoBehaviour
     [Header("AudioSources")]
     [SerializeField] private AudioSource _sfxAudioSource;
     [SerializeField] private AudioSource _musicAudioSource;
-    [SerializeField] private AudioSource _dialogsAudioSource;
 
     [Header("UI")]
     [SerializeField] private AudioClip   _buttonSound;
@@ -25,6 +24,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip[] _pasosBosque;
     [SerializeField] private AudioClip[] _pasos;
     [SerializeField] private AudioClip   _morirSound;
+    [SerializeField] private AudioClip   _pickUpSound;
 
 
     private void Awake()
@@ -42,7 +42,11 @@ public class AudioManager : MonoBehaviour
 
     }
 
-
+    public void PlayPickUp()
+    {
+        _sfxAudioSource.clip = _pickUpSound;
+        _sfxAudioSource.Play();
+    }
     public void PlayPasos()
     {
         string _sceneName = SceneManager.GetActiveScene().name;

@@ -191,7 +191,7 @@ public class PlayerController2 : MonoBehaviour
             if (wantCrouch)
             {
                 _isCrouching = true;
-
+                AudioManager.Instance.PlayAgacharse();
                 float crouchHeight   = _originalHeight * 0.5f;
                 float originalBottom = _originalCenter.y - (_originalHeight * 0.5f);
                 float newCenterY     = originalBottom + (crouchHeight * 0.5f);
@@ -287,6 +287,7 @@ public class PlayerController2 : MonoBehaviour
         _rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
         _anim.ResetTrigger(jumpTrig);
         _anim.SetTrigger(jumpTrig);
+        
     }
     private void Crouch()
     {
@@ -305,6 +306,7 @@ public class PlayerController2 : MonoBehaviour
         float feetY     = bounds.min.y;//pos pies
         float headYFull = feetY + _originalHeight;
 
+        AudioManager.Instance.PlayAgacharse();
         //para que casula no toque justo el techo
         float epsilon   = 0.02f;
 
@@ -377,6 +379,7 @@ public class PlayerController2 : MonoBehaviour
         _rb.linearVelocity = Vector3.zero;
 
         _anim.SetTrigger("Die");
+        AudioManager.Instance.PlayMorir();
         StartCoroutine(RespawnSequence());
     }
 

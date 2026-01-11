@@ -23,7 +23,7 @@ public class PickUps : MonoBehaviour
                     break;
             }
         }
-
+        AudioManager.Instance.PlayPickUp();
         // destruye el objeto
         Destroy(gameObject);
     }
