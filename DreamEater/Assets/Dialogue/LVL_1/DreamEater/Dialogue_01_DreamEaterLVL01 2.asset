@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ef9c500f39d4161bc8318cc49e8e3da, type: 3}
-  m_Name: Dialogue_01_DreamEaterLVL01
+  m_Name: Dialogue_01_DreamEaterLVL01 2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: DreamEater
-  Line: "Crees que todo lo que est\xE1s haciendo va a servir para algo? Te han abandonado,
-    \xBFque vas hacer ahora?, no te queda nada."
+  Line: "Ya lo ver\xE1s por ti mismo..."
   Choices:
-  - text: "No te tengo miedo, conseguire recuperar a mi amigo y luego escapar\xE9
-      de aqu\xED."
-    nextNode: {fileID: 11400000, guid: 20a3accf313bf4442b4b3393bfbfee67, type: 2}
-  - text: Volver
+  - text: No voy a perder mas el tiempo contigo
     nextNode: {fileID: 0}
+  - text: Volver
+    nextNode: {fileID: 11400000, guid: bb1abf0d6f77503459fcb5a0fe6f9469, type: 2}
   NextNode: {fileID: 0}

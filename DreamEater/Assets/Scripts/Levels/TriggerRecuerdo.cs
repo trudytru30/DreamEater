@@ -6,6 +6,7 @@ public class TriggerRecuerdo : MonoBehaviour
 {
     [SerializeField] GameObject _systemParticle;
     [SerializeField] Animator _animator;
+    [SerializeField] Animator _animatorCamara;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,6 +25,7 @@ public class TriggerRecuerdo : MonoBehaviour
 
     IEnumerator MiDestello()
     {
+        _animatorCamara.SetTrigger("Activar");
         yield return new WaitForSeconds(10f);
         _animator.enabled = true;
     }

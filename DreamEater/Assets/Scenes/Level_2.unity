@@ -288964,6 +288964,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TriggerRecuerdo
   _systemParticle: {fileID: 264236265}
   _animator: {fileID: 75490091}
+  _animatorCamara: {fileID: 985567350}
 --- !u!114 &1144459353
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ef9c500f39d4161bc8318cc49e8e3da, type: 3}
-  m_Name: Dialogue_01_DreamEaterLVL01
+  m_Name: Dialogue_01_DreamEaterLVL01 1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: DreamEater
-  Line: "Crees que todo lo que est\xE1s haciendo va a servir para algo? Te han abandonado,
-    \xBFque vas hacer ahora?, no te queda nada."
+  Line: "Crees que tu amigo el cangrejo, es el \xFAnico, que inocente eres."
   Choices:
-  - text: "No te tengo miedo, conseguire recuperar a mi amigo y luego escapar\xE9
-      de aqu\xED."
-    nextNode: {fileID: 11400000, guid: 20a3accf313bf4442b4b3393bfbfee67, type: 2}
+  - text: "\xBFQue has hecho con ellos?"
+    nextNode: {fileID: 11400000, guid: b0cff2d1ce0fc51418e3980f0cd09f52, type: 2}
   - text: Volver
     nextNode: {fileID: 0}
   NextNode: {fileID: 0}
