@@ -431370,8 +431370,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   dialogueController: {fileID: 803114439}
-  firstDialogue: {fileID: 11400000, guid: a9867ebe82b9b3a44a7f95a81227985c, type: 2}
-  repeatDialogue: {fileID: 11400000, guid: a9867ebe82b9b3a44a7f95a81227985c, type: 2}
+  firstDialogue: {fileID: 11400000, guid: f02d26e96d8eb454db1af532303ee87a, type: 2}
+  repeatDialogue: {fileID: 11400000, guid: f02d26e96d8eb454db1af532303ee87a, type: 2}
 --- !u!1 &1697014625
 GameObject:
   m_ObjectHideFlags: 0

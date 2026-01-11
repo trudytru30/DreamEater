@@ -8,6 +8,9 @@ public class Switch : MonoBehaviour
 {
     [SerializeField] private bool isActive; //inidca si esta activado, es serializable para el estado incial
 
+    private float _lastInteractTime = -1f; 
+    private const float _cooldown = 0.5f; // Tiempo de espera entre usos
+    
     //cambia estado al interactuar
     private void Update()
     {
@@ -16,10 +19,14 @@ public class Switch : MonoBehaviour
 
         if (interactable != null && interactable.GetIsInteracting())
         {
-            ChangeActive();
-            SwitchSubject.Notify(this);
-            
-            // CORRECCIÓN VITAL: "Consumimos" el input para que no parpadee
+            if (Time.time >= _lastInteractTime + _cooldown)
+            {
+                ChangeActive();
+                
+                _lastInteractTime = Time.time; 
+                
+                SwitchSubject.Notify(this);
+            }
             interactable.SetIsInteracting(false);
         }
     }

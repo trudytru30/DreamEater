@@ -15,7 +15,6 @@ public class PaternSwitch : MonoBehaviour
     private void OnEnable()
     {
         SwitchSubject.OnSwitchStateChanged += OnSwitchStateChanged;
-        CheckPosition();
     }
 
     private void OnDisable()
@@ -30,9 +29,11 @@ public class PaternSwitch : MonoBehaviour
 
     private void CheckPosition()
     { 
+        if (totalSwitches.Length != correctPositions.Length) return;
         //recorre el array comprobando posiciones
         for (int i = 0; i < totalSwitches.Length; i++)
         {
+            if (totalSwitches[i] == null) return;
             //si una posicion no es correcta no sigue comprobando
             if (totalSwitches[i].GetIsActive() != correctPositions[i])
             {
@@ -40,12 +41,14 @@ public class PaternSwitch : MonoBehaviour
             }
         }
         
-        Debug.Log("Correcto");
         if (puertaASolucionar != null)
         {
+            Debug.Log("ABRIENDO PUERTA");
             puertaASolucionar.activarPalanca();
             // Opcional: Desactivar este script para que no se abra dos veces
             this.enabled = false; 
         }
     }
+    
+
 }
