@@ -10,19 +10,20 @@ public class Elevator : MonoBehaviour
 {
     [Header("Configuración de Movimiento")]
     [SerializeField] private float velocidad = 2.5f;
-    [SerializeField] private List<float> pisosY; // Lista de alturas (Piso 0, Piso 1, etc.)
+    [SerializeField] private List<float> pisosY;
     [SerializeField] private bool detenerSiJugadorSale = true;
 
     private Vector3 targetActual;
     private bool tieneOrden = false;
-    private bool jugadorEncima = false;
-
-    // Para no perder la jerarquía original del player
     private Transform originalParent;
+    private Rigidbody rb; // Añadido para física suave
 
     private void Awake()
     {
-        // Aseguramos que el collider sea trigger
+        rb = GetComponent<Rigidbody>();
+        
+        if (rb) rb.isKinematic = true;
+
         if (GetComponent<BoxCollider>()) GetComponent<BoxCollider>().isTrigger = true;
     }
 
@@ -31,7 +32,6 @@ public class Elevator : MonoBehaviour
         targetActual = transform.position;
     }
 
-    // Método universal para llamar a cualquier piso
     public void IrAlPiso(int indicePiso)
     {
         if (indicePiso >= 0 && indicePiso < pisosY.Count)
@@ -45,8 +45,6 @@ public class Elevator : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            jugadorEncima = true;
-            // Guardamos el padre original antes de cambiarlo
             originalParent = other.transform.parent;
             other.transform.SetParent(transform);
         }
@@ -56,15 +54,8 @@ public class Elevator : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            jugadorEncima = false;
-            // Devolvemos al jugador a su padre original (no a null)
             other.transform.SetParent(originalParent);
-
-            // Si quieres que se pare al salir:
-            if (detenerSiJugadorSale)
-            {
-                tieneOrden = false;
-            }
+            if (detenerSiJugadorSale) tieneOrden = false;
         }
     }
 
@@ -72,13 +63,23 @@ public class Elevator : MonoBehaviour
     {
         if (!tieneOrden) return;
 
-        transform.position = Vector3.MoveTowards(
+        
+        Vector3 proximaPosicion = Vector3.MoveTowards(
             transform.position,
             targetActual,
             velocidad * Time.fixedDeltaTime
         );
 
-        if (Vector3.Distance(transform.position, targetActual) < 0.001f)
+        if (rb)
+        {
+            rb.MovePosition(proximaPosicion);
+        }
+        else
+        {
+            transform.position = proximaPosicion;
+        }
+
+        if (Vector3.Distance(transform.position, targetActual) < 0.01f)
         {
             transform.position = targetActual;
             tieneOrden = false;

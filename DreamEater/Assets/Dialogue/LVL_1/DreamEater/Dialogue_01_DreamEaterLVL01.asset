@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9ef9c500f39d4161bc8318cc49e8e3da, type: 3}
-  m_Name: Dialogue_01_DreamEaterLVL00 1
+  m_Name: Dialogue_01_DreamEaterLVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
-  Speaker: DreamEater
-  Line: otro chupapi
+  Speaker: The Victim
+  Line: "Este parecer ser el primer sue\xF1o, cada lugar esta relacionado con los
+    sue\xF1os de la propia persona, te recuerda esto a algo?"
   Choices:
-  - text: "\xBFQuien eres?"
-    nextNode: {fileID: 0}
-  - text: Exit
+  - text: La verdad que si, es la playa a la que iba con mi amigo el cangrejo
+    nextNode: {fileID: 11400000, guid: 20a3accf313bf4442b4b3393bfbfee67, type: 2}
+  - text: Volver
     nextNode: {fileID: 0}
   NextNode: {fileID: 0}
