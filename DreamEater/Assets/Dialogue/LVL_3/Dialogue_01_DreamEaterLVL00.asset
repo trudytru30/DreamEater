@@ -16,8 +16,6 @@ MonoBehaviour:
   Line: You are doing well. Now you are in the mountains, very cold place. I don't
     know the animal of this memory.
   Choices:
-  - text: What is this?
+  - text: What is this thing in my head?
     nextNode: {fileID: 11400000, guid: c22a397849f7eeb4ea50d2f1eb2d6c6b, type: 2}
-  - text: Exit
-    nextNode: {fileID: 0}
   NextNode: {fileID: 0}

@@ -13,12 +13,10 @@ MonoBehaviour:
   m_Name: Dialogue_01_DreamEaterLVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: DreamEater
-  Line: Do you think everything you're doing will amount to anything? They've abandoned
-    you, what are you going to do now? You have nothing left.
+  Line: Do you think anything you're doing will be worth the effort? They've abandoned
+    you, what are you going to do? You have nothing left.
   Choices:
   - text: I'm not afraid of you, I'll get my friend back and then I'll escape from
       here.
-    nextNode: {fileID: 11400000, guid: 20a3accf313bf4442b4b3393bfbfee67, type: 2}
-  - text: Volver
-    nextNode: {fileID: 0}
+    nextNode: {fileID: 11400000, guid: bb1abf0d6f77503459fcb5a0fe6f9469, type: 2}
   NextNode: {fileID: 0}

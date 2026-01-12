@@ -16,6 +16,6 @@ MonoBehaviour:
   Line: 'I''m the powerful and feared DreamEater. And I''m going to eat your good
     dreams. '
   Choices:
-  - text: Exit
+  - text: RUN
     nextNode: {fileID: 0}
   NextNode: {fileID: 0}

@@ -15,6 +15,6 @@ MonoBehaviour:
   Speaker: The Victim
   Line: You can use the bouncy mushrooms to jump them.
   Choices:
-  - text: OK
+  - text: Okay.
     nextNode: {fileID: 0}
   NextNode: {fileID: 0}

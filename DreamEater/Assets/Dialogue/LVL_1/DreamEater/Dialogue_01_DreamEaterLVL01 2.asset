@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: Dialogue_01_DreamEaterLVL01 2
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: DreamEater
-  Line: You'll see for yourself...
+  Line: You'll see...
   Choices:
   - text: I'm not going to waste my time with you.
     nextNode: {fileID: 0}
-  - text: Volver
-    nextNode: {fileID: 11400000, guid: bb1abf0d6f77503459fcb5a0fe6f9469, type: 2}
   NextNode: {fileID: 0}

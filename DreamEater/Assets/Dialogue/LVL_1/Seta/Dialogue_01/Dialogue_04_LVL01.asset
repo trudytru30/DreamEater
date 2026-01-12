@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: Dialogue_04_LVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: Finally, be careful what you find along the way. We don't know what the DreamEater
+  Line: Be careful what you find along the way. We don't know what the DreamEater
     is plotting within each dream, so be alert.
   Choices:
-  - text: I will
+  - text: I will.
     nextNode: {fileID: 0}
-  - text: Return
-    nextNode: {fileID: 11400000, guid: 0f6ea12610b37664e8dd67053c87f700, type: 2}
   NextNode: {fileID: 0}

@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: Dialogue_02_01_LVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: Be careful with these platforms, as they carry an electric current that could
-    harm you. Cross them at the appropriate time.
+  Line: Be careful with these platforms, as they are charged with electricity that
+    could harm you. Cross them at the appropriate time.
   Choices:
   - text: Good to know it!!!
     nextNode: {fileID: 11400000, guid: 196667f65b037c24d9ef832293a708ea, type: 2}
-  - text: Exit
-    nextNode: {fileID: 0}
   NextNode: {fileID: 0}

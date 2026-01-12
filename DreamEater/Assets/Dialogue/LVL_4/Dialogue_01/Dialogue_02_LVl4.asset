@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Dialogue_02_LVl4
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: 'Yeah, the DreamEater planted poisoned spikes making it difficult to pass
-    throught the forest. '
+  Line: I have no doubt about that, this.. forest is full of spikes that will hurt
+    you. Be careful.
   Choices:
   - text: How can avoid them?
     nextNode: {fileID: 11400000, guid: 834f4e088220e674d9db25db9ec0c59c, type: 2}

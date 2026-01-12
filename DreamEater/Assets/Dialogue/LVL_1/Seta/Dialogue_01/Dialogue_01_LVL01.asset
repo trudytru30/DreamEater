@@ -14,10 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
   Line: This seems to be the first dream. Each one is related to the person's owned
-    dreams. Does this remind you anything?
+    dreams. Does this place remind you anything?
   Choices:
   - text: Yeah, it's the beach I used to go to with my friend the crab.
     nextNode: {fileID: 11400000, guid: 20a3accf313bf4442b4b3393bfbfee67, type: 2}
-  - text: Exit
-    nextNode: {fileID: 0}
   NextNode: {fileID: 0}

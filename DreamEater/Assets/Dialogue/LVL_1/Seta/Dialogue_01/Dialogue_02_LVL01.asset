@@ -18,6 +18,4 @@ MonoBehaviour:
   Choices:
   - text: How can I find him?
     nextNode: {fileID: 11400000, guid: 0f6ea12610b37664e8dd67053c87f700, type: 2}
-  - text: Return
-    nextNode: {fileID: 11400000, guid: 4abb22c0c01bd344f976a7270f924958, type: 2}
   NextNode: {fileID: 0}

@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: Dialogue_01_DreamEaterLVL00
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: DreamEater
-  Line: Oh. are you really "The Child"?
+  Line: Oh. so you are "The Child"?
   Choices:
   - text: Who are you?
     nextNode: {fileID: 11400000, guid: 3fdac91acda44304d90b566e10c3d6d6, type: 2}
-  - text: Exit
-    nextNode: {fileID: 0}
   NextNode: {fileID: 0}

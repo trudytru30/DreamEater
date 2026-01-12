@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: Dialogue_02_02_LVL01
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: DreamEater is preventing me from helping you more than I'd like, so I won't
-    be able to help you for a while.
+  Line: The DreamEater is preventing me from helping you more than I'd like, so I
+    won't be able to help you for a while.
   Choices:
-  - text: Don't worry!!! I will manage.
+  - text: Don't worry! I will manage. Please, be safe.
     nextNode: {fileID: 0}
-  - text: Return
-    nextNode: {fileID: 11400000, guid: 49cec1a61bfb9b94ba2b402ad8ed6f06, type: 2}
   NextNode: {fileID: 0}

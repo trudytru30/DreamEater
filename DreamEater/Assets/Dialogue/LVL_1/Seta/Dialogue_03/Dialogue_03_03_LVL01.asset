@@ -17,6 +17,4 @@ MonoBehaviour:
   Choices:
   - text: Continue
     nextNode: {fileID: 11400000, guid: 1096639c8f6937740a2575f559328da3, type: 2}
-  - text: Return
-    nextNode: {fileID: 11400000, guid: c76ea53c6f897ee4a977217fa86198bf, type: 2}
   NextNode: {fileID: 0}

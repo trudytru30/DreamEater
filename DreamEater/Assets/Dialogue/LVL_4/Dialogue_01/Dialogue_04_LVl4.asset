@@ -16,6 +16,6 @@ MonoBehaviour:
   Line: 'As Archimedes said, "Give me a fulcrum and i will move the earth", but obviously
     with a lever. '
   Choices:
-  - text: 'Eh, OK. '
+  - text: 'Eh..., OK. '
     nextNode: {fileID: 0}
   NextNode: {fileID: 0}

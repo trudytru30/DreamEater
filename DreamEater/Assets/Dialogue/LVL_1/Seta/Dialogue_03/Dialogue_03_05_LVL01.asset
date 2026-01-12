@@ -15,14 +15,12 @@ MonoBehaviour:
   Speaker: The Victim
   Line: 'These are the rules of the mechanism:
 
-    The Squirrel and the Rabbit
-    are never in the same position: if one goes up, the other goes down.
+    The Squirrel and the Rabbit are
+    never in the same position: if one goes up, the other goes down.
 
-    The
-    Goat has seen that the Squirrel is up, and has decided to copy her.'
+    The Goat
+    has seen that the Squirrel is up, and has decided to copy her.'
   Choices:
   - text: Continue
     nextNode: {fileID: 11400000, guid: 249e02c79fee6a04798406b78fe69fc2, type: 2}
-  - text: Return
-    nextNode: {fileID: 11400000, guid: 1096639c8f6937740a2575f559328da3, type: 2}
   NextNode: {fileID: 0}

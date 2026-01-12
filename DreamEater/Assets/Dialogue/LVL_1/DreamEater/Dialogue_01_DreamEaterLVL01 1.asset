@@ -17,6 +17,4 @@ MonoBehaviour:
   Choices:
   - text: What have you done with them?
     nextNode: {fileID: 11400000, guid: b0cff2d1ce0fc51418e3980f0cd09f52, type: 2}
-  - text: Volver
-    nextNode: {fileID: 0}
   NextNode: {fileID: 0}

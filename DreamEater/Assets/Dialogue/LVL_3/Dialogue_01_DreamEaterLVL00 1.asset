@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Dialogue_01_DreamEaterLVL00 1
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: ' I gave you a powerful miner''s helmet. With that, you can melt the frozen
-    boxes.'
+  Line: I gave you a powerful miner's helmet. With that, you can melt the frozen
+    boxes.
   Choices:
-  - text: Thanks!!!
+  - text: Thanks!
     nextNode: {fileID: 0}
   NextNode: {fileID: 0}

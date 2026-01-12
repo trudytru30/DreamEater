@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: Dialogue_01_LVL4
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: 'In the past, this was a beautiful forest, but now is full of Darkness Spikes.
-    I remmember coming here with my friend "The Squirrel", but now I dont know where
-    he she is. '
+  Line: I sense the DreamEater has altered this memory. So keep in mind that i might
+    not be as you remember
   Choices:
-  - text: Darkness spikes?
+  - text: This used to be a beautyfull forest.
     nextNode: {fileID: 11400000, guid: 73deb707494d1d94faa0fa7222db7b63, type: 2}
   - text: Back
     nextNode: {fileID: 0}
