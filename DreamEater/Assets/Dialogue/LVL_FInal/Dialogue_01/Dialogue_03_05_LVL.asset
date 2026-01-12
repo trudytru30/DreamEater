@@ -14,10 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
   Line: Don't forget the importance of dreams in life. Sometimes, dreams are where
-    we find our happiness.
+    we find our happiness. Make sure, we will see each other again in your dreams.
   Choices:
-  - text: I will remmember
+  - text: I will remember you, always.
     nextNode: {fileID: 0}
-  - text: Return
-    nextNode: {fileID: 11400000, guid: a3571731445e0ca49ba8696718157dd3, type: 2}
   NextNode: {fileID: 0}

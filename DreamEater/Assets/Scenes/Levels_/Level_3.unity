@@ -14751,6 +14751,73 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &254948829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 254948830}
+  - component: {fileID: 254948832}
+  - component: {fileID: 254948831}
+  m_Layer: 0
+  m_Name: CheckPoint_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &254948830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254948829}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 212.4, y: -83.04, z: 2.78}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1151322582}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &254948831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254948829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda0f57769f7cbc4cbd4941c00af0bbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Checkpoints
+  checkpointId: 4
+--- !u!65 &254948832
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254948829}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.589958, y: 5.6143723, z: 14.610901}
+  m_Center: {x: 1.7949791, y: 2.3071861, z: 0.79696655}
 --- !u!1 &256924616
 GameObject:
   m_ObjectHideFlags: 0
@@ -27156,11 +27223,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2160
+      value: 1700
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2160.0005
+      value: 1700
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: m_LocalScale.z
@@ -27208,7 +27275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -41179,7 +41246,7 @@ GameObject:
   - component: {fileID: 675272645}
   - component: {fileID: 675272644}
   m_Layer: 0
-  m_Name: CheckPoint_5
+  m_Name: CheckPoint_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41212,7 +41279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cda0f57769f7cbc4cbd4941c00af0bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Checkpoints
-  checkpointId: 4
+  checkpointId: 5
 --- !u!65 &675272645
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -52740,7 +52807,7 @@ Transform:
   m_GameObject: {fileID: 896034004}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: -0.5}
-  m_LocalPosition: {x: 609.3, y: -78.7, z: 773.91}
+  m_LocalPosition: {x: 609.3, y: -77, z: 773.91}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -58766,7 +58833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000061035156}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1018552190
@@ -66029,6 +66096,7 @@ Transform:
   - {fileID: 492847405}
   - {fileID: 1836819130}
   - {fileID: 857092287}
+  - {fileID: 254948830}
   - {fileID: 675272643}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -72678,11 +72746,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2160
+      value: 1700
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2160.0005
+      value: 1700
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: m_LocalScale.z
@@ -72730,7 +72798,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -83323,11 +83391,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2160
+      value: 1700
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2160.0005
+      value: 1700
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: m_LocalScale.z
@@ -83375,7 +83443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -93633,11 +93701,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2160
+      value: 1700
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2160.0005
+      value: 1700
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: m_LocalScale.z
@@ -93685,7 +93753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: m_ConstrainProportionsScale
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 49ec1b499de167246b34050f2e5b4987, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
