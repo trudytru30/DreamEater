@@ -18,6 +18,4 @@ MonoBehaviour:
   Choices:
   - text: This used to be a beautyfull forest.
     nextNode: {fileID: 11400000, guid: 73deb707494d1d94faa0fa7222db7b63, type: 2}
-  - text: Back
-    nextNode: {fileID: 0}
   NextNode: {fileID: 0}

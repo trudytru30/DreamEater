@@ -453,8 +453,8 @@ Transform:
   m_GameObject: {fileID: 12639606}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.19017932, z: -0, w: 0.9817494}
-  m_LocalPosition: {x: 335.68, y: 14.76, z: 8.51}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 335.68, y: 17.751995, z: 8.51}
+  m_LocalScale: {x: 1, y: 1.4527, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1353563102}
@@ -1068,7 +1068,6 @@ GameObject:
   m_Component:
   - component: {fileID: 29186423}
   - component: {fileID: 29186425}
-  - component: {fileID: 29186424}
   m_Layer: 0
   m_Name: ArbolesFondo
   m_TagString: Untagged
@@ -1094,21 +1093,8 @@ Transform:
   - {fileID: 1327664241}
   - {fileID: 654348031}
   - {fileID: 1718307089}
-  m_Father: {fileID: 492095810}
+  m_Father: {fileID: 295331972}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &29186424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 29186422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82a6953b9796a63428fca310cf9ca29f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParalaxEffect
-  parallaxMultiplier: 0.7
 --- !u!212 &29186425
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13994,8 +13980,8 @@ Transform:
   m_GameObject: {fileID: 278410176}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.031472307, z: -0, w: 0.9995046}
-  m_LocalPosition: {x: 302.33, y: 14.72, z: 0.83}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 302.33, y: 17.693995, z: 0.83}
+  m_LocalScale: {x: 1, y: 1.4527, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1353563102}
@@ -14514,6 +14500,8 @@ Transform:
   - {fileID: 1308184167}
   - {fileID: 1142178370}
   - {fileID: 724096680}
+  - {fileID: 1527188193}
+  - {fileID: 29186423}
   m_Father: {fileID: 492095810}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &295331973
@@ -21903,8 +21891,6 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 295331972}
-  - {fileID: 1527188193}
-  - {fileID: 29186423}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &492567403
@@ -25498,7 +25484,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5, z: 0}
-  m_LocalScale: {x: 3.9268, y: 3.9268, z: 3.9268}
+  m_LocalScale: {x: 3.2326205, y: 3.2326205, z: 3.2326205}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1031487638}
@@ -46098,8 +46084,8 @@ Transform:
   m_GameObject: {fileID: 1031487637}
   serializedVersion: 2
   m_LocalRotation: {x: -0.13052616, y: -0, z: -0, w: 0.9914449}
-  m_LocalPosition: {x: 0.25, y: 2.1, z: 101.2}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 0.25, y: -3.2277, z: 102.63}
+  m_LocalScale: {x: 7.6772, y: 7.6772, z: 7.6772}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 635255076}
@@ -56778,7 +56764,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -274.2898, y: 7.13237, z: 11}
-  m_LocalScale: {x: 1, y: 1, z: 6}
+  m_LocalScale: {x: 1, y: 1, z: 7}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2056478235}
@@ -63479,7 +63465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d51949b79d89ec42a66d77206e27676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
-  dialogueController: {fileID: 0}
+  dialogueController: {fileID: 1598294696}
   firstDialogue: {fileID: 11400000, guid: aae2da6dd4f18cd4cae8c028fedd3779, type: 2}
   repeatDialogue: {fileID: 11400000, guid: aae2da6dd4f18cd4cae8c028fedd3779, type: 2}
 --- !u!65 &1485351336
@@ -64460,7 +64446,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1527188193}
   - component: {fileID: 1527188195}
-  - component: {fileID: 1527188194}
   m_Layer: 0
   m_Name: Suelo
   m_TagString: Untagged
@@ -64486,21 +64471,8 @@ Transform:
   - {fileID: 328830589}
   - {fileID: 515742054}
   - {fileID: 2053521663}
-  m_Father: {fileID: 492095810}
+  m_Father: {fileID: 295331972}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1527188194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527188192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 82a6953b9796a63428fca310cf9ca29f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ParalaxEffect
-  parallaxMultiplier: 0.6
 --- !u!212 &1527188195
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -68998,8 +68970,8 @@ Transform:
   m_GameObject: {fileID: 1692183464}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.19017932, z: -0, w: 0.9817494}
-  m_LocalPosition: {x: 288.58, y: 15, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 288.58, y: 18.1, z: 0}
+  m_LocalScale: {x: 1, y: 1.4527, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1353563102}
@@ -69632,7 +69604,7 @@ Transform:
   m_GameObject: {fileID: 1699347149}
   serializedVersion: 2
   m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: -219.79999, y: 3.0563812, z: -20.595886}
+  m_LocalPosition: {x: -219.8, y: 3.0563812, z: -23.488464}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -81008,8 +80980,8 @@ Transform:
   m_GameObject: {fileID: 2069400934}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.19017932, z: -0, w: 0.9817494}
-  m_LocalPosition: {x: 367.6, y: 13.1, z: 8.51}
-  m_LocalScale: {x: 0.77903, y: 0.77903, z: 0.77903}
+  m_LocalPosition: {x: 367.6, y: 15.339995, z: 8.51}
+  m_LocalScale: {x: 0.77903, y: 1.1316969, z: 0.77903}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1353563102}

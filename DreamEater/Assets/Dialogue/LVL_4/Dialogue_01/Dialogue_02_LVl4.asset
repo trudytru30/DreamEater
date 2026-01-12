@@ -18,6 +18,4 @@ MonoBehaviour:
   Choices:
   - text: How can avoid them?
     nextNode: {fileID: 11400000, guid: 834f4e088220e674d9db25db9ec0c59c, type: 2}
-  - text: OK
-    nextNode: {fileID: 0}
   NextNode: {fileID: 0}
