@@ -17,6 +17,4 @@ MonoBehaviour:
   Choices:
   - text: I don't know what I am doing here. Who are you?
     nextNode: {fileID: 11400000, guid: 2cfd4b5181a46594eb779bfaf25edd04, type: 2}
-  - text: Exit
-    nextNode: {fileID: 0}
   NextNode: {fileID: 0}

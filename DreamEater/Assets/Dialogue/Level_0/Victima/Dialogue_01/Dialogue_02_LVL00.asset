@@ -18,6 +18,4 @@ MonoBehaviour:
   Choices:
   - text: I'm the Child, what's this place? It doesn't look like a friendly place.
     nextNode: {fileID: 11400000, guid: 6dbccd1d08ef8124c96a32b307da773e, type: 2}
-  - text: Return
-    nextNode: {fileID: 11400000, guid: 184f044428f3f6740b7714805876b23e, type: 2}
   NextNode: {fileID: 0}

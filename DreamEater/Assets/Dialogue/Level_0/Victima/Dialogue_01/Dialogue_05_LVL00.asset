@@ -13,10 +13,8 @@ MonoBehaviour:
   m_Name: Dialogue_05_LVL00
   m_EditorClassIdentifier: Assembly-CSharp::DialogueNode
   Speaker: The Victim
-  Line: Good luck!!! See you later.
+  Line: Hurry Up, the DreamEater is coming.
   Choices:
   - text: Goodbye
     nextNode: {fileID: 0}
-  - text: Return
-    nextNode: {fileID: 11400000, guid: 840a73821f9ac3448a600c098b4f1468, type: 2}
   NextNode: {fileID: 0}
