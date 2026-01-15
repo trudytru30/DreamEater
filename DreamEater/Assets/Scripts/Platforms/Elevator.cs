@@ -1,10 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-
-
-
-
 [RequireComponent(typeof(BoxCollider))]
 public class Elevator : MonoBehaviour
 {
@@ -13,31 +9,31 @@ public class Elevator : MonoBehaviour
     [SerializeField] private List<float> pisosY;
     [SerializeField] private bool detenerSiJugadorSale = true;
 
-    private Vector3 targetActual;
-    private bool tieneOrden = false;
-    private Transform originalParent;
-    private Rigidbody rb; // Añadido para física suave
+    private Vector3 _targetActual;
+    private bool _tieneOrden = false;
+    private Transform _originalParent;
+    private Rigidbody _rb; // Añadido para física suave
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
         
-        if (rb) rb.isKinematic = true;
+        if (_rb) _rb.isKinematic = true;
 
         if (GetComponent<BoxCollider>()) GetComponent<BoxCollider>().isTrigger = true;
     }
 
     private void Start()
     {
-        targetActual = transform.position;
+        _targetActual = transform.position;
     }
 
     public void IrAlPiso(int indicePiso)
     {
         if (indicePiso >= 0 && indicePiso < pisosY.Count)
         {
-            targetActual = new Vector3(transform.position.x, pisosY[indicePiso], transform.position.z);
-            tieneOrden = true;
+            _targetActual = new Vector3(transform.position.x, pisosY[indicePiso], transform.position.z);
+            _tieneOrden = true;
         }
     }
 
@@ -45,7 +41,7 @@ public class Elevator : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            originalParent = other.transform.parent;
+            _originalParent = other.transform.parent;
             other.transform.SetParent(transform);
         }
     }
@@ -54,35 +50,34 @@ public class Elevator : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.transform.SetParent(originalParent);
-            if (detenerSiJugadorSale) tieneOrden = false;
+            other.transform.SetParent(_originalParent);
+            if (detenerSiJugadorSale) _tieneOrden = false;
         }
     }
 
     private void FixedUpdate()
     {
-        if (!tieneOrden) return;
-
+        if (!_tieneOrden) return;
         
         Vector3 proximaPosicion = Vector3.MoveTowards(
             transform.position,
-            targetActual,
+            _targetActual,
             velocidad * Time.fixedDeltaTime
         );
 
-        if (rb)
+        if (_rb)
         {
-            rb.MovePosition(proximaPosicion);
+            _rb.MovePosition(proximaPosicion);
         }
         else
         {
             transform.position = proximaPosicion;
         }
 
-        if (Vector3.Distance(transform.position, targetActual) < 0.01f)
+        if (Vector3.Distance(transform.position, _targetActual) < 0.01f)
         {
-            transform.position = targetActual;
-            tieneOrden = false;
+            transform.position = _targetActual;
+            _tieneOrden = false;
         }
     }
 }

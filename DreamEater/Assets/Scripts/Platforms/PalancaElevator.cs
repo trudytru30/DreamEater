@@ -1,24 +1,23 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(BoxCollider))]
 public class PalancaElevator : MonoBehaviour
 {
-    [Header("Configuración Ascensor")]
+    [Header("Configuraciï¿½n Ascensor")]
     [SerializeField] private Elevator ascensor;
     [SerializeField] private int numeroDePisoAlQueLlamar;
     [SerializeField] private float retardoAccion = 0.5f;
 
-    [Header("Animación")]
+    [Header("Animaciï¿½n")]
     [SerializeField] private Animator animadorPalanca;
     [SerializeField] private string nombreTriggerAnim = "Activar";
 
     [Header("Interfaz de Usuario")]
     [SerializeField] private GameObject mensajeUI;
 
-    private bool jugadorEstaCerca = false;
-    private bool procesando = false; // Solo bloquea mientras dura la animación actual
+    private bool _jugadorEstaCerca = false;
+    private bool _procesando = false; // Solo bloquea mientras dura la animaciï¿½n actual
 
     private void Start()
     {
@@ -27,8 +26,8 @@ public class PalancaElevator : MonoBehaviour
 
     private void Update()
     {
-        // Ahora permitimos pulsar si el jugador está cerca y no hay una acción en curso
-        if (jugadorEstaCerca && !procesando && Input.GetKeyDown(KeyCode.E))
+        // Ahora permitimos pulsar si el jugador estï¿½ cerca y no hay una acciï¿½n en curso
+        if (_jugadorEstaCerca && !_procesando && Input.GetKeyDown(KeyCode.E))
         {
             StartCoroutine(ProcesarLlamada());
         }
@@ -36,7 +35,7 @@ public class PalancaElevator : MonoBehaviour
 
     private IEnumerator ProcesarLlamada()
     {
-        procesando = true; // Bloqueo temporal para no solapar animaciones
+        _procesando = true; // Bloqueo temporal para no solapar animaciones
 
         if (mensajeUI != null) mensajeUI.SetActive(false);
 
@@ -53,13 +52,13 @@ public class PalancaElevator : MonoBehaviour
         }
 
         // ESPERA DE SEGURIDAD
-        // Esperamos un poco antes de permitir otra pulsación para que la palanca vuelva a su sitio
+        // Esperamos un poco antes de permitir otra pulsaciï¿½n para que la palanca vuelva a su sitio
         yield return new WaitForSeconds(0.5f);
 
-        procesando = false; // ¡Aquí liberamos el bloqueo!
+        _procesando = false; // ï¿½Aquï¿½ liberamos el bloqueo!
 
-        // Si el jugador sigue ahí, volvemos a mostrar el mensaje de "Pulsa E"
-        if (jugadorEstaCerca)
+        // Si el jugador sigue ahï¿½, volvemos a mostrar el mensaje de "Pulsa E"
+        if (_jugadorEstaCerca)
         {
             if (mensajeUI != null) mensajeUI.SetActive(true);
         }
@@ -69,8 +68,8 @@ public class PalancaElevator : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            jugadorEstaCerca = true;
-            if (!procesando && mensajeUI != null) mensajeUI.SetActive(true);
+            _jugadorEstaCerca = true;
+            if (!_procesando && mensajeUI != null) mensajeUI.SetActive(true);
         }
     }
 
@@ -78,7 +77,7 @@ public class PalancaElevator : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            jugadorEstaCerca = false;
+            _jugadorEstaCerca = false;
             if (mensajeUI != null) mensajeUI.SetActive(false);
         }
     }

@@ -3,25 +3,23 @@ using UnityEngine;
 [RequireComponent (typeof(BoxCollider))]
 public class PickUpNecesary : MonoBehaviour
 {
-    [SerializeField] UIPickupCounter uipickUp;
-    [SerializeField] GameObject _adviseUI;
-
-
+    [SerializeField] UIPickupCounter UIPickUp;
+    [SerializeField] GameObject adviseUI;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(uipickUp._current == uipickUp.totalRequired)
+        if(UIPickUp.current == UIPickUp.totalRequired)
         {
             Destroy(gameObject);
         }
         else
         {
-            _adviseUI.SetActive(true);
+            adviseUI.SetActive(true);
         }
-
     }
+    
     private void OnTriggerExit(Collider other)
     {
-        _adviseUI.SetActive(false);
+        adviseUI.SetActive(false);
     }
 }

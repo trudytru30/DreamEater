@@ -6,25 +6,24 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance { get; private set; }
 
     [Header("AudioSources")]
-    [SerializeField] private AudioSource _sfxAudioSource;
-    [SerializeField] private AudioSource _musicAudioSource;
+    [SerializeField] private AudioSource sfxAudioSource;
+    [SerializeField] private AudioSource musicAudioSource;
 
     [Header("UI")]
-    [SerializeField] private AudioClip   _buttonSound;
+    [SerializeField] private AudioClip   buttonSound;
 
     [Header("SFX")]
-    [SerializeField] private AudioClip   _jumpSound;
-    [SerializeField] private AudioClip   _agacharseSound;
-    [SerializeField] private AudioClip[] _pasosNieve;
-    [SerializeField] private AudioClip[] _pasosArena;
-    [SerializeField] private AudioClip[] _pasosAgua;
-    [SerializeField] private AudioClip[] _pasosBosque;
-    [SerializeField] private AudioClip[] _pasos;
-    [SerializeField] private AudioClip   _morirSound;
-    [SerializeField] private AudioClip   _pickUpSound;
-    [SerializeField] private AudioClip   _palanca;
-
-
+    [SerializeField] private AudioClip   jumpSound;
+    [SerializeField] private AudioClip   agacharseSound;
+    [SerializeField] private AudioClip   morirSound;
+    [SerializeField] private AudioClip   pickUpSound;
+    [SerializeField] private AudioClip   palanca;
+    [SerializeField] private AudioClip[] pasosNieve;
+    [SerializeField] private AudioClip[] pasosArena;
+    [SerializeField] private AudioClip[] pasosAgua;
+    [SerializeField] private AudioClip[] pasosBosque;
+    [SerializeField] private AudioClip[] pasos;
+    
     private void Awake()
     {
         if(Instance == null)
@@ -35,14 +34,12 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(this);
         }
-
-
     }
 
     public void PlayPickUp()
     {
-        _sfxAudioSource.clip = _pickUpSound;
-        _sfxAudioSource.Play();
+        sfxAudioSource.clip = pickUpSound;
+        sfxAudioSource.Play();
     }
     public void PlayPasos()
     {
@@ -51,61 +48,65 @@ public class AudioManager : MonoBehaviour
         switch (_sceneName)
         {
             case "Level_0":
-                int selec = Random.Range(0, _pasos.Length);
-                _sfxAudioSource.clip = _pasosNieve[selec];
-                _sfxAudioSource.Play();
+                int selec = Random.Range(0, pasos.Length);
+                sfxAudioSource.clip = pasosNieve[selec];
+                sfxAudioSource.Play();
                 break;
             case "Level_1":
-                int selec1 = Random.Range(0, _pasosArena.Length);
-                _sfxAudioSource.clip = _pasosNieve[selec1];
-                _sfxAudioSource.Play();
+                int selec1 = Random.Range(0, pasosArena.Length);
+                sfxAudioSource.clip = pasosNieve[selec1];
+                sfxAudioSource.Play();
                 break;
             case "Level_2":
-                int selec2 = Random.Range(0, _pasosAgua.Length);
-                _sfxAudioSource.clip = _pasosNieve[selec2];
-                _sfxAudioSource.Play();
+                int selec2 = Random.Range(0, pasosAgua.Length);
+                sfxAudioSource.clip = pasosNieve[selec2];
+                sfxAudioSource.Play();
                 break;
             case "Level_3":
-                int selec3 = Random.Range(0, _pasosNieve.Length);
-                _sfxAudioSource.clip = _pasosNieve[selec3];
-                _sfxAudioSource.Play();
+                int selec3 = Random.Range(0, pasosNieve.Length);
+                sfxAudioSource.clip = pasosNieve[selec3];
+                sfxAudioSource.Play();
                 break;
             case "Level_4":
-                int selec4 = Random.Range(0, _pasosBosque.Length);
-                _sfxAudioSource.clip = _pasosNieve[selec4];
-                _sfxAudioSource.Play();
+                int selec4 = Random.Range(0, pasosBosque.Length);
+                sfxAudioSource.clip = pasosNieve[selec4];
+                sfxAudioSource.Play();
                 break;
             case "Level_5":
-                int selec5 = Random.Range(0, _pasos.Length);
-                _sfxAudioSource.clip = _pasosNieve[selec5];
-                _sfxAudioSource.Play();
+                int selec5 = Random.Range(0, pasos.Length);
+                sfxAudioSource.clip = pasosNieve[selec5];
+                sfxAudioSource.Play();
                 break;
-
         }
     }
+    
     public void PlayAgacharse()
     {
-        _sfxAudioSource.clip = _agacharseSound;
-        _sfxAudioSource.Play();
+        sfxAudioSource.clip = agacharseSound;
+        sfxAudioSource.Play();
     }
+    
     public void PlayMorir()
     {
-        _sfxAudioSource.clip = _morirSound;
-        _sfxAudioSource.Play();
+        sfxAudioSource.clip = morirSound;
+        sfxAudioSource.Play();
     }
+    
     public void PlayJump()
     {
-        _sfxAudioSource.clip = _jumpSound;
-        _sfxAudioSource.Play();
+        sfxAudioSource.clip = jumpSound;
+        sfxAudioSource.Play();
     }
+    
     public void PlayButton()
     {
-        _sfxAudioSource.clip = _buttonSound;
-        _sfxAudioSource.Play();
+        sfxAudioSource.clip = buttonSound;
+        sfxAudioSource.Play();
     }
+    
     public void PlayPalanca()
     {
-        _sfxAudioSource.clip = _palanca;
-        _sfxAudioSource.Play();
+        sfxAudioSource.clip = palanca;
+        sfxAudioSource.Play();
     }
 }

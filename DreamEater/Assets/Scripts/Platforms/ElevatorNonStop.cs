@@ -9,12 +9,12 @@ public class ElevatorNonStop : MonoBehaviour
     [SerializeField] private float maxY;
     [SerializeField] private float tiempoEspera = 1f;
 
-    private Vector3 targetArriba;
-    private Vector3 targetAbajo;
-    private Vector3 targetActual;
+    private Vector3 _targetArriba;
+    private Vector3 _targetAbajo;
+    private Vector3 _targetActual;
     
-    private float cronometroPausa = 0f;
-    private bool estaEsperando = false;
+    private float _cronometroPausa = 0f;
+    private bool _estaEsperando = false;
 
     private void Awake()
     {
@@ -23,25 +23,25 @@ public class ElevatorNonStop : MonoBehaviour
 
     private void Start()
     {
-        targetArriba = new Vector3(transform.position.x, maxY, transform.position.z);
-        targetAbajo = new Vector3(transform.position.x, minY, transform.position.z);
+        _targetArriba = new Vector3(transform.position.x, maxY, transform.position.z);
+        _targetAbajo = new Vector3(transform.position.x, minY, transform.position.z);
         
         // Empezamos yendo hacia el punto más lejano
-        targetActual = (Vector3.Distance(transform.position, targetArriba) > 0.1f) ? targetArriba : targetAbajo;
+        _targetActual = (Vector3.Distance(transform.position, _targetArriba) > 0.1f) ? _targetArriba : _targetAbajo;
     }
 
     private void FixedUpdate()
     {
         // Lógica de pausa
-        if (estaEsperando)
+        if (_estaEsperando)
         {
-            cronometroPausa += Time.fixedDeltaTime;
-            if (cronometroPausa >= tiempoEspera)
+            _cronometroPausa += Time.fixedDeltaTime;
+            if (_cronometroPausa >= tiempoEspera)
             {
-                estaEsperando = false;
-                cronometroPausa = 0f;
+                _estaEsperando = false;
+                _cronometroPausa = 0f;
                 // Cambiamos el destino al llegar al final de la espera
-                targetActual = (targetActual == targetArriba) ? targetAbajo : targetArriba;
+                _targetActual = (_targetActual == _targetArriba) ? _targetAbajo : _targetArriba;
             }
             return; // No se mueve mientras espera
         }
@@ -49,15 +49,15 @@ public class ElevatorNonStop : MonoBehaviour
         // Movimiento suave compatible con la física del Player
         transform.position = Vector3.MoveTowards(
             transform.position,
-            targetActual,
+            _targetActual,
             velocidad * Time.fixedDeltaTime
         );
 
         // Si llega al destino, activa la pausa
-        if (Vector3.Distance(transform.position, targetActual) < 0.001f)
+        if (Vector3.Distance(transform.position, _targetActual) < 0.001f)
         {
-            transform.position = targetActual;
-            estaEsperando = true;
+            transform.position = _targetActual;
+            _estaEsperando = true;
         }
     }
 

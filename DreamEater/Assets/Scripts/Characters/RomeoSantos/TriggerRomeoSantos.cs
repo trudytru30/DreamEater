@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class TriggerRomeoSantos : MonoBehaviour
 {
-    [SerializeField] GameObject _romeoSantos;
-    [SerializeField] GameObject _particleSystem;
+    [SerializeField] GameObject romeoSantos;
+    [SerializeField] GameObject particleSystem;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -11,29 +11,22 @@ public class TriggerRomeoSantos : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // 2. Obtenemos el Rigidbody del objeto _romeoSantos
-            Rigidbody rb = _romeoSantos.GetComponent<Rigidbody>();
+            Rigidbody rb = romeoSantos.GetComponent<Rigidbody>();
 
             if (rb != null)
             {
-                rb.isKinematic = false;  // Desactivamos Kinematic
-                rb.useGravity = true;    // Activamos Gravedad
+                rb.isKinematic = false; // Desactivamos Kinematic
+                rb.useGravity = true; // Activamos Gravedad
             }
 
-            // 3. Activamos las partículas
-            if (_particleSystem != null)
+            // 3. Activamos las partï¿½culas
+            if (particleSystem != null)
             {
-               _particleSystem.SetActive(true);
+                particleSystem.SetActive(true);
             }
 
             // Opcional: Desactivar el trigger para que no se repita
             // gameObject.SetActive(false); 
         }
-
-
-
-
-
-
-
-
-}   }
+    }
+}

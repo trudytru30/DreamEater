@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -7,8 +6,7 @@ public class GameManager : MonoBehaviour
     //se necesite y pase datos
 
     public static GameManager Instance;
-
-
+    
     //Lista de datos para pasar entre escenas
 
     #region brillo
@@ -49,6 +47,7 @@ public class GameManager : MonoBehaviour
     {
         puertasDesbloqueadas = puertasDesbloq;
     }
+    
     public void ChangeNextLevelLoading(int nextlevel)
     {
         nextScene = nextlevel;

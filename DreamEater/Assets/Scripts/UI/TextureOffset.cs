@@ -5,20 +5,20 @@ public class TextureOffset : MonoBehaviour
     public float speedX = 0.1f;
     public float speedY = 0.1f;
 
-    private Renderer rend;
-    private Vector2 offset;
+    private Renderer _rend;
+    private Vector2 _offset;
 
     void Start()
     {
-        rend = GetComponent<Renderer>();
-        offset = rend.material.mainTextureOffset;
+        _rend = GetComponent<Renderer>();
+        _offset = _rend.material.mainTextureOffset;
     }
 
     void Update()
     {
-        offset.x += speedX * Time.deltaTime;
-        offset.y += speedY * Time.deltaTime;
+        _offset.x += speedX * Time.deltaTime;
+        _offset.y += speedY * Time.deltaTime;
 
-        rend.material.mainTextureOffset = offset;
+        _rend.material.mainTextureOffset = _offset;
     }
 }

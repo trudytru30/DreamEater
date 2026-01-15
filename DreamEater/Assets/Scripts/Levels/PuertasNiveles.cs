@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class PuertasNiveles : MonoBehaviour
 {
     [SerializeField] private int nextScene;
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

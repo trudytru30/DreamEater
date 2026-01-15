@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.Rendering.PostProcessing;
@@ -15,47 +14,42 @@ public class UIManager : MonoBehaviour
     //private int _qualityValue=2;
     private float _generalVolume = 1, _sfxVolume = 1, _musicVolume = 1, _dialogsVolume = 1;
     private bool _fullScreen = true;
-    [SerializeField] private Slider _brightnessSlider;
-    [SerializeField] private Toggle _fullScreenToggle;
-    [SerializeField] private Image _brightPanel;
-    [SerializeField] private Image _darkPanel;
-    [SerializeField] private GameObject _brightnessCanvas;
-    [SerializeField] private GameObject _pauseCanvas;
-    private bool isGamePaused;
+    [SerializeField] private Slider brightnessSlider;
+    [SerializeField] private Toggle fullScreenToggle;
+    [SerializeField] private Image brightPanel;
+    [SerializeField] private Image darkPanel;
+    [SerializeField] private GameObject brightnessCanvas;
+    [SerializeField] private GameObject pauseCanvas;
+    private bool _isGamePaused;
     #endregion
     [Header("Debuger(Luego se borra)")]
-    [SerializeField] private KeyCode _pauseControl;
+    [SerializeField] private KeyCode pauseControl;
+    
     [Header("Die")]
-    [SerializeField] private GameObject _initDie;
-    [SerializeField] private GameObject _finishDie;
+    [SerializeField] private GameObject initDie;
+    [SerializeField] private GameObject finishDie;
     
     [Header("AudioSources")]
-    [SerializeField] private AudioMixer _audioMixer;
-
-
-
-
+    [SerializeField] private AudioMixer audioMixer;
+    
     //Resolution Type
     //Type 0 = 1920 x 1080
     //Type 1 = 1280 x 720
     //Type 2 = 2560 x 1440
-
-
+    
     private void Start()
     {
         ChangeResolution(0);
         ChangeBrightness(0.5f);
         FullScreen(true);
-        isGamePaused = false;
-        
+        _isGamePaused = false;
     }
 
     private void OnEnable()
     {
         StartCoroutine(StartBrightness());
     }
-
-
+    
     private void Awake()
     {
         if(Instance == null)
@@ -66,17 +60,15 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(_pauseControl)) //Abrir menu de pausa
+        if (Input.GetKeyDown(pauseControl)) //Abrir menu de pausa
         {
             OpenClosePauseMenu();
         }
     }
-
 
     public void ChangeResolution(int resolutionType)
     {
@@ -95,52 +87,56 @@ public class UIManager : MonoBehaviour
         }
         Debug.Log(Screen.currentResolution);
     }
+    
     public void ChangeBrightness(float bright)
     {
         if (bright < 0.5f)
         {
-            _brightPanel.enabled = false;
-            _darkPanel.enabled = true;
-            Color c = _darkPanel.color;
+            brightPanel.enabled = false;
+            darkPanel.enabled = true;
+            Color c = darkPanel.color;
             c.a = (1 - bright) * 0.9f;
             Debug.Log((1 - bright) * 0.9f);
-            _darkPanel.color = c;
+            darkPanel.color = c;
         }
         else
         {
-            _darkPanel.enabled = false;
-            _brightPanel.enabled = true;
-            Color c = _brightPanel.color;
+            darkPanel.enabled = false;
+            brightPanel.enabled = true;
+            Color c = brightPanel.color;
             c.a = (bright - 0.5f) * 0.039f;
             Debug.Log((bright - 0.5f) * 0.039f);
-            _brightPanel.color = c;
+            brightPanel.color = c;
         }
-
     }
+    
     public void ChangeQuality(int index)
     {
         QualitySettings.SetQualityLevel(index);
     }
+    
     public void FullScreen(bool fullScreen)
     {
         _fullScreen = fullScreen;
         Screen.fullScreen = fullScreen;
     }
+    
     public void SaveBrightnessData()
     {
-        var bp = _brightPanel.color;
+        var bp = brightPanel.color;
         GameManager.Instance.lightBrightnessFloat = bp.a;
-        GameManager.Instance.lightBrightnessActive = _brightPanel.enabled;
+        GameManager.Instance.lightBrightnessActive = brightPanel.enabled;
 
-        var dp = _darkPanel.color;
+        var dp = darkPanel.color;
         GameManager.Instance.darkBrightnessFloat = dp.a;
-        GameManager.Instance.darkBrightnessActive= _darkPanel.enabled;
+        GameManager.Instance.darkBrightnessActive= darkPanel.enabled;
     }
+    
     public void OpenClosePauseMenu()
     {
-        _pauseCanvas.SetActive(!isGamePaused);
-        isGamePaused = !isGamePaused;
-        if (isGamePaused)
+        pauseCanvas.SetActive(!_isGamePaused);
+        _isGamePaused = !_isGamePaused;
+        if (_isGamePaused)
         {
             Time.timeScale = 0;
         }
@@ -148,7 +144,7 @@ public class UIManager : MonoBehaviour
         {
             Time.timeScale=1;
         }
-        CursorManager.Instance.ShowCursor(isGamePaused);
+        CursorManager.Instance.ShowCursor(_isGamePaused);
     }
     public void RestartLevel()
     {
@@ -159,10 +155,12 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene(actualSceneName);
 
     }
+    
     public void QuitGame()
     {
         Application.Quit();
     }
+    
     public void QuitToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
@@ -171,41 +169,41 @@ public class UIManager : MonoBehaviour
     public IEnumerator StartBrightness()
     {
         yield return new WaitForSeconds(0.01f);
-        _brightPanel.enabled = GameManager.Instance.lightBrightnessActive;
-        var bp = _brightPanel.color;
+        brightPanel.enabled = GameManager.Instance.lightBrightnessActive;
+        var bp = brightPanel.color;
         bp.a = GameManager.Instance.lightBrightnessFloat;
-        _brightPanel.color = bp;
+        brightPanel.color = bp;
 
-        _darkPanel.enabled = GameManager.Instance.darkBrightnessActive;
-        var dp = _darkPanel.color;
+        darkPanel.enabled = GameManager.Instance.darkBrightnessActive;
+        var dp = darkPanel.color;
         dp.a = GameManager.Instance.darkBrightnessFloat;
-        _darkPanel.color = dp;
+        darkPanel.color = dp;
     }
 
     public void InitDieCharacter()
     {
-        _finishDie.SetActive(false);
-        _initDie.SetActive(true);
+        finishDie.SetActive(false);
+        initDie.SetActive(true);
     }
 
     public void FinishDieCharacter()
     {
-        _initDie.SetActive(false);
-        _finishDie.SetActive(true);
+        initDie.SetActive(false);
+        finishDie.SetActive(true);
     }
 
     public void ChangeSFXVolume(float volume)
     {
-        _audioMixer.SetFloat("VolumeEfectos", volume);
+        audioMixer.SetFloat("VolumeEfectos", volume);
     }
 
     public void ChangeMusicVolume(float volume)
     {
-        _audioMixer.SetFloat("VolumeMusica", volume);
+        audioMixer.SetFloat("VolumeMusica", volume);
     }
 
     public void ChangeGeneralVolume(float volume)
     {
-        _audioMixer.SetFloat("VolumeGeneral", volume);
+        audioMixer.SetFloat("VolumeGeneral", volume);
     }
 }

@@ -15,14 +15,12 @@ public class Mainmenu : MonoBehaviour
     private IEnumerator FadeOutAndLoadScene()
     {
         float startVolume = musicSource.volume;
-
         
         for (float t = 0; t < fadeDuration; t += Time.deltaTime)
         {
             musicSource.volume = Mathf.Lerp(startVolume, 0f, t / fadeDuration);
             yield return null;
         }
-
         
         musicSource.volume = 0f;
 

@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class JumpingMushrooms : MonoBehaviour
 {
-    [SerializeField] private float _force;
-    [SerializeField] private float _delay;
+    [SerializeField] private float force;
+    [SerializeField] private float delay;
     private Animator _animator;
 
     private void Start()
@@ -23,7 +23,7 @@ public class JumpingMushrooms : MonoBehaviour
     private IEnumerator Jump(Collider otherl)
     {
         _animator.SetTrigger("Jump");
-        yield return new WaitForSeconds(_delay);
-        otherl.GetComponent<Rigidbody>().AddForce(Vector3.up * _force);
+        yield return new WaitForSeconds(delay);
+        otherl.GetComponent<Rigidbody>().AddForce(Vector3.up * force);
     }
 }

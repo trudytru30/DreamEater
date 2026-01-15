@@ -1,21 +1,17 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
 public class ShowRecuerdo : MonoBehaviour
 {
     //Mostrar recuerdo del player al finalizar el nivel
-
-
-    [SerializeField] private LevelManager _levelManager;
-    [SerializeField] private GameObject _recuerdo;
-    [SerializeField] private float _memoryTime;
-
-
+    [SerializeField] private LevelManager levelManager;
+    [SerializeField] private GameObject recuerdo;
+    [SerializeField] private float memoryTime;
+    
     private void Start()
     {
-        _recuerdo.SetActive(false);
-        _levelManager = LevelManager.Instance;
+        recuerdo.SetActive(false);
+        levelManager = LevelManager.Instance;
     }
 
     public void PlayMemory()
@@ -26,9 +22,8 @@ public class ShowRecuerdo : MonoBehaviour
     private IEnumerator TimeOfMemory()
     {
         yield return new WaitForSeconds(17);
-        _recuerdo.SetActive(true);
-        yield return new WaitForSeconds(_memoryTime);
-        _levelManager._canSwapScene = true;
-
+        recuerdo.SetActive(true);
+        yield return new WaitForSeconds(memoryTime);
+        levelManager._canSwapScene = true;
     }
 }

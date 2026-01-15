@@ -1,41 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LightMotion : MonoBehaviour
 {
-    [SerializeField] Vector2 m_cycleDurationXZ = new Vector2(20f, 20f);
-    [SerializeField] AnimationCurve m_movementPathX;
-    [SerializeField] AnimationCurve m_movementPathZ;
-    [SerializeField] Vector2 m_movementMagnitudeXZ = new Vector2(1, 1);
-    [SerializeField] Vector2 m_movementTimeOffsetXZ = new Vector2();
+    [SerializeField] Vector2 mCycleDurationXZ = new Vector2(20f, 20f);
+    [SerializeField] AnimationCurve mMovementPathX;
+    [SerializeField] AnimationCurve mMovementPathZ;
+    [SerializeField] Vector2 mMovementMagnitudeXZ = new Vector2(1, 1);
+    [SerializeField] Vector2 mMovementTimeOffsetXZ = new Vector2();
 
-    private Vector3 m_initialPosition;
-
+    private Vector3 _mInitialPosition;
 
     private void Awake()
     {
-        m_initialPosition = transform.position;
+        _mInitialPosition = transform.position;
     }
-
 
     void Update()
     {
         UpdateMotion();
     }
 
-
     private void UpdateMotion()
     {
-        float timeX = Time.time % m_cycleDurationXZ.x;
-        timeX /= m_cycleDurationXZ.x;
+        float timeX = Time.time % mCycleDurationXZ.x;
+        timeX /= mCycleDurationXZ.x;
 
-        float timeZ = Time.time % m_cycleDurationXZ.y;
-        timeZ /= m_cycleDurationXZ.y;
+        float timeZ = Time.time % mCycleDurationXZ.y;
+        timeZ /= mCycleDurationXZ.y;
 
-        float newX = m_movementPathX.Evaluate(timeX + m_movementTimeOffsetXZ.x) * m_movementMagnitudeXZ.x;
-        float newZ = m_movementPathZ.Evaluate(timeZ + m_movementTimeOffsetXZ.y) * m_movementMagnitudeXZ.y;
+        float newX = mMovementPathX.Evaluate(timeX + mMovementTimeOffsetXZ.x) * mMovementMagnitudeXZ.x;
+        float newZ = mMovementPathZ.Evaluate(timeZ + mMovementTimeOffsetXZ.y) * mMovementMagnitudeXZ.y;
 
-        transform.position = m_initialPosition + new Vector3(newX, 0, newZ);
+        transform.position = _mInitialPosition + new Vector3(newX, 0, newZ);
     }
 }

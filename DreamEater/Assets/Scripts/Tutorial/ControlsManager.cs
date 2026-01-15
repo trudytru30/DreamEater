@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,9 +41,5 @@ public class ControlsManager : MonoBehaviour
         keyboardControl.enabled = true;
         gamepadControl.enabled = true;
         slash.enabled = true;
-
-
     }
-
-
 }

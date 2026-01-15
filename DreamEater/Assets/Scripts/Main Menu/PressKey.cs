@@ -1,6 +1,4 @@
 using UnityEngine;
-using TMPro;
-using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
 public class PressKey : MonoBehaviour

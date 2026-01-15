@@ -11,13 +11,13 @@ public class UIPickupCounter : MonoBehaviour
     [SerializeField] private PickUps.ItemType itemTypeToTrack; //el tipo de item en este caso bellota
     [SerializeField] public int totalRequired; //total de elementos que conseguir
     
-    public int _current; //numero actual de elementos
+    public int current; //numero actual de elementos
     private bool _isVisible; //estado de visibilidad
 
     private void Awake()
     {
         //inicializacion de variables
-        _current = 0;
+        current = 0;
         _isVisible = false;
         if (rootToShow == null)
         {
@@ -47,12 +47,12 @@ public class UIPickupCounter : MonoBehaviour
             _isVisible = true;
         }
 
-        _current += 1; //controla el indica mostrado
+        current += 1; //controla el indica mostrado
         
         //control de errores
-        if (_current < 0)
+        if (current < 0)
         {
-            _current = 0;
+            current = 0;
         }
 
         UpdateText(); 
@@ -62,6 +62,6 @@ public class UIPickupCounter : MonoBehaviour
     private void UpdateText()
     {
         if (counterText == null) return;
-        counterText.text = $"{_current}/{totalRequired}"; //concatena current con el total en el texto de la UI
+        counterText.text = $"{current}/{totalRequired}"; //concatena current con el total en el texto de la UI
     }
 }

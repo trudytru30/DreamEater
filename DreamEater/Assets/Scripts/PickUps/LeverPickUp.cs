@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class LeverPickUp : MonoBehaviour
 {
-    [SerializeField] private GameObject _message;
-    [SerializeField] private GameObject _Palanca;
+    [SerializeField] private GameObject message;
+    [SerializeField] private GameObject palanca;
 
     private void Start()
     {
-        _Palanca.SetActive(false);
-        _message.SetActive(true);
+        palanca.SetActive(false);
+        message.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(_message);
-        _Palanca.SetActive(true);
+        Destroy(message);
+        palanca.SetActive(true);
         Destroy(gameObject);
     }
 }

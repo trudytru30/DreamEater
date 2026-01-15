@@ -1,19 +1,18 @@
-using Unity.Cinemachine;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider))]
 public class AbrePuerta : MonoBehaviour
 {
-    [SerializeField] Animator _animatorPuertaIzquierda;
-    [SerializeField] Animator _animatorPuertaDerecha;
-    [SerializeField] Animator _animatorPalanca;
+    [SerializeField] Animator animatorPuertaIzquierda;
+    [SerializeField] Animator animatorPuertaDerecha;
+    [SerializeField] Animator animatorPalanca;
 
-    private bool estaCerca = false; // Variable para saber si el jugador est� en el �rea
+    private bool _estaCerca = false; // Variable para saber si el jugador est� en el �rea
 
     private void Update()
     {
         // Revisamos el input en Update, que corre todo el tiempo
-        if (estaCerca && Input.GetKeyDown(KeyCode.E))
+        if (_estaCerca && Input.GetKeyDown(KeyCode.E))
         {
             activarPalanca();
         }
@@ -23,7 +22,7 @@ public class AbrePuerta : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            estaCerca = true;
+            _estaCerca = true;
             Debug.Log("Jugador en rango. Presiona E.");
         }
     }
@@ -32,7 +31,7 @@ public class AbrePuerta : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            estaCerca = false;
+            _estaCerca = false;
             Debug.Log("Jugador fuera de rango.");
         }
     }
@@ -40,17 +39,17 @@ public class AbrePuerta : MonoBehaviour
     public void activarPalanca()
     {
         AudioManager.Instance.PlayPalanca();
-        if (_animatorPuertaIzquierda != null)
+        if (animatorPuertaIzquierda != null)
         {
-            _animatorPuertaIzquierda.SetTrigger("puerta");
+            animatorPuertaIzquierda.SetTrigger("puerta");
         }
-        if (_animatorPuertaDerecha != null)
+        if (animatorPuertaDerecha != null)
         {
-            _animatorPuertaDerecha.SetTrigger("puerta");
+            animatorPuertaDerecha.SetTrigger("puerta");
         }
-        if (_animatorPalanca != null)
+        if (animatorPalanca != null)
         {
-            _animatorPalanca.SetTrigger("Activar2");
+            animatorPalanca.SetTrigger("Activar2");
         }
     }
 }

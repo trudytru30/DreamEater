@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,9 +8,9 @@ public class LevelManager : MonoBehaviour
 
     public static LevelManager Instance {  get; private set; }
 
-    [SerializeField] private bool _hasMemoryToPlay;
-    [SerializeField] private string _sceneName;
-    [SerializeField] private ShowRecuerdo _showRecuerdo;
+    [SerializeField] private bool hasMemoryToPlay;
+    [SerializeField] private string sceneName;
+    [SerializeField] private ShowRecuerdo showRecuerdo;
     [SerializeField] private int nivelDesbloqueado;
     [SerializeField] private int nextScene;
     public bool _canSwapScene;
@@ -32,14 +31,13 @@ public class LevelManager : MonoBehaviour
             Destroy(gameObject);
         }
         Debug.Log(gameObject.name);
-
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_hasMemoryToPlay)
+        if (hasMemoryToPlay)
         {
-            _showRecuerdo.PlayMemory();
+            showRecuerdo.PlayMemory();
             GameManager.Instance.ChangeNextLevelLoading(nextScene);
             GameManager.Instance.ChangePuertasDesbloqueadas(nivelDesbloqueado);
         }
@@ -47,7 +45,7 @@ public class LevelManager : MonoBehaviour
         {
             GameManager.Instance.ChangeNextLevelLoading(nextScene);
             GameManager.Instance.ChangePuertasDesbloqueadas(nivelDesbloqueado);
-            SceneManager.LoadScene(_sceneName);
+            SceneManager.LoadScene(sceneName);
         }
     }
 
@@ -55,10 +53,7 @@ public class LevelManager : MonoBehaviour
     {
         if (_canSwapScene)
         {
-            SceneManager.LoadScene(_sceneName);
+            SceneManager.LoadScene(sceneName);
         }
     }
-
-
-
 }
