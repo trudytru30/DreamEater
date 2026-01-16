@@ -3,10 +3,10 @@ using UnityEngine.Events;
 
 public class DialogueController : MonoBehaviour
 {
-    public DialogueNode currentNode; // Nodo actual 
+    public DialogueNode currentNode; // Nodo actual
     public DialogueUI ui; // Referencia a la UI 
-    public UnityEvent onDialogueStart; // Eventos al empezar (por ejemplo, pausar el juego) 
-    public UnityEvent onDialogueEnd; // Eventos al terminar
+    public UnityEvent onDialogueStart;
+    public UnityEvent onDialogueEnd;
     public bool IsDialogueActive => _isDialogueActive;
     private bool _isDialogueActive;
     
@@ -14,7 +14,7 @@ public class DialogueController : MonoBehaviour
     // Iniciar un diálogo desde un nodo inicial 
     public void StartDialogue(DialogueNode startNode) 
     {
-        CursorManager.Instance.ShowCursor(true); //Para mostrar el cursor
+        CursorManager.Instance.ShowCursor(true);
         if (_isDialogueActive) return; 
         _isDialogueActive = true; 
         TogglePlayerMovement(false); 
@@ -33,7 +33,7 @@ public class DialogueController : MonoBehaviour
         
         if (ui) 
         { 
-            ui.ShowLine(currentNode.Speaker, currentNode.Line, currentNode.Choices, OnChoiceSelected); 
+            ui.ShowLine(currentNode.speaker, currentNode.line, currentNode.choices, OnChoiceSelected); 
         } 
     }
 
@@ -44,7 +44,7 @@ public class DialogueController : MonoBehaviour
         ui.AdvanceDialogue();
     }
     
-    // Eleccion del player 
+    // Elección del player 
     private void OnChoiceSelected(DialogueNode nextNode) 
     { 
         if (!nextNode) 
@@ -57,7 +57,7 @@ public class DialogueController : MonoBehaviour
         ShowNode(); 
     } 
 
-    // Terminar dialogo si no hay más nodos para mostrar 
+    // Terminar diálogo
     private void EndDialogue() 
     { 
         // Limpieza de la UI 

@@ -24,10 +24,9 @@ public class DialogueUI : MonoBehaviour
     // Callback pendiente para mostrar el input de nombre al terminar la linea 
     private System.Action<string> _pendingNameCallback; 
 
-    // Awake para auto-asignar referencias si faltan 
+    // Auto-asignar referencias si faltan 
     private void Awake() 
     { 
-        // Intentar auto-asignar referencias si no están puestas en el inspector 
         if (lineText == null) 
         { 
             lineText = GetComponentInChildren<TextMeshProUGUI>(true); 
@@ -39,7 +38,7 @@ public class DialogueUI : MonoBehaviour
         } 
         if (speakerText == null) 
         { 
-            // Intentar encontrar por nombre 
+            // Intentar encontrar por nombre
             var tmps = GetComponentsInChildren<TextMeshProUGUI>(true); 
             if (tmps != null) 
             { 
@@ -82,7 +81,6 @@ public class DialogueUI : MonoBehaviour
         } 
         if (choiceContainer == null) 
         { 
-            // Buscar un transform llamado "Choices" 
             var trs = GetComponentsInChildren<Transform>(true); 
             foreach (var tr in trs) 
             { 
@@ -130,8 +128,7 @@ public class DialogueUI : MonoBehaviour
         _callback = onChoiceSelected; 
         if (speakerText) speakerText.text = speaker; 
         bool startedTyping = false;
-
-        // Activar la UI primero para que los componentes (lineText) puedan renderizar y recibir texto 
+        
         gameObject.SetActive(true); 
         if (lineText) 
         { 
@@ -203,7 +200,7 @@ public class DialogueUI : MonoBehaviour
             ShowNameInput(cb); 
         } 
     } 
-
+    
     private void HandleChoiceSelection(DialogueNode nextNode) 
     { 
         _hasMultipleChoices = false;

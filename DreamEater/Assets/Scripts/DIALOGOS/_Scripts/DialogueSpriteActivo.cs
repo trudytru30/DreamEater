@@ -1,34 +1,32 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(BoxCollider))]
 public class DialogueSpriteActivo : MonoBehaviour
 {
     [Header("Sprites")]
-    [SerializeField] private Image _activo;
-    [SerializeField] private Image _desactivado;
+    [SerializeField] private Image active;
+    [SerializeField] private Image inactive;
 
-    void Awake()
+    private void Awake()
     {
-        _activo.enabled = false;
-        _desactivado.enabled = false;
+        active.enabled = false;
+        inactive.enabled = false;
     }
-        
 
-    void OnTriggerEnter(Collider other)
+
+    private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            _activo.enabled = true;
-            _desactivado.enabled = false;
-        }
+        if (!other.CompareTag("Player")) return;
+        active.enabled = true;
+        inactive.enabled = false;
     }
-    void OnTriggerExit(Collider other)
+
+    private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            _activo.enabled = false;
-            _desactivado.enabled = false;
-        }
+        if (!other.CompareTag("Player")) return;
+        active.enabled = false;
+        inactive.enabled = false;
     }
 }
