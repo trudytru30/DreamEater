@@ -15,7 +15,6 @@ public class DialogueSpriteActivo : MonoBehaviour
         inactive.enabled = false;
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;

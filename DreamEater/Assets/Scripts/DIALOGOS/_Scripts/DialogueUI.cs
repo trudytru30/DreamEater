@@ -18,7 +18,6 @@ public class DialogueUI : MonoBehaviour
     private string _fullText;
     private bool _isTyping;
     private bool _hasMultipleChoices;
-    private bool _isInputActive;
     
 
     // Callback pendiente para mostrar el input de nombre al terminar la linea 
@@ -110,10 +109,7 @@ public class DialogueUI : MonoBehaviour
         // Si hay múltiples opciones no avanza
         if (_hasMultipleChoices)
             return;
-
-        // Si espera input de nombre, no avanza
-        if (_isInputActive)
-            return;
+        
         _callback?.Invoke(null);
     }
 
@@ -124,20 +120,19 @@ public class DialogueUI : MonoBehaviour
         if (nameInputField) nameInputField.gameObject.SetActive(false);
         _fullText = line;
         _hasMultipleChoices = choices != null && choices.Count > 1;
-        _isInputActive = false;
         _callback = onChoiceSelected; 
         if (speakerText) speakerText.text = speaker; 
         bool startedTyping = false;
         
         gameObject.SetActive(true); 
-        if (lineText) 
+        if (lineText)
         { 
             if (_typeCoroutine != null) StopCoroutine(_typeCoroutine); 
             _typeCoroutine = StartCoroutine(TypeText(_fullText)); 
             startedTyping = true; 
         } 
 
-        // Borrar botones anteriores 
+        // Borrar botones anteriores
         if (choiceContainer) 
         { 
             for (int i = choiceContainer.childCount - 1; i >= 0; i--) 
@@ -204,7 +199,6 @@ public class DialogueUI : MonoBehaviour
     private void HandleChoiceSelection(DialogueNode nextNode) 
     { 
         _hasMultipleChoices = false;
-        _isInputActive = false;
         if (_isTyping) 
         { 
             if (_typeCoroutine != null) StopCoroutine(_typeCoroutine); 
@@ -222,8 +216,6 @@ public class DialogueUI : MonoBehaviour
     { 
         if (!nameInputField) return;
         
-        _isInputActive = true;
-        
         if (_isTyping) { _pendingNameCallback = onNameEntered; return; }
         
         nameInputField.gameObject.SetActive(true); 
@@ -234,7 +226,6 @@ public class DialogueUI : MonoBehaviour
         nameInputField.onEndEdit.AddListener((value) => 
         { 
             if (string.IsNullOrEmpty(value)) return; 
-            _isInputActive = false;
             onNameEntered(value);
             nameInputField.gameObject.SetActive(false); 
         });
