@@ -3,6 +3,11 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+<<<<<<< HEAD
+=======
+using System.Collections;
+using TMPro;
+>>>>>>> e08950077953c3ef511f2d821997e82ba5b851ee
 
 public class LogoStudio : MonoBehaviour
 {

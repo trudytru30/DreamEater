@@ -11,7 +11,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="1" />
+    <option name="cachedIndexableFilesCount" value="38" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
@@ -141,7 +141,11 @@
       <workItem from="1767994163271" duration="3400000" />
       <workItem from="1768077371715" duration="1131000" />
       <workItem from="1768567659820" duration="537000" />
+<<<<<<< HEAD
       <workItem from="1768907658205" duration="3867000" />
+=======
+      <workItem from="1768855256181" duration="1062000" />
+>>>>>>> e08950077953c3ef511f2d821997e82ba5b851ee
     </task>
     <servers />
   </component>
