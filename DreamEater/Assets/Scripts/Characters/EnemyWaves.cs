@@ -21,12 +21,12 @@ public class EnemyWaves : MonoBehaviour
         Move();
     }
     
-    //mover la ola
+    // Mover la ola
     private void Move()
     {
         transform.position += direction.normalized * speed * Time.deltaTime;
         
-        //desaparecer la ola despues de x segundos
+        // Desaparecer la ola despues de x segundos
         _time += Time.deltaTime;
         
         if (_time > timeLimit)
@@ -35,10 +35,10 @@ public class EnemyWaves : MonoBehaviour
         }
     }
     
-    //si la ola interactua con el player
+    // Si la ola interactua con el player
     private void OnTriggerEnter(Collider other)
     {
-        //no aplica la fuerza si esta en zona segura
+        // No aplica la fuerza si esta en zona segura
         if (other.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
         {
             return;
