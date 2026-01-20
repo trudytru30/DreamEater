@@ -4,7 +4,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(BoxCollider))]
 public class TriggerTutorial : MonoBehaviour
 {
-    private ControlsManager _cm;
+    private ControlsManager _controlsManager;
 
     [Header("Sprites")]
     [SerializeField] private Sprite keyboardControl;
@@ -14,16 +14,16 @@ public class TriggerTutorial : MonoBehaviour
     private void Start()
     {
         GetComponent<BoxCollider>().isTrigger = true;
-        _cm = ControlsManager.Instance; 
+        _controlsManager = ControlsManager.Instance; 
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            _cm.keyboardControl.sprite = keyboardControl;
-            _cm.gamepadControl.sprite = gamepadControl;
-            _cm.ActivateControlsUI(controlsMessage);
+            _controlsManager.keyboardControl.sprite = keyboardControl;
+            _controlsManager.gamepadControl.sprite = gamepadControl;
+            _controlsManager.ActivateControlsUI(controlsMessage);
         }
     }
     
@@ -31,7 +31,7 @@ public class TriggerTutorial : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _cm.DeactivateControlsUI();
+            _controlsManager.DeactivateControlsUI();
         }
         Debug.Log("Salido");
     }

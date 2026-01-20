@@ -4,7 +4,7 @@ public class EyeFollow : MonoBehaviour
 {
     public float rotationOffset = 0f; 
 
-    void Update()
+    private void Update()
     {
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePos.z = 0f;

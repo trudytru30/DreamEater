@@ -5,7 +5,7 @@ public class ChangeCanvas : MonoBehaviour
     public GameObject canvasToActivate;
     public float delay = 10f;
 
-    void Start()
+    private void Start()
     {
         StartCoroutine(SwitchCanvasAfterDelay());
     }

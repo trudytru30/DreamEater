@@ -4,15 +4,15 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class Elevator : MonoBehaviour
 {
-    [Header("Configuración de Movimiento")]
-    [SerializeField] private float velocidad = 2.5f;
-    [SerializeField] private List<float> pisosY;
-    [SerializeField] private bool detenerSiJugadorSale = true;
+    [Header("Movement Configuration")]
+    [SerializeField] private float speed = 2.5f;
+    [SerializeField] private List<float> floorsY;
+    [SerializeField] private bool stopIfPlayerLeaves = true;
 
-    private Vector3 _targetActual;
-    private bool _tieneOrden = false;
+    private Vector3 _currentTarget;
+    private bool _hasOrder = false;
     private Transform _originalParent;
-    private Rigidbody _rb; // Añadido para física suave
+    private Rigidbody _rb;
 
     private void Awake()
     {
@@ -25,15 +25,15 @@ public class Elevator : MonoBehaviour
 
     private void Start()
     {
-        _targetActual = transform.position;
+        _currentTarget = transform.position;
     }
 
-    public void IrAlPiso(int indicePiso)
+    public void GoToFloor(int floorIndex)
     {
-        if (indicePiso >= 0 && indicePiso < pisosY.Count)
+        if (floorIndex >= 0 && floorIndex < floorsY.Count)
         {
-            _targetActual = new Vector3(transform.position.x, pisosY[indicePiso], transform.position.z);
-            _tieneOrden = true;
+            _currentTarget = new Vector3(transform.position.x, floorsY[floorIndex], transform.position.z);
+            _hasOrder = true;
         }
     }
 
@@ -51,33 +51,33 @@ public class Elevator : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.transform.SetParent(_originalParent);
-            if (detenerSiJugadorSale) _tieneOrden = false;
+            if (stopIfPlayerLeaves) _hasOrder = false;
         }
     }
 
     private void FixedUpdate()
     {
-        if (!_tieneOrden) return;
+        if (!_hasOrder) return;
         
-        Vector3 proximaPosicion = Vector3.MoveTowards(
+        Vector3 nextPosition = Vector3.MoveTowards(
             transform.position,
-            _targetActual,
-            velocidad * Time.fixedDeltaTime
+            _currentTarget,
+            speed * Time.fixedDeltaTime
         );
 
         if (_rb)
         {
-            _rb.MovePosition(proximaPosicion);
+            _rb.MovePosition(nextPosition);
         }
         else
         {
-            transform.position = proximaPosicion;
+            transform.position = nextPosition;
         }
 
-        if (Vector3.Distance(transform.position, _targetActual) < 0.01f)
+        if (Vector3.Distance(transform.position, _currentTarget) < 0.01f)
         {
-            transform.position = _targetActual;
-            _tieneOrden = false;
+            transform.position = _currentTarget;
+            _hasOrder = false;
         }
     }
 }

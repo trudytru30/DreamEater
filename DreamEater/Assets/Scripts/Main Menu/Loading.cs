@@ -5,31 +5,32 @@ using UnityEngine.UI;
 
 public class Loading : MonoBehaviour
 {
-    private AsyncOperation _mOperation;
-    [SerializeField] private Image progressbar;
-    [SerializeField] private Text progresstext;
-    [SerializeField] private Text consejosText;
-    private void OnEnable ()
+    private AsyncOperation _operation;
+    [SerializeField] private Image progressBar;
+    [SerializeField] private Text progressText;
+    [SerializeField] private Text adviceText;
+    
+    private void OnEnable()
     {
-        SelectConsejo();
+        SelectAdvice();
         StartCoroutine(Delay());
     }
 
     private void Update()
     {
-        progressbar.fillAmount = _mOperation.progress;
-        progresstext.text = (_mOperation.progress*100f).ToString()+"%";
+        progressBar.fillAmount = _operation.progress;
+        progressText.text = (_operation.progress * 100f).ToString() + "%";
     }
 
-    private IEnumerator Delay ()
+    private IEnumerator Delay()
     {
         yield return new WaitForEndOfFrame();
-        _mOperation = SceneManager.LoadSceneAsync(GameManager.Instance.nextScene, LoadSceneMode.Single);
-        _mOperation.allowSceneActivation = false;
+        _operation = SceneManager.LoadSceneAsync(GameManager.Instance.nextScene, LoadSceneMode.Single);
+        _operation.allowSceneActivation = false;
 
-        while (!(_mOperation.progress >= 0.9f))
+        while (!(_operation.progress >= 0.9f))
         {
-            Debug.Log(_mOperation.progress.ToString("0.0000"));
+            Debug.Log(_operation.progress.ToString("0.0000"));
             yield return null;
         }
         
@@ -39,32 +40,31 @@ public class Loading : MonoBehaviour
 
     private void FinishLoading()
     {
-        _mOperation.allowSceneActivation = true;
+        _operation.allowSceneActivation = true;
     }
 
-    private void SelectConsejo()
+    private void SelectAdvice()
     {
-        int selec = Random.Range(0, 5);
-        switch (selec)
+        int selection = Random.Range(0, 5);
+        switch (selection)
         {
             case 0:
-                consejosText.text = "\"Never underestimate the power of dreams.\"";
+                adviceText.text = "\"Never underestimate the power of dreams.\"";
                 break;
             case 1:
-                consejosText.text = "\"When a wave approaches, find a place to take shelter.\"";
+                adviceText.text = "\"When a wave approaches, find a place to take shelter.\"";
                 break;
             case 2:
-                consejosText.text = "\"Friends are the family we choose\".";
+                adviceText.text = "\"Friends are the family we choose\".";
                 break;
             case 3:
-                consejosText.text = "\"Watch your back, the DreamEater is stalking.\"";
+                adviceText.text = "\"Watch your back, the DreamEater is stalking.\"";
                 break;
             case 4:
-                consejosText.text = "\"Only the DreamEater has a heart rotten enough to disturb a child's dream\".";
+                adviceText.text = "\"Only the DreamEater has a heart rotten enough to disturb a child's dream\".";
                 break;
             default:
                 return;
         }
-
     }
 }

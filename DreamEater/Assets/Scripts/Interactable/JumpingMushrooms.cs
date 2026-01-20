@@ -20,10 +20,10 @@ public class JumpingMushrooms : MonoBehaviour
         }
     }
 
-    private IEnumerator Jump(Collider otherl)
+    private IEnumerator Jump(Collider other)
     {
         _animator.SetTrigger("Jump");
         yield return new WaitForSeconds(delay);
-        otherl.GetComponent<Rigidbody>().AddForce(Vector3.up * force);
+        other.GetComponent<Rigidbody>().AddForce(Vector3.up * force);
     }
 }

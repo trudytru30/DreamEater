@@ -22,8 +22,8 @@ public class CursorManager : MonoBehaviour
         Cursor.visible = showCursor;
     }
 
-    public void ShowCursor(bool _showCursor)
+    public void ShowCursor(bool show)
     {
-        Cursor.visible = _showCursor;
+        Cursor.visible = show;
     }
 }

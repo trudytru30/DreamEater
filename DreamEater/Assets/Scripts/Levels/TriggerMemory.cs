@@ -1,7 +1,7 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 
-public class TriggerRecuerdo : MonoBehaviour
+public class TriggerMemory : MonoBehaviour
 {
     [SerializeField] GameObject systemParticle;
     [SerializeField] Animator animator;

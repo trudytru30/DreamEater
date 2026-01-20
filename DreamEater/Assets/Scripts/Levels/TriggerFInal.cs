@@ -2,18 +2,18 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TriggerFInal : MonoBehaviour
+public class TriggerFinal : MonoBehaviour
 {
-    [SerializeField] Animator animatorEncender;
+    [SerializeField] private Animator animatorTurnOn;
 
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(ActivarCambioEscena());
+        StartCoroutine(ActivateSceneChange());
     }
 
-    IEnumerator ActivarCambioEscena()
+    private IEnumerator ActivateSceneChange()
     {
-        animatorEncender.SetTrigger("Activar");
+        animatorTurnOn.SetTrigger("Activar");
         yield return new WaitForSeconds(5f);
         SceneManager.LoadScene("MainMenu");
     }

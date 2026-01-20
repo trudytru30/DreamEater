@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Mainmenu : MonoBehaviour
+public class MainMenu : MonoBehaviour
 {
     public AudioSource musicSource;  
     public float fadeDuration = 8f;  

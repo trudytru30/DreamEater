@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent (typeof(BoxCollider))]
-public class TriggerEntradaDreamEater : MonoBehaviour
+public class TriggerEnterDreamEater : MonoBehaviour
 {
     [SerializeField] GameObject dreamEater;
     

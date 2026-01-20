@@ -11,13 +11,13 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private bool hasMemoryToPlay;
     [SerializeField] private string sceneName;
     [SerializeField] private ShowRecuerdo showRecuerdo;
-    [SerializeField] private int nivelDesbloqueado;
+    [SerializeField] private int unlockedLevel;
     [SerializeField] private int nextScene;
-    public bool _canSwapScene;
+    public bool canSwapScene;
 
     private void Start()
     {
-        _canSwapScene = false;
+        canSwapScene = false;
     }
 
     private void Awake()
@@ -39,19 +39,19 @@ public class LevelManager : MonoBehaviour
         {
             showRecuerdo.PlayMemory();
             GameManager.Instance.ChangeNextLevelLoading(nextScene);
-            GameManager.Instance.ChangePuertasDesbloqueadas(nivelDesbloqueado);
+            GameManager.Instance.ChangeUnlockedDoors(unlockedLevel);
         }
         else
         {
             GameManager.Instance.ChangeNextLevelLoading(nextScene);
-            GameManager.Instance.ChangePuertasDesbloqueadas(nivelDesbloqueado);
+            GameManager.Instance.ChangeUnlockedDoors(unlockedLevel);
             SceneManager.LoadScene(sceneName);
         }
     }
 
     private void Update()
     {
-        if (_canSwapScene)
+        if (canSwapScene)
         {
             SceneManager.LoadScene(sceneName);
         }

@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(BoxCollider))]
-public class PuertasNiveles : MonoBehaviour
+public class DoorsLevels : MonoBehaviour
 {
     [SerializeField] private int nextScene;
     

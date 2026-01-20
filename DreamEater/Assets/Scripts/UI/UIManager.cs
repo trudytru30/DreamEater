@@ -22,6 +22,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject pauseCanvas;
     private bool _isGamePaused;
     #endregion
+    
     [Header("Debuger(Luego se borra)")]
     [SerializeField] private KeyCode pauseControl;
     
@@ -64,7 +65,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(pauseControl)) //Abrir menu de pausa
+        if (Input.GetKeyDown(pauseControl))
         {
             OpenClosePauseMenu();
         }
@@ -78,25 +79,25 @@ public class UIManager : MonoBehaviour
                 Screen.SetResolution(1920, 1080, _fullScreen);
                 break;
             case 1:
-                Screen.SetResolution(1280,720,_fullScreen);
+                Screen.SetResolution(1280, 720, _fullScreen);
                 break;
             case 2:
-                Screen.SetResolution(2560,1440,_fullScreen);
+                Screen.SetResolution(2560, 1440, _fullScreen);
                 break;
             default: return;
         }
         Debug.Log(Screen.currentResolution);
     }
     
-    public void ChangeBrightness(float bright)
+    public void ChangeBrightness(float brightness)
     {
-        if (bright < 0.5f)
+        if (brightness < 0.5f)
         {
             brightPanel.enabled = false;
             darkPanel.enabled = true;
             Color c = darkPanel.color;
-            c.a = (1 - bright) * 0.9f;
-            Debug.Log((1 - bright) * 0.9f);
+            c.a = (1 - brightness) * 0.9f;
+            Debug.Log((1 - brightness) * 0.9f);
             darkPanel.color = c;
         }
         else
@@ -104,8 +105,8 @@ public class UIManager : MonoBehaviour
             darkPanel.enabled = false;
             brightPanel.enabled = true;
             Color c = brightPanel.color;
-            c.a = (bright - 0.5f) * 0.039f;
-            Debug.Log((bright - 0.5f) * 0.039f);
+            c.a = (brightness - 0.5f) * 0.039f;
+            Debug.Log((brightness - 0.5f) * 0.039f);
             brightPanel.color = c;
         }
     }
@@ -129,7 +130,7 @@ public class UIManager : MonoBehaviour
 
         var dp = darkPanel.color;
         GameManager.Instance.darkBrightnessFloat = dp.a;
-        GameManager.Instance.darkBrightnessActive= darkPanel.enabled;
+        GameManager.Instance.darkBrightnessActive = darkPanel.enabled;
     }
     
     public void OpenClosePauseMenu()
@@ -142,18 +143,18 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            Time.timeScale=1;
+            Time.timeScale = 1;
         }
         CursorManager.Instance.ShowCursor(_isGamePaused);
     }
+    
     public void RestartLevel()
     {
         Time.timeScale = 1;
-        var actualScene = SceneManager.GetActiveScene();
-        var actualSceneName = actualScene.name;
+        var currentScene = SceneManager.GetActiveScene();
+        var currentSceneName = currentScene.name;
 
-        SceneManager.LoadScene(actualSceneName);
-
+        SceneManager.LoadScene(currentSceneName);
     }
     
     public void QuitGame()

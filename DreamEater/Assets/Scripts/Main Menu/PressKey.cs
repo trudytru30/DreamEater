@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.Controls;
 
@@ -51,4 +52,3 @@ public class PressKey : MonoBehaviour
         return false;
     }
 }
-

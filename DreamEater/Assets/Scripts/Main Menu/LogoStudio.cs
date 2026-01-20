@@ -1,8 +1,10 @@
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
 
-public class StudioLogo : MonoBehaviour
+public class LogoStudio : MonoBehaviour
 {
     public RectTransform logoTransform;
     public RectTransform textTransform;
@@ -19,7 +21,7 @@ public class StudioLogo : MonoBehaviour
         StartCoroutine(LogoSequence());
     }
 
-    IEnumerator LogoSequence()
+    private IEnumerator LogoSequence()
     {
         Vector3 logoEndScale = logoTransform.localScale;
         Vector3 logoOvershoot = logoEndScale * 1.2f;

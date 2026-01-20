@@ -16,14 +16,14 @@ public class DieTrigger : MonoBehaviour
         }
     }
 
-    /*private IEnumerator KillPlayer(Collider otherl)
+    /*private IEnumerator KillPlayer(Collider other)
     {
-        otherl.GetComponent<PlayerController2>().Die();
+        other.GetComponent<PlayerController2>().Die();
         yield return new WaitForSeconds(1);
         UIManager.Instance.InitDieCharacter();
 
-        
-        yield return new WaitForSeconds(6); 
+
+        yield return new WaitForSeconds(6);
         UIManager.Instance.FinishDieCharacter();
 
     }*/

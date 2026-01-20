@@ -3,82 +3,79 @@ using UnityEngine;
 
 public class LampFunction : MonoBehaviour
 {
-    [Header("Luces")]
-    public GameObject luzCiclica;     // Luz que hace el ciclo
-    public GameObject luzEstatica;    // Luz fija encendida
+    [Header("Lights")]
+    public GameObject cyclicLight;
+    public GameObject staticLight;
 
     [Header("Audio")]
-    public AudioSource audioSource;   // Componente de audio
-    public AudioClip sonidoParpadeo;  // Sonido al encender/apagar
+    public AudioSource audioSource;
+    public AudioClip flickerSound;
 
-    [Header("Tiempos")]
-    public float tiempoEncendida = 2f;
-    public float tiempoParpadeo = 3f;
-    public float tiempoApagada = 3f;
+    [Header("Times")]
+    public float onTime = 2f;
+    public float flickerTime = 3f;
+    public float offTime = 3f;
 
-    [Header("Parpadeo")]
-    public float intervaloParpadeo = 0.1f; // menor = más rápido
+    [Header("Flicker")]
+    public float flickerInterval = 0.1f;
 
     private void Start()
     {
-        // Luz estática encendida
-        if (luzEstatica != null)
-            luzEstatica.SetActive(true);
+        if (staticLight != null)
+            staticLight.SetActive(true);
 
-        // Iniciar ciclo
-        if (luzCiclica != null)
-            StartCoroutine(Ciclo());
+        if (cyclicLight != null)
+            StartCoroutine(Cycle());
     }
 
-    IEnumerator Ciclo()
+    private IEnumerator Cycle()
     {
         while (true)
         {
             // 1. Encendido
-            EncenderLuz();
-            yield return new WaitForSeconds(tiempoEncendida);
+            TurnOnLight();
+            yield return new WaitForSeconds(onTime);
 
             // 2. Parpadeo
             float t = 0f;
-            while (t < tiempoParpadeo)
+            while (t < flickerTime)
             {
-                AlternarLuz();
-                yield return new WaitForSeconds(intervaloParpadeo);
-                t += intervaloParpadeo;
+                ToggleLight();
+                yield return new WaitForSeconds(flickerInterval);
+                t += flickerInterval;
             }
 
             // Asegurar que queda apagada
-            ApagarLuz();
+            TurnOffLight();
 
             // 3. Tiempo apagada
-            yield return new WaitForSeconds(tiempoApagada);
+            yield return new WaitForSeconds(offTime);
         }
     }
 
     // --- FUNCIONES AUXILIARES ---
 
-    void EncenderLuz()
+    private void TurnOnLight()
     {
-        luzCiclica.SetActive(true);
-        ReproducirSonido();
+        cyclicLight.SetActive(true);
+        PlaySound();
     }
 
-    void ApagarLuz()
+    private void TurnOffLight()
     {
-        luzCiclica.SetActive(false);
-        ReproducirSonido();
+        cyclicLight.SetActive(false);
+        PlaySound();
     }
 
-    void AlternarLuz()
+    private void ToggleLight()
     {
-        luzCiclica.SetActive(!luzCiclica.activeSelf);
-        ReproducirSonido();
+        cyclicLight.SetActive(!cyclicLight.activeSelf);
+        PlaySound();
     }
 
-    void ReproducirSonido()
+    private void PlaySound()
     {
-        if (audioSource != null && sonidoParpadeo != null)
-            audioSource.PlayOneShot(sonidoParpadeo);
+        if (audioSource != null && flickerSound != null)
+            audioSource.PlayOneShot(flickerSound);
     }
 }
-

@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     
     //Lista de datos para pasar entre escenas
 
-    #region brillo
+    #region brightness
     public bool darkBrightnessActive;
     public bool lightBrightnessActive;
     public float darkBrightnessFloat;
@@ -17,17 +17,17 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-    #region puertas
-    public int puertasDesbloqueadas;
+    #region doors
+    public int unlockedDoors;
     #endregion
 
-    #region
+    #region nextScene
     public int nextScene = 2;
     #endregion
 
     private void Start()
     {
-        puertasDesbloqueadas = 1;
+        unlockedDoors = 1;
     }
 
     private void Awake()
@@ -43,13 +43,13 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void ChangePuertasDesbloqueadas(int puertasDesbloq)
+    public void ChangeUnlockedDoors(int doors)
     {
-        puertasDesbloqueadas = puertasDesbloq;
+        unlockedDoors = doors;
     }
     
-    public void ChangeNextLevelLoading(int nextlevel)
+    public void ChangeNextLevelLoading(int nextLevel)
     {
-        nextScene = nextlevel;
+        nextScene = nextLevel;
     }
 }
