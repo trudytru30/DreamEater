@@ -36,8 +36,6 @@ public class ShockingPlatform : MonoBehaviour
     //si el player esta registrado y la plataforma activa lo mata
     private void FixedUpdate()
     {
-        if (_canShock && _playerOnTop != null)
-            _playerOnTop.Die();
         //activa y desactiva particulas
         if (!_canShock)
         {
@@ -46,6 +44,12 @@ public class ShockingPlatform : MonoBehaviour
         else if (_canShock)
         {
             particleSystem.SetActive(true);
+        }
+        
+        //intenta matar al player
+        if (_canShock && _playerOnTop != null)
+        {
+            _playerOnTop.Die();
         }
     }
  

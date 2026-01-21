@@ -1,5 +1,5 @@
 /*
- NO CONFUNDIR CON SITCHES/INTERRUPTORES
+ NO CONFUNDIR CON SWITCHES/INTERRUPTORES
  Se pone una animacion para hacer la simulacion para conseguir un resultado realista
  No se hace por fisicas el obejto no se lanza como tal
 */

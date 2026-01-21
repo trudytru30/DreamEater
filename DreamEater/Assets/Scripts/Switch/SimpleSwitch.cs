@@ -9,7 +9,7 @@ public class SimpleSwitch : MonoBehaviour
 {
     [SerializeField] private bool correctPosition; //la posicion que el jugador debe poner
     [SerializeField] private Switch switchObject;
-    [SerializeField] private AbrePuerta abrePuerta;
+    [SerializeField] private OpenDoor doorToSolve;
 
     private void OnEnable()
     {
@@ -40,7 +40,7 @@ public class SimpleSwitch : MonoBehaviour
         if (correctPosition == switchObject.GetIsActive())
         {
             Debug.Log("correcto");
-            abrePuerta.activarPalanca();
+            doorToSolve.ActivateLever();
         } 
     }
 }

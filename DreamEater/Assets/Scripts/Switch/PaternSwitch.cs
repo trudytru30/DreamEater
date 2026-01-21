@@ -11,7 +11,8 @@ public class PaternSwitch : MonoBehaviour
     [SerializeField] private bool[] correctPositions; //position correcta de cada switch del array TIENEN QUE TENER MISMO TAMAÑO
 
     [Header("Puerta")]
-    [SerializeField] private AbrePuerta puertaASolucionar; //referencia al script de la puerta
+    [SerializeField] private OpenDoor doorToSolve; //referencia al script de la puerta
+
     private void OnEnable()
     {
         SwitchSubject.OnSwitchStateChanged += OnSwitchStateChanged;
@@ -41,12 +42,10 @@ public class PaternSwitch : MonoBehaviour
             }
         }
         
-        if (puertaASolucionar != null)
+        if (doorToSolve != null)
         {
             Debug.Log("ABRIENDO PUERTA");
-            puertaASolucionar.activarPalanca();
-            // Opcional: Desactivar este script para que no se abra dos veces
-            this.enabled = false; 
+            doorToSolve.ActivateLever();
         }
     }
 }
